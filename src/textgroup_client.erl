@@ -125,12 +125,12 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
        EOL =:= <<$\r, $\n>> ->
     ?LOG_DEBUG("Got help query from ~s", [Client]),
     query_peers(fun(PID) ->
-                        try
-                            {ok, Peer} = gen_server:call(PID, get_peer),
-                            Response = [Peer, EOL],
-                            ok = gen_tcp:send(Socket, Response)
+                        try gen_server:call(PID, get_peer) of
+                            {ok, Peer} ->
+                                Response = [Peer, EOL],
+                                ok = gen_tcp:send(Socket, Response)
                         catch exit:_ ->
-                                  ok
+                                ok
                         end
                 end),
     {noreply, State};

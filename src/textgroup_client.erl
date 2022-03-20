@@ -148,7 +148,7 @@ handle_info({tcp_passive, Socket},
 handle_info({tcp_closed, _Socket},
             #textgroup_client_state{client = Client} = State) ->
     ?LOG_DEBUG("~s closed the TCP connection", [Client]),
-    {stop, closed, State};
+    {stop, normal, State};
 handle_info({tcp_error, _Socket, Reason},
             #textgroup_client_state{client = Client} = State) ->
     ?LOG_NOTICE("Got TCP error for ~s: ~p", [Client, Reason]),

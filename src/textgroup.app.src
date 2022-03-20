@@ -1,0 +1,13 @@
+{application, textgroup,
+ [{description, "Groupchat service"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {textgroup_app, []}},
+  {applications,
+   [kernel,
+    stdlib]},
+  {env,
+   [{port, 1111},
+    {pool_size, 5},
+    {tcp_queue_size, 100}]},
+  {modules, []}]}.

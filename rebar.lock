@@ -1,0 +1,8 @@
+{"1.2.0",
+[{<<"recon">>,{pkg,<<"recon">>,<<"2.5.2">>},0}]}.
+[
+{pkg_hash,[
+ {<<"recon">>, <<"CBA53FA8DB83AD968C9A652E09C3ED7DDCC4DA434F27C3EAA9CA47FFB2B1FF03">>}]},
+{pkg_hash_ext,[
+ {<<"recon">>, <<"2C7523C8DEE91DFF41F6B3D63CBA2BD49EB6D2FE5BF1EEC0DF7F87EB5E230E1C">>}]}
+].

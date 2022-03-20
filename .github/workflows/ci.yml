@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - '*.md'
+  pull_request:
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  test:
+    name: Test on Erlang/OTP ${{matrix.otp}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        otp:
+          - '22.0'
+          - '24.3'
+        include:
+          - otp: '22.0'
+            rebar: '3.18.0'
+          - otp: '24.3'
+            rebar: '3.18.0'
+      fail-fast: false
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Cache Rebar data
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/rebar3
+          key: ${{runner.os}}-${{matrix.otp}}-${{matrix.rebar}}-${{hashFiles('rebar.config')}}
+      - name: Download Erlang/OTP ${{matrix.otp}} and Rebar ${{matrix.rebar}}
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          rebar3-version: ${{matrix.rebar}}
+          version-type: strict
+      # Until https://github.com/erlware/relx/issues/905 is fixed:
+      - name: Create Erlang cookie
+        run: erl -noinput -sname cookie -eval 'halt()'
+      - name: Download dependencies
+        run: rebar3 get-deps
+      - name: Compile code
+        run: rebar3 compile
+      - name: Build release
+        run: rebar3 release
+      - name: Start release
+        run: _build/default/rel/textgroup/bin/textgroup daemon
+      - name: Ping release
+        run: _build/default/rel/textgroup/bin/textgroup ping
+      - name: Stop release
+        run: _build/default/rel/textgroup/bin/textgroup stop
+      - name: Analyze cross references
+        run: rebar3 xref
+      - name: Perform static code analysis
+        run: rebar3 dialyzer

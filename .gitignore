@@ -1,3 +1,13 @@
+#
+# Edoc:
+#
+/doc/edoc-info
+/doc/erlang.png
+/doc/stylesheet.css
+/doc/*.html
+#
+# Auto-added by Rebar3:
+#
 .rebar3
 _*
 .eunit

@@ -1,8 +1,10 @@
 # Textgroup
 
-Textgroup is a groupchat service usable with TCP clients such as Telnet or
-Netcat. The purpose of this project is serving as an example application for
-Erlang/OTP newcomers.
+[![CI](https://github.com/weiss/textgroup/actions/workflows/ci.yml/badge.svg)][ci]
+
+[Textgroup][textgroup] is a groupchat service usable with TCP clients such as
+Telnet or Netcat. The purpose of this project is to serve as an example
+application for Erlang/OTP newcomers.
 
 ## Requirements
 
@@ -16,6 +18,10 @@ Erlang/OTP newcomers.
 ## Running Textgroup
 
     $ rebar3 shell
+
+## Creating Documentation
+
+    $ rebar3 edoc
 
 ## Creating a Textgroup Release
 
@@ -92,6 +98,8 @@ on in the `textgroup_acceptor` module:
 All that said, real-world projects will often just use an existing application
 (such as [Ranch][ranch]) for accepting connections.
 
+[textgroup]: https://messaging.one/textgroup/
+[ci]: https://github.com/weiss/textgroup/actions/workflows/ci.yml
 [erlang]: https://erlang.org
 [rebar3]: https://rebar3.org
 [tree]: https://raw.githubusercontent.com/weiss/textgroup/main/doc/supervision.png
@@ -108,7 +116,7 @@ All that said, real-world projects will often just use an existing application
 [gen_tcp]: https://erlang.org/doc/man/gen_tcp.html
 [action]: https://www.manning.com/books/erlang-and-otp-in-action
 [lyse]: https://learnyousomeerlang.com
-[buckets]: https://learnyousomeerlang.com/buckets-of-sockets
+[buckets]: https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited
 [semantics]: https://erlang.org/pipermail/erlang-questions/2008-February/032912.html
 [simple]: https://erlang.org/pipermail/erlang-questions/2017-August/093142.html
 [problem]: https://erlang.org/pipermail/erlang-questions/2016-April/088847.html

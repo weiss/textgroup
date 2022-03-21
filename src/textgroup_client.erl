@@ -33,8 +33,8 @@
 -define(HELP_MSG,
         "peers   Show the IP addresses of your peers" ?EOL
         "stats   Show some statistic regarding this session" ?EOL
-        "quit    Quit this session" ?EOL
-        "help    Show this help message" ?EOL).
+        "help    Show this help message" ?EOL
+        "quit    Quit this session" ?EOL).
 
 -record(textgroup_client_state,
         {socket :: gen_tcp:socket() | undefined,
@@ -123,7 +123,7 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
             #textgroup_client_state{client = Client} = State)
   when EOL =:= <<$\n>>;
        EOL =:= <<$\r, $\n>> ->
-    ?LOG_DEBUG("Got help query from ~s", [Client]),
+    ?LOG_DEBUG("Got peers query from ~s", [Client]),
     query_peers(fun(PID) ->
                         try gen_server:call(PID, get_peer) of
                             {ok, Peer} ->

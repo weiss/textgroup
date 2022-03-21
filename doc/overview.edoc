@@ -22,31 +22,67 @@ $ rebar3 as prod tar
 == Deploying Textgroup ==
 
 The self-contained release archive built in the previous step can be extracted
-to an arbitraty location. It has no runtime dependencies.
+to an arbitraty location. It has no runtime dependencies. For a persistent
+installation, the administrator might want to create a dedicated `_textgroup'
+user and extract the release archive into that user's `$HOME' directory:
 
 ```
-$ mkdir /tmp/textgroup
-$ tar -C /tmp/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
+$ sudo useradd -r -d /opt/textgroup _textgroup
+$ sudo tar -C /opt/textgroup -xzf /opt/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 '''
 
-== Running Textgroup ==
-
-The release installed in the previous step can be started using the following
-command. For a persistent installation, such a command would be invoked by
-systemd or some init script, instead.
+A systemd unit such as the following could be used:
 
 ```
-$ /tmp/textgroup/bin/textgroup foreground
+# /etc/systemd/system/textgroup.service
+
+[Unit]
+Description=Textgroup server
+Wants=epmd.service
+After=epmd.service network.target
+Documentation=https://messaging.one/textgroup/
+
+[Service]
+Type=notify
+User=_textgroup
+ExecStart=/opt/textgroup/bin/textgroup foreground
+ExecStop=/opt/textgroup/bin/textgroup stop
+Restart=on-failure
+WatchdogSec=30
+ProtectSystem=full
+NoNewPrivileges=true
+Environment="ERL_EPMD_ADDRESS=127.0.0.1"
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+The service would then be enabled like this:
+
+```
+systemctl daemon-reload
+systemctl --now enable textgroup
 '''
 
 == Configuring Textgroup ==
 
-The `/tmp/textgroup/releases/0.1.0/sys.config' file may be edited in order to
-adjust configuration settings such as the port number to use. Those settings can
-be overridden on the command line:
+The `/opt/textgroup/releases/0.1.0/sys.config' file may be edited in order to
+adjust configuration settings such as the TCP port number. Those settings can be
+overridden on the command line in the systemd unit, e.g.:
 
 ```
-$ /tmp/textgroup/bin/textgroup foreground -textgroup port 1111
+ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111
+'''
+
+== Controlling Textgroup ==
+
+The Textgroup service can be controlled using the `textgroup' command. The
+caller must have the same `.erlang.cookie' file (with correct permissions) in
+their `$HOME' directory as the user running Textgroup. For a list of available
+commands, see:
+
+```
+$ /opt/textgroup/bin/textgroup help
 '''
 
 == Using Textgroup ==

@@ -38,5 +38,8 @@ init([]) ->
                     start => {textgroup_acceptor_sup, start_link, []}},
                   #{id => textgroup_client_sup,
                     type => supervisor,
-                    start => {textgroup_client_sup, start_link, []}}],
+                    start => {textgroup_client_sup, start_link, []}},
+                  #{id => systemd,
+                    type => worker,
+                    start => {textgroup_systemd, start_link, []}}],
     {ok, {SupFlags, ChildSpecs}}.

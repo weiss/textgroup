@@ -29,26 +29,19 @@ application for Erlang/OTP newcomers.
 
 ## Creating a Textgroup Release
 
-    $ rebar3 as prod tar
+    $ rebar3 release
 
-## Deploying a Textgroup Release
-
-    $ mkdir textgroup
-    $ cd textgroup
-    $ tar -xzf "$src_dir/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz"
-
-## Running a Textgroup Release
-
-    $ bin/textgroup foreground
+See the [Textgroup documentation][textgroup] for hints on how to deploy and run
+such a release.
 
 ## Notes for Developers
 
 The Textgroup service uses the [supervision tree][supervision] shown below: The
-[main][textgroup_sup] supervisor starts two supervisor childs,
-[one][acceptor_sup] for supervising a fixed-size pool of [five][pool_size] TCP
-connection acceptors, and [another][client_sup] one for supervising dynamically
-created connection handlers, one per client (there's eight of them, in this
-example).
+[main][textgroup_sup] supervisor starts a worker child (for integrating with
+systemd) and two supervisor childs, [one][acceptor_sup] for supervising a
+fixed-size pool of [five][pool_size] TCP connection acceptors, and
+[another][client_sup] one for supervising dynamically created connection
+handlers, one per client (there's six of them, in this example).
 
 ![Supervision tree][tree]
 

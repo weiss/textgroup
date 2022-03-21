@@ -74,7 +74,7 @@ init([Socket]) ->
       -> {reply, {error, term()}, state()}.
 handle_call(get_peer, From, #textgroup_client_state{client = Client} = State) ->
     ?LOG_DEBUG("Returning client address to ~p: ~s", [From, Client]),
-    {reply, {ok, Client}, State};
+    {reply, Client, State};
 handle_call(Request, From, State) ->
     ?LOG_ERROR("Got unexpected request from ~p: ~p", [From, Request]),
     {reply, {error, badarg}, State}.
@@ -126,7 +126,7 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
     ?LOG_DEBUG("Got peers query from ~s", [Client]),
     query_peers(fun(PID) ->
                         try gen_server:call(PID, get_peer) of
-                            {ok, Peer} ->
+                            Peer ->
                                 Response = [Peer, EOL],
                                 ok = gen_tcp:send(Socket, Response)
                         catch exit:_ ->

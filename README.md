@@ -15,6 +15,10 @@ application for Erlang/OTP newcomers.
 
     $ rebar3 compile
 
+## Testing Textgroup
+
+    $ rebar3 check
+
 ## Running Textgroup
 
     $ rebar3 shell

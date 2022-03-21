@@ -34,6 +34,11 @@ application for Erlang/OTP newcomers.
 See the [Textgroup documentation][textgroup] for hints on how to deploy and run
 such a release.
 
+## Continuous Integration
+
+The results of continuous integration tests can be viewed [on GitHub][actions],
+including test suite [logs][ct_logs] and [coverage][coverage] analysis.
+
 ## Notes for Developers
 
 The Textgroup service uses the [supervision tree][supervision] shown below: The
@@ -99,6 +104,9 @@ All that said, real-world projects will often just use an existing application
 
 [textgroup]: https://messaging.one/textgroup/
 [ci]: https://github.com/weiss/textgroup/actions/workflows/ci.yml
+[actions]: https://github.com/weiss/textgroup/actions
+[ct_logs]: https://weiss.github.io/textgroup/logs/
+[coverage]: https://weiss.github.io/textgroup/cover/
 [erlang]: https://erlang.org
 [rebar3]: https://rebar3.org
 [tree]: https://raw.githubusercontent.com/weiss/textgroup/main/doc/supervision.png

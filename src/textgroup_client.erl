@@ -31,7 +31,7 @@
 -define(WELCOME_MSG, "Welcome to Textgroup! Type 'help' for help.").
 -define(GOODBYE_MSG, "Thanks for using Textgroup. See you!").
 -define(HELP_MSG,
-        "peers   Show the IP addresses of your peers" ?EOL
+        "peers   Show the IP addresses of your current peers" ?EOL
         "stats   Show some statistic regarding this session" ?EOL
         "help    Show this help message" ?EOL
         "quit    Quit this session" ?EOL).

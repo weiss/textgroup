@@ -67,8 +67,8 @@ systemctl --now enable textgroup
 == Configuring Textgroup ==
 
 The `/opt/textgroup/releases/0.1.0/sys.config' file may be edited in order to
-adjust configuration settings such as the TCP port number. Those settings can be
-overridden on the command line in the systemd unit, e.g.:
+adjust configuration settings such as the TCP port number. As an alternative,
+those settings can be overridden on the command line in the systemd unit, e.g.:
 
 ```
 ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111
@@ -95,11 +95,20 @@ $ telnet localhost 1111
 
 Once connected, the server will understand the following commands:
 
-```
-peers   Show the IP addresses of your peers
-stats   Show some statistic regarding the session
-help    Show a help message
-quit    Quit the session
-'''
+=== peers ===
+
+Show the IP addresses of your current peers.
+
+=== stats ===
+
+Show some statistic regarding the current session.
+
+=== help ===
+
+Show a help message.
+
+=== quit ===
+
+Quit the current session.
 
 Any other messages are sent to all connected peers.

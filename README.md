@@ -70,9 +70,11 @@ on in the `textgroup_acceptor` module:
   few seconds. One alternative is to spawn [simple][simple] (non-OTP) processes
   just for blocking in `gen_tcp:accept/1`, and then wake a proper OTP process
   for handling the new connection, basically implementing the non-blocking
-  mechanism to accept connections that `gen_tcp` doesn't provide. Yet another
-  option would be using `prim_inet:async_accept/2`, which _does_ offer this
-  functionality. However, that's not a documented interface.
+  mechanism to accept connections that `gen_tcp` doesn't provide. Another option
+  would be using `prim_inet:async_accept/2`, which _does_ offer this
+  functionality. However, that's not a documented interface. In the future, a
+  nicer solution might become available based on the new `socket` backend, which
+  provides a non-blocking [`accept/2`][socket_accept] variant.
 
 - The `textgroup_acceptor` is built as a [special process][special]. It could
   just as well be implemented as a [generic server][gen_server] with the same
@@ -118,6 +120,7 @@ All that said, real-world projects will often just use an existing application
 [sys]: https://erlang.org/doc/man/sys.html
 [gen_server]: https://erlang.org/doc/design_principles/gen_server_concepts.html
 [gen_tcp]: https://erlang.org/doc/man/gen_tcp.html
+[socket_accept]: https://erlang.org/doc/man/socket.html#accept-2
 [action]: https://www.manning.com/books/erlang-and-otp-in-action
 [lyse]: https://learnyousomeerlang.com
 [buckets]: https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited

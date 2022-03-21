@@ -131,9 +131,11 @@ query(Config, Query, Expected) ->
     ok = recv_until(Socket1, Expected),
     ct:pal("Closing first Textgroup session"),
     ok = gen_tcp:send(Socket1, <<"quit", $\n>>),
+    ok = recv_until(Socket1, <<"Thanks for using Textgroup">>),
     ok = gen_tcp:close(Socket1),
     ct:pal("Closing second Textgroup session"),
     ok = gen_tcp:send(Socket2, <<"quit", $\n>>),
+    ok = recv_until(Socket2, <<"Thanks for using Textgroup">>),
     ok = gen_tcp:close(Socket2).
 
 -spec recv_until(gen_tcp:socket(), binary()) -> ok.

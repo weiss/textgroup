@@ -36,7 +36,7 @@ such a release.
 
 ## Continuous Integration
 
-The results of continuous integration tests can be viewed [on GitHub][actions],
+The results of continuous integration tests can be viewed [on GitHub][ci],
 including test suite [logs][ct_logs] and [coverage][coverage] analysis.
 
 ## Notes for Developers
@@ -102,11 +102,10 @@ on in the `textgroup_acceptor` module:
 All that said, real-world projects will often just use an existing application
 (such as [Ranch][ranch]) for accepting connections.
 
-[textgroup]: https://messaging.one/textgroup/
-[ci]: https://github.com/weiss/textgroup/actions/workflows/ci.yml
-[actions]: https://github.com/weiss/textgroup/actions
+[textgroup]: https://weiss.github.io/textgroup/
 [ct_logs]: https://weiss.github.io/textgroup/logs/
 [coverage]: https://weiss.github.io/textgroup/cover/
+[ci]: https://github.com/weiss/textgroup/actions/workflows/ci.yml
 [erlang]: https://erlang.org
 [rebar3]: https://rebar3.org
 [tree]: https://raw.githubusercontent.com/weiss/textgroup/main/doc/supervision.png

@@ -65,35 +65,32 @@ jobs:
         run: rebar3 ct
       - name: Check test coverage
         run: rebar3 cover
-      - name: Upload test and coverage results
+      - name: Generate documentation
+        run: rebar3 edoc
+      - name: Collect web pages
+        run: |
+          mkdir public
+          cp -a doc/* _build/test/logs _build/test/cover public
+      - name: Upload web pages
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: textgroup-tests-otp-${{matrix.otp}}
-          #
-          # Appending the wildcard character ("*") is a trick to make "test" the
-          # root directory of the uploaded ZIP file:
-          #
-          # https://github.com/actions/upload-artifact#upload-using-multiple-paths-and-exclusions
-          #
-          path: |
-            _build/test*/logs
-            _build/test*/cover
+          name: textgroup-html-otp-${{matrix.otp}}
+          path: public
   publish:
-    name: Publish test results
+    name: Publish documentation and test results
     runs-on: ubuntu-latest
     needs: test
     if: github.repository_owner == 'weiss' && always()
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Retrieve test and coverage results
+      - name: Retrieve web pages
         uses: actions/download-artifact@v3
         with:
-          name: textgroup-tests-otp-24.3
+          name: textgroup-html-otp-24.3
           path: public
-      - name: Deploy test and coverage results to GitHub Pages
+      - name: Deploy web site to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: public/test
           github_token: ${{secrets.GITHUB_TOKEN}}

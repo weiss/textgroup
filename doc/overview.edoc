@@ -5,7 +5,9 @@ Documentation for the Textgroup server.
 @copyright 2022 Holger Weiss
 @author Holger Weiss
 @doc Textgroup is a groupchat service usable with TCP clients such as Telnet or
-Netcat.
+Netcat. Test suite logs can be viewed on
+[https://weiss.github.io/textgroup/logs/], coverage analysis on
+[https://weiss.github.io/textgroup/cover/].
 
 == Building Textgroup ==
 

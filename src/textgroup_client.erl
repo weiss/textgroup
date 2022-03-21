@@ -72,7 +72,7 @@ init([Socket]) ->
 
 -spec handle_call(term(), {pid(), term()}, state())
       -> {reply, {error, term()}, state()}.
-handle_call(get_peer, From, #textgroup_client_state{client = Client} = State) ->
+handle_call(get_addr, From, #textgroup_client_state{client = Client} = State) ->
     ?LOG_DEBUG("Returning client address to ~p: ~s", [From, Client]),
     {reply, Client, State};
 handle_call(Request, From, State) ->
@@ -124,20 +124,20 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
   when EOL =:= <<$\n>>;
        EOL =:= <<$\r, $\n>> ->
     ?LOG_DEBUG("Got peers query from ~s", [Client]),
-    query_peers(fun(PID) ->
-                        try gen_server:call(PID, get_peer) of
-                            Peer ->
-                                Response = [Peer, EOL],
-                                ok = gen_tcp:send(Socket, Response)
-                        catch exit:_ ->
-                                ok
-                        end
-                end),
+    foreach_peer(fun(PID) ->
+                         try gen_server:call(PID, get_addr) of
+                             Addr ->
+                                 Response = [Addr, EOL],
+                                 ok = gen_tcp:send(Socket, Response)
+                         catch exit:_ ->
+                                 ok
+                         end
+                 end),
     {noreply, State};
 handle_info({tcp, _Socket, Data},
             #textgroup_client_state{client = Client, n_sent = Sent} = State) ->
     ?LOG_DEBUG("Sending text message from ~s to peers", [Client]),
-    query_peers(fun(PID) -> ok = gen_server:cast(PID, {msg, Data}) end),
+    foreach_peer(fun(PID) -> ok = gen_server:cast(PID, {msg, Data}) end),
     {noreply, State#textgroup_client_state{n_sent = Sent + 1}};
 handle_info({tcp_passive, Socket},
             #textgroup_client_state{client = Client} = State) ->
@@ -169,8 +169,8 @@ code_change(_OldVsn, State, _Extra) ->
 
 %% Internal functions.
 
--spec query_peers(fun((pid()) -> ok)) -> ok.
-query_peers(Fun) ->
+-spec foreach_peer(fun((pid()) -> ok)) -> ok.
+foreach_peer(Fun) ->
     lists:foreach(fun({_, PID, _, [textgroup_client]}) when PID =:= self() ->
                           ok;
                      ({_, PID, _, [textgroup_client]}) ->

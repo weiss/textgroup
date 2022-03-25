@@ -42,7 +42,7 @@ A systemd unit such as the following could be used:
 Description=Textgroup server
 Wants=epmd.service
 After=epmd.service network.target
-Documentation=https://messaging.one/textgroup/
+Documentation=https://weiss.github.io/textgroup/
 
 [Service]
 Type=notify

@@ -85,8 +85,8 @@ loop(#textgroup_acceptor_state{parent = Parent, listener = Listener} = State) ->
 handle_connection(Socket) ->
     {ok, {LAddr, LPort}} = inet:sockname(Socket),
     {ok, {RAddr, RPort}} = inet:peername(Socket),
-    ?LOG_DEBUG("Accepting connection: ~s:~B -> ~s:~B",
-               [inet:ntoa(RAddr), RPort,
-                inet:ntoa(LAddr), LPort]),
+    ?LOG_NOTICE("Accepting connection: ~s:~B -> ~s:~B",
+                [inet:ntoa(RAddr), RPort,
+                 inet:ntoa(LAddr), LPort]),
     {ok, Child} = supervisor:start_child(textgroup_client_sup, [Socket]),
     ok = gen_tcp:controlling_process(Socket, Child).

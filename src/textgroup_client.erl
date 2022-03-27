@@ -152,7 +152,7 @@ handle_info({tcp_closed, _Socket},
     {stop, normal, State};
 handle_info({tcp_error, _Socket, Reason},
             #textgroup_client_state{client = Client} = State) ->
-    ?LOG_INFO("Got TCP error for ~s: ~p", [Client, Reason]),
+    ?LOG_NOTICE("Got TCP error for ~s: ~p", [Client, Reason]),
     {stop, Reason, State};
 handle_info(Info, State) ->
     ?LOG_ERROR("Got unexpected info: ~p", [Info]),
@@ -160,7 +160,7 @@ handle_info(Info, State) ->
 
 -spec terminate(normal | shutdown | {shutdown, term()} | term(), state()) -> ok.
 terminate(Reason, #textgroup_client_state{socket = Socket, client = Client}) ->
-    ?LOG_INFO("Closing session of ~s (~p)", [Client, Reason]),
+    ?LOG_NOTICE("Closing session of ~s (~p)", [Client, Reason]),
     ok = gen_tcp:close(Socket).
 
 -spec code_change({down, term()} | term(), state(), term()) -> {ok, state()}.

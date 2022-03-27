@@ -20,7 +20,8 @@
 -behaviour(application).
 -export([start/2,
          prep_stop/1,
-         stop/1]).
+         stop/1,
+         config_change/3]).
 
 -include_lib("kernel/include/logger.hrl").
 
@@ -52,6 +53,21 @@ stop(_State) ->
                  erlang:system_info(otp_release),
                  erlang:system_info(version)]),
     ok.
+
+-spec config_change([{atom(), term()}], [{atom(), term()}], [atom()]) -> ok.
+config_change(Changed, _New, _Removed) ->
+    ReopenSocket = lists:any(fun({Key, _Val}) ->
+                                     lists:member(Key, [port, pool_size])
+                             end, Changed),
+    case ReopenSocket of
+        true -> % Deliberately hit max. restart intensity to start new listener:
+            lists:foreach(
+              fun({_, PID, _, [textgroup_acceptor]}) ->
+                      exit(PID, shutdown)
+              end, supervisor:which_children(textgroup_acceptor_sup));
+        false ->
+            ok
+    end.
 
 %% Internal functions.
 

@@ -19,6 +19,7 @@
 -author('holger@zedat.fu-berlin.de').
 -behaviour(application).
 -export([start/2,
+         prep_stop/1,
          stop/1]).
 
 -include_lib("kernel/include/logger.hrl").
@@ -31,7 +32,18 @@ start(_StartType, _StartArgs) ->
                 [version(),
                  erlang:system_info(otp_release),
                  erlang:system_info(version)]),
-    textgroup_sup:start_link().
+    case textgroup_sup:start_link() of
+        {ok, _PID} = Result ->
+            ok = textgroup_systemd:ready(),
+            Result;
+        {error, _Reason} = Err ->
+            Err
+    end.
+
+-spec prep_stop(term()) -> term().
+prep_stop(State) ->
+    ok = textgroup_systemd:stopping(),
+    State.
 
 -spec stop(term()) -> ok.
 stop(_State) ->

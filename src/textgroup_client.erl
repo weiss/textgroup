@@ -151,7 +151,7 @@ handle_info({tcp_closed, _Socket},
     {stop, normal, State};
 handle_info({tcp_error, _Socket, Reason},
             #textgroup_client_state{client = Client} = State) ->
-    ?LOG_NOTICE("Got TCP error for ~s: ~p", [Client, Reason]),
+    ?LOG_INFO("Got TCP error for ~s: ~p", [Client, Reason]),
     {stop, Reason, State};
 handle_info(Info, State) ->
     ?LOG_ERROR("Got unexpected info: ~p", [Info]),

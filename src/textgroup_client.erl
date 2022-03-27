@@ -129,7 +129,8 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
                              Addr ->
                                  Response = [Addr, EOL],
                                  ok = gen_tcp:send(Socket, Response)
-                         catch exit:_ ->
+                         catch exit:Err ->
+                                 ?LOG_DEBUG("Cannot query ~p: ~p", [PID, Err]),
                                  ok
                          end
                  end),

@@ -96,7 +96,7 @@ handle_info({tcp, Socket, <<"quit", EOL/binary>>},
   when EOL =:= <<$\n>>;
        EOL =:= <<$\r, $\n>> ->
     ?LOG_DEBUG("Got quit query from ~s", [Client]),
-    Response = [<<?GOODBYE_MSG>>, EOL],
+    Response = <<?GOODBYE_MSG, EOL/binary>>,
     ok = gen_tcp:send(Socket, Response),
     {stop, normal, State};
 handle_info({tcp, Socket, <<"help", EOL/binary>>},

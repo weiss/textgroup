@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/aggregate/textgroup_client.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-27 at 12:43:25</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-27 at 12:45:38</p></footer>
 <table>
 <tbody>
 <tr>
@@ -764,235 +764,240 @@ td.source {
 <tr>
 <td class="line" id="L132"><a href="#L132">132</a></td>
 <td class="hits"></td>
-<td class="source"><code>                         catch exit:_ -&gt;</code></td>
+<td class="source"><code>                         catch exit:Err -&gt;</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L133"><a href="#L133">133</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>                                 ok</code></td>
+<td class="source"><code>                                 ?LOG_DEBUG("Cannot query ~p: ~p", [PID, Err]),</code></td>
 </tr>
-<tr>
+<tr class="miss">
 <td class="line" id="L134"><a href="#L134">134</a></td>
-<td class="hits"></td>
-<td class="source"><code>                         end</code></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>                                 ok</code></td>
 </tr>
 <tr>
 <td class="line" id="L135"><a href="#L135">135</a></td>
 <td class="hits"></td>
+<td class="source"><code>                         end</code></td>
+</tr>
+<tr>
+<td class="line" id="L136"><a href="#L136">136</a></td>
+<td class="hits"></td>
 <td class="source"><code>                 end),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L136"><a href="#L136">136</a></td>
+<td class="line" id="L137"><a href="#L137">137</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L137"><a href="#L137">137</a></td>
+<td class="line" id="L138"><a href="#L138">138</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp, _Socket, Data},</code></td>
 </tr>
 <tr>
-<td class="line" id="L138"><a href="#L138">138</a></td>
+<td class="line" id="L139"><a href="#L139">139</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #textgroup_client_state{client = Client, n_sent = Sent} = State) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L139"><a href="#L139">139</a></td>
+<td class="line" id="L140"><a href="#L140">140</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    ?LOG_DEBUG("Sending text message from ~s to peers", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L140"><a href="#L140">140</a></td>
+<td class="line" id="L141"><a href="#L141">141</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    foreach_peer(fun(PID) -&gt; ok = gen_server:cast(PID, {msg, Data}) end),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L141"><a href="#L141">141</a></td>
+<td class="line" id="L142"><a href="#L142">142</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    {noreply, State#textgroup_client_state{n_sent = Sent + 1}};</code></td>
 </tr>
 <tr>
-<td class="line" id="L142"><a href="#L142">142</a></td>
+<td class="line" id="L143"><a href="#L143">143</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp_passive, Socket},</code></td>
 </tr>
 <tr>
-<td class="line" id="L143"><a href="#L143">143</a></td>
+<td class="line" id="L144"><a href="#L144">144</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #textgroup_client_state{client = Client} = State) -&gt;</code></td>
-</tr>
-<tr class="miss">
-<td class="line" id="L144"><a href="#L144">144</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    ?LOG_DEBUG("Resetting active queue size for ~s", [Client]),</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L145"><a href="#L145">145</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    {ok, N} = application:get_env(tcp_queue_size),</code></td>
+<td class="source"><code>    ?LOG_DEBUG("Resetting active queue size for ~s", [Client]),</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L146"><a href="#L146">146</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    ok = inet:setopts(Socket, [{active, N}]),</code></td>
+<td class="source"><code>    {ok, N} = application:get_env(tcp_queue_size),</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L147"><a href="#L147">147</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    {noreply, State};</code></td>
+<td class="source"><code>    ok = inet:setopts(Socket, [{active, N}]),</code></td>
 </tr>
-<tr>
+<tr class="miss">
 <td class="line" id="L148"><a href="#L148">148</a></td>
-<td class="hits"></td>
-<td class="source"><code>handle_info({tcp_closed, _Socket},</code></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
 <td class="line" id="L149"><a href="#L149">149</a></td>
 <td class="hits"></td>
-<td class="source"><code>            #textgroup_client_state{client = Client} = State) -&gt;</code></td>
+<td class="source"><code>handle_info({tcp_closed, _Socket},</code></td>
 </tr>
-<tr class="miss">
+<tr>
 <td class="line" id="L150"><a href="#L150">150</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    ?LOG_DEBUG("~s closed the TCP connection", [Client]),</code></td>
+<td class="hits"></td>
+<td class="source"><code>            #textgroup_client_state{client = Client} = State) -&gt;</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L151"><a href="#L151">151</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    {stop, normal, State};</code></td>
+<td class="source"><code>    ?LOG_DEBUG("~s closed the TCP connection", [Client]),</code></td>
 </tr>
-<tr>
+<tr class="miss">
 <td class="line" id="L152"><a href="#L152">152</a></td>
-<td class="hits"></td>
-<td class="source"><code>handle_info({tcp_error, _Socket, Reason},</code></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    {stop, normal, State};</code></td>
 </tr>
 <tr>
 <td class="line" id="L153"><a href="#L153">153</a></td>
 <td class="hits"></td>
-<td class="source"><code>            #textgroup_client_state{client = Client} = State) -&gt;</code></td>
+<td class="source"><code>handle_info({tcp_error, _Socket, Reason},</code></td>
 </tr>
-<tr class="miss">
+<tr>
 <td class="line" id="L154"><a href="#L154">154</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    ?LOG_INFO("Got TCP error for ~s: ~p", [Client, Reason]),</code></td>
+<td class="hits"></td>
+<td class="source"><code>            #textgroup_client_state{client = Client} = State) -&gt;</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L155"><a href="#L155">155</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    ?LOG_INFO("Got TCP error for ~s: ~p", [Client, Reason]),</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L156"><a href="#L156">156</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    {stop, Reason, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L156"><a href="#L156">156</a></td>
+<td class="line" id="L157"><a href="#L157">157</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info(Info, State) -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L157"><a href="#L157">157</a></td>
+<td class="line" id="L158"><a href="#L158">158</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    ?LOG_ERROR("Got unexpected info: ~p", [Info]),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L158"><a href="#L158">158</a></td>
+<td class="line" id="L159"><a href="#L159">159</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    {noreply, State}.</code></td>
 </tr>
 <tr>
-<td class="line" id="L159"><a href="#L159">159</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
-</tr>
-<tr>
 <td class="line" id="L160"><a href="#L160">160</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec terminate(normal | shutdown | {shutdown, term()} | term(), state()) -&gt; ok.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L161"><a href="#L161">161</a></td>
 <td class="hits"></td>
-<td class="source"><code>terminate(Reason, #textgroup_client_state{socket = Socket, client = Client}) -&gt;</code></td>
+<td class="source"><code>-spec terminate(normal | shutdown | {shutdown, term()} | term(), state()) -&gt; ok.</code></td>
 </tr>
-<tr class="hit">
+<tr>
 <td class="line" id="L162"><a href="#L162">162</a></td>
-<td class="hits">6</td>
-<td class="source"><code>    ?LOG_INFO("Closing session of ~s (~p)", [Client, Reason]),</code></td>
+<td class="hits"></td>
+<td class="source"><code>terminate(Reason, #textgroup_client_state{socket = Socket, client = Client}) -&gt;</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L163"><a href="#L163">163</a></td>
 <td class="hits">6</td>
-<td class="source"><code>    ok = gen_tcp:close(Socket).</code></td>
+<td class="source"><code>    ?LOG_INFO("Closing session of ~s (~p)", [Client, Reason]),</code></td>
 </tr>
-<tr>
+<tr class="hit">
 <td class="line" id="L164"><a href="#L164">164</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="hits">6</td>
+<td class="source"><code>    ok = gen_tcp:close(Socket).</code></td>
 </tr>
 <tr>
 <td class="line" id="L165"><a href="#L165">165</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec code_change({down, term()} | term(), state(), term()) -&gt; {ok, state()}.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L166"><a href="#L166">166</a></td>
 <td class="hits"></td>
-<td class="source"><code>code_change(_OldVsn, State, _Extra) -&gt;</code></td>
+<td class="source"><code>-spec code_change({down, term()} | term(), state(), term()) -&gt; {ok, state()}.</code></td>
 </tr>
-<tr class="miss">
+<tr>
 <td class="line" id="L167"><a href="#L167">167</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    ?LOG_INFO("Got code change request"),</code></td>
+<td class="hits"></td>
+<td class="source"><code>code_change(_OldVsn, State, _Extra) -&gt;</code></td>
 </tr>
 <tr class="miss">
 <td class="line" id="L168"><a href="#L168">168</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
-<td class="source"><code>    {ok, State}.</code></td>
+<td class="source"><code>    ?LOG_INFO("Got code change request"),</code></td>
 </tr>
-<tr>
+<tr class="miss">
 <td class="line" id="L169"><a href="#L169">169</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    {ok, State}.</code></td>
 </tr>
 <tr>
 <td class="line" id="L170"><a href="#L170">170</a></td>
 <td class="hits"></td>
-<td class="source"><code>%% Internal functions.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L171"><a href="#L171">171</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>%% Internal functions.</code></td>
 </tr>
 <tr>
 <td class="line" id="L172"><a href="#L172">172</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec foreach_peer(fun((pid()) -&gt; ok)) -&gt; ok.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L173"><a href="#L173">173</a></td>
 <td class="hits"></td>
-<td class="source"><code>foreach_peer(Fun) -&gt;</code></td>
+<td class="source"><code>-spec foreach_peer(fun((pid()) -&gt; ok)) -&gt; ok.</code></td>
 </tr>
-<tr class="hit">
+<tr>
 <td class="line" id="L174"><a href="#L174">174</a></td>
-<td class="hits">7</td>
-<td class="source"><code>    lists:foreach(fun({_, PID, _, [textgroup_client]}) when PID =:= self() -&gt;</code></td>
+<td class="hits"></td>
+<td class="source"><code>foreach_peer(Fun) -&gt;</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L175"><a href="#L175">175</a></td>
 <td class="hits">7</td>
+<td class="source"><code>    lists:foreach(fun({_, PID, _, [textgroup_client]}) when PID =:= self() -&gt;</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L176"><a href="#L176">176</a></td>
+<td class="hits">7</td>
 <td class="source"><code>                          ok;</code></td>
 </tr>
 <tr>
-<td class="line" id="L176"><a href="#L176">176</a></td>
+<td class="line" id="L177"><a href="#L177">177</a></td>
 <td class="hits"></td>
 <td class="source"><code>                     ({_, PID, _, [textgroup_client]}) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L177"><a href="#L177">177</a></td>
+<td class="line" id="L178"><a href="#L178">178</a></td>
 <td class="hits">7</td>
 <td class="source"><code>                          ok = Fun(PID)</code></td>
 </tr>
 <tr>
-<td class="line" id="L178"><a href="#L178">178</a></td>
+<td class="line" id="L179"><a href="#L179">179</a></td>
 <td class="hits"></td>
 <td class="source"><code>                  end, supervisor:which_children(textgroup_client_sup)).</code></td>
 </tr>

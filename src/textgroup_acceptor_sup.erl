@@ -23,6 +23,7 @@
 
 -include_lib("kernel/include/logger.hrl").
 -define(SERVER, ?MODULE).
+-define(SEND_TIMEOUT, timer:seconds(15)).
 
 %% API.
 
@@ -55,5 +56,7 @@ start_listener(Port) ->
                                            {reuseaddr, true},
                                            {nodelay, true},
                                            {active, false},
-                                           {packet, line}]),
+                                           {packet, line},
+                                           {send_timeout, ?SEND_TIMEOUT},
+                                           {send_timeout_close, true}]),
     Listener.

@@ -57,17 +57,14 @@ start_link(Socket) ->
 init([Socket]) ->
     process_flag(trap_exit, true),
     {ok, N} = application:get_env(tcp_queue_size),
-    {ok, {LAddr, LPort}} = inet:sockname(Socket),
-    {ok, {RAddr, RPort}} = inet:peername(Socket),
-    Client = list_to_binary(inet:ntoa(RAddr)),
+    {ok, {Addr, _Port}} = inet:peername(Socket),
+    Client = list_to_binary(inet:ntoa(Addr)),
     Greeting = <<?WELCOME_MSG ?EOL
                  "Your IP address: ", Client/binary, ?EOL
                  "Peers may query your IP address." ?EOL>>,
     ok = gen_tcp:send(Socket, Greeting),
     ok = inet:setopts(Socket, [{active, N}]),
-    ?LOG_DEBUG("Handling connection: ~s:~B -> ~s:~B",
-               [inet:ntoa(RAddr), RPort,
-                inet:ntoa(LAddr), LPort]),
+    ?LOG_NOTICE("Opening session of ~s", [Client]),
     {ok, #textgroup_client_state{socket = Socket, client = Client}}.
 
 -spec handle_call(term(), {pid(), term()}, state())

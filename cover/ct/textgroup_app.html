@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/ct/textgroup_app.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_app.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-28 at 13:21:11</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_app.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-28 at 13:22:28</p></footer>
 <table>
 <tbody>
 <tr>
@@ -219,195 +219,275 @@ td.source {
 <tr>
 <td class="line" id="L23"><a href="#L23">23</a></td>
 <td class="hits"></td>
-<td class="source"><code>         stop/1]).</code></td>
+<td class="source"><code>         stop/1,</code></td>
 </tr>
 <tr>
 <td class="line" id="L24"><a href="#L24">24</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>         config_change/3]).</code></td>
 </tr>
 <tr>
 <td class="line" id="L25"><a href="#L25">25</a></td>
 <td class="hits"></td>
-<td class="source"><code>-include_lib("kernel/include/logger.hrl").</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L26"><a href="#L26">26</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>-include_lib("kernel/include/logger.hrl").</code></td>
 </tr>
 <tr>
 <td class="line" id="L27"><a href="#L27">27</a></td>
 <td class="hits"></td>
-<td class="source"><code>%% API.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L28"><a href="#L28">28</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>%% API.</code></td>
 </tr>
 <tr>
 <td class="line" id="L29"><a href="#L29">29</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec start(application:start_type(), any()) -&gt; {ok, pid()} | {error, term()}.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L30"><a href="#L30">30</a></td>
 <td class="hits"></td>
+<td class="source"><code>-spec start(application:start_type(), any()) -&gt; {ok, pid()} | {error, term()}.</code></td>
+</tr>
+<tr>
+<td class="line" id="L31"><a href="#L31">31</a></td>
+<td class="hits"></td>
 <td class="source"><code>start(_StartType, _StartArgs) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L31"><a href="#L31">31</a></td>
+<td class="line" id="L32"><a href="#L32">32</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_NOTICE("Starting Textgroup ~s on Erlang/OTP ~s (ERTS ~s)",</code></td>
 </tr>
 <tr>
-<td class="line" id="L32"><a href="#L32">32</a></td>
+<td class="line" id="L33"><a href="#L33">33</a></td>
 <td class="hits"></td>
 <td class="source"><code>                [version(),</code></td>
 </tr>
 <tr>
-<td class="line" id="L33"><a href="#L33">33</a></td>
+<td class="line" id="L34"><a href="#L34">34</a></td>
 <td class="hits"></td>
 <td class="source"><code>                 erlang:system_info(otp_release),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L34"><a href="#L34">34</a></td>
+<td class="line" id="L35"><a href="#L35">35</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>                 erlang:system_info(version)]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L35"><a href="#L35">35</a></td>
+<td class="line" id="L36"><a href="#L36">36</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    case textgroup_sup:start_link() of</code></td>
 </tr>
 <tr>
-<td class="line" id="L36"><a href="#L36">36</a></td>
+<td class="line" id="L37"><a href="#L37">37</a></td>
 <td class="hits"></td>
 <td class="source"><code>        {ok, _PID} = Result -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L37"><a href="#L37">37</a></td>
+<td class="line" id="L38"><a href="#L38">38</a></td>
 <td class="hits">1</td>
 <td class="source"><code>            ok = textgroup_systemd:ready(),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L38"><a href="#L38">38</a></td>
+<td class="line" id="L39"><a href="#L39">39</a></td>
 <td class="hits">1</td>
 <td class="source"><code>            Result;</code></td>
 </tr>
 <tr>
-<td class="line" id="L39"><a href="#L39">39</a></td>
+<td class="line" id="L40"><a href="#L40">40</a></td>
 <td class="hits"></td>
 <td class="source"><code>        {error, _Reason} = Err -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L40"><a href="#L40">40</a></td>
+<td class="line" id="L41"><a href="#L41">41</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>            Err</code></td>
 </tr>
 <tr>
-<td class="line" id="L41"><a href="#L41">41</a></td>
+<td class="line" id="L42"><a href="#L42">42</a></td>
 <td class="hits"></td>
 <td class="source"><code>    end.</code></td>
 </tr>
 <tr>
-<td class="line" id="L42"><a href="#L42">42</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
-</tr>
-<tr>
 <td class="line" id="L43"><a href="#L43">43</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec prep_stop(term()) -&gt; term().</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L44"><a href="#L44">44</a></td>
 <td class="hits"></td>
-<td class="source"><code>prep_stop(State) -&gt;</code></td>
+<td class="source"><code>-spec prep_stop(term()) -&gt; term().</code></td>
 </tr>
-<tr class="hit">
+<tr>
 <td class="line" id="L45"><a href="#L45">45</a></td>
-<td class="hits">1</td>
-<td class="source"><code>    ok = textgroup_systemd:stopping(),</code></td>
+<td class="hits"></td>
+<td class="source"><code>prep_stop(State) -&gt;</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L46"><a href="#L46">46</a></td>
 <td class="hits">1</td>
-<td class="source"><code>    State.</code></td>
+<td class="source"><code>    ok = textgroup_systemd:stopping(),</code></td>
 </tr>
-<tr>
+<tr class="hit">
 <td class="line" id="L47"><a href="#L47">47</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="hits">1</td>
+<td class="source"><code>    State.</code></td>
 </tr>
 <tr>
 <td class="line" id="L48"><a href="#L48">48</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec stop(term()) -&gt; ok.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L49"><a href="#L49">49</a></td>
 <td class="hits"></td>
+<td class="source"><code>-spec stop(term()) -&gt; ok.</code></td>
+</tr>
+<tr>
+<td class="line" id="L50"><a href="#L50">50</a></td>
+<td class="hits"></td>
 <td class="source"><code>stop(_State) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L50"><a href="#L50">50</a></td>
+<td class="line" id="L51"><a href="#L51">51</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_NOTICE("Stopping Textgroup ~s on Erlang/OTP ~s (ERTS ~s)",</code></td>
 </tr>
 <tr>
-<td class="line" id="L51"><a href="#L51">51</a></td>
+<td class="line" id="L52"><a href="#L52">52</a></td>
 <td class="hits"></td>
 <td class="source"><code>                [version(),</code></td>
 </tr>
 <tr>
-<td class="line" id="L52"><a href="#L52">52</a></td>
+<td class="line" id="L53"><a href="#L53">53</a></td>
 <td class="hits"></td>
 <td class="source"><code>                 erlang:system_info(otp_release),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L53"><a href="#L53">53</a></td>
+<td class="line" id="L54"><a href="#L54">54</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>                 erlang:system_info(version)]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L54"><a href="#L54">54</a></td>
+<td class="line" id="L55"><a href="#L55">55</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ok.</code></td>
 </tr>
 <tr>
-<td class="line" id="L55"><a href="#L55">55</a></td>
-<td class="hits"></td>
-<td class="source"><code></code></td>
-</tr>
-<tr>
 <td class="line" id="L56"><a href="#L56">56</a></td>
 <td class="hits"></td>
-<td class="source"><code>%% Internal functions.</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L57"><a href="#L57">57</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>-spec config_change([{atom(), term()}], [{atom(), term()}], [atom()]) -&gt; ok.</code></td>
 </tr>
 <tr>
 <td class="line" id="L58"><a href="#L58">58</a></td>
 <td class="hits"></td>
+<td class="source"><code>config_change(Changed, _New, _Removed) -&gt;</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L59"><a href="#L59">59</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    ReopenSocket = lists:any(fun({Key, _Val}) -&gt;</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L60"><a href="#L60">60</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>                                     lists:member(Key, [port, pool_size])</code></td>
+</tr>
+<tr>
+<td class="line" id="L61"><a href="#L61">61</a></td>
+<td class="hits"></td>
+<td class="source"><code>                             end, Changed),</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L62"><a href="#L62">62</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>    case ReopenSocket of</code></td>
+</tr>
+<tr>
+<td class="line" id="L63"><a href="#L63">63</a></td>
+<td class="hits"></td>
+<td class="source"><code>        true -&gt; % Deliberately hit max. restart intensity to start new listener:</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L64"><a href="#L64">64</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>            lists:foreach(</code></td>
+</tr>
+<tr>
+<td class="line" id="L65"><a href="#L65">65</a></td>
+<td class="hits"></td>
+<td class="source"><code>              fun({_, PID, _, [textgroup_acceptor]}) -&gt;</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L66"><a href="#L66">66</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>                      exit(PID, shutdown)</code></td>
+</tr>
+<tr>
+<td class="line" id="L67"><a href="#L67">67</a></td>
+<td class="hits"></td>
+<td class="source"><code>              end, supervisor:which_children(textgroup_acceptor_sup));</code></td>
+</tr>
+<tr>
+<td class="line" id="L68"><a href="#L68">68</a></td>
+<td class="hits"></td>
+<td class="source"><code>        false -&gt;</code></td>
+</tr>
+<tr class="miss">
+<td class="line" id="L69"><a href="#L69">69</a></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>            ok</code></td>
+</tr>
+<tr>
+<td class="line" id="L70"><a href="#L70">70</a></td>
+<td class="hits"></td>
+<td class="source"><code>    end.</code></td>
+</tr>
+<tr>
+<td class="line" id="L71"><a href="#L71">71</a></td>
+<td class="hits"></td>
+<td class="source"><code></code></td>
+</tr>
+<tr>
+<td class="line" id="L72"><a href="#L72">72</a></td>
+<td class="hits"></td>
+<td class="source"><code>%% Internal functions.</code></td>
+</tr>
+<tr>
+<td class="line" id="L73"><a href="#L73">73</a></td>
+<td class="hits"></td>
+<td class="source"><code></code></td>
+</tr>
+<tr>
+<td class="line" id="L74"><a href="#L74">74</a></td>
+<td class="hits"></td>
 <td class="source"><code>-spec version() -&gt; binary().</code></td>
 </tr>
 <tr>
-<td class="line" id="L59"><a href="#L59">59</a></td>
+<td class="line" id="L75"><a href="#L75">75</a></td>
 <td class="hits"></td>
 <td class="source"><code>version() -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L60"><a href="#L60">60</a></td>
+<td class="line" id="L76"><a href="#L76">76</a></td>
 <td class="hits">2</td>
 <td class="source"><code>    {ok, Version} = application:get_key(vsn),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L61"><a href="#L61">61</a></td>
+<td class="line" id="L77"><a href="#L77">77</a></td>
 <td class="hits">2</td>
 <td class="source"><code>    unicode:characters_to_binary(Version).</code></td>
 </tr>

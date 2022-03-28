@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/aggregate/textgroup_acceptor.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-27 at 13:05:06</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-28 at 13:21:11</p></footer>
 <table>
 <tbody>
 <tr>
@@ -544,17 +544,17 @@ td.source {
 <tr class="hit">
 <td class="line" id="L88"><a href="#L88">88</a></td>
 <td class="hits">6</td>
-<td class="source"><code>    ?LOG_DEBUG("Accepting connection: ~s:~B -&gt; ~s:~B",</code></td>
+<td class="source"><code>    ?LOG_NOTICE("Accepting connection: ~s:~B -&gt; ~s:~B",</code></td>
 </tr>
 <tr>
 <td class="line" id="L89"><a href="#L89">89</a></td>
 <td class="hits"></td>
-<td class="source"><code>               [inet:ntoa(RAddr), RPort,</code></td>
+<td class="source"><code>                [inet:ntoa(RAddr), RPort,</code></td>
 </tr>
-<tr class="hit">
+<tr class="miss">
 <td class="line" id="L90"><a href="#L90">90</a></td>
-<td class="hits">6</td>
-<td class="source"><code>                inet:ntoa(LAddr), LPort]),</code></td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="source"><code>                 inet:ntoa(LAddr), LPort]),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L91"><a href="#L91">91</a></td>

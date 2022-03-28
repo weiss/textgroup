@@ -114,3 +114,53 @@ Show a help message.
 Quit the current session.
 
 Any other messages are sent to all connected peers.
+
+== Advanced: Upgrading Textgroup ==
+
+To create a new release that can be used to hot-upgrade the old one:
+
+```
+$ cd /tmp/textgroup-main
+$ rebar3 as prod release
+$ editor src/*.erl
+$ sed -i s/0.1.0/0.2.0/ rebar.config src/textgroup.app.src
+$ rebar3 as prod release
+$ rebar3 as prod appup generate
+$ rebar3 as prod relup -n textgroup -v 0.2.0
+$ rebar3 as prod tar
+'''
+
+The new release archive must then be copied into place:
+
+```
+$ cp _build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
+'''
+
+Finally, the actual upgrade of the running service is performed like this:
+
+```
+$ /opt/textgroup/bin/textgroup upgrade 0.2.0
+'''
+
+If the new release doesn't work as expected, a downgrade to the old one can be
+performed:
+
+```
+$ /opt/textgroup/bin/textgroup downgrade 0.2.0
+'''
+
+The unused release can then be removed. E.g., to uninstall the new one after
+downgrading:
+
+```
+$ /opt/textgroup/bin/textgroup uninstall 0.2.0
+'''
+
+A few caveats: If data structures (such as the `state_textgroup_client' record)
+were modified, converting them during the upgrade requires additional handling,
+see the documentation on [https://github.com/lrascao/rebar3_appup_plugin].
+Complex applications/dependencies may well need explicit support for hot release
+upgrades, such as custom `appup' files. Also, if a different Erlang/OTP version
+is used to build a new release, the upgrade process involves a restart of the
+emulator. For this to work, the `heart' functionality must be enabled:
+[https://erlang.org/doc/man/heart.html].

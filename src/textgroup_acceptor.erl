@@ -25,18 +25,18 @@
 
 -include_lib("kernel/include/logger.hrl").
 
--record(textgroup_acceptor_state,
+-record(acceptor_state,
         {parent :: pid() | undefined,
          listener :: gen_tcp:socket() | undefined}).
 
--type state() :: #textgroup_acceptor_state{}.
+-type state() :: #acceptor_state{}.
 
 %% API.
 
 -spec start_link(gen_tcp:socket()) -> term() | {error, term()}.
 start_link(Listener) ->
     ?LOG_DEBUG("Creating acceptor process"),
-    State = #textgroup_acceptor_state{parent = self(), listener = Listener},
+    State = #acceptor_state{parent = self(), listener = Listener},
     proc_lib:start_link(?MODULE, init, [State]).
 
 -spec init(state()) -> no_return().
@@ -64,7 +64,7 @@ system_code_change(State, _Mod, _OldVsn, _Extra) ->
 %% Internal functions.
 
 -spec loop(state()) -> no_return().
-loop(#textgroup_acceptor_state{parent = Parent, listener = Listener} = State) ->
+loop(#acceptor_state{parent = Parent, listener = Listener} = State) ->
     case gen_tcp:accept(Listener, timer:seconds(3)) of
         {ok, Socket} ->
             ok = handle_connection(Socket);

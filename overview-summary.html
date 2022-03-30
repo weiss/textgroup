@@ -140,10 +140,10 @@ downgrading:</p>
 
 <pre>$ /opt/textgroup/bin/textgroup uninstall 0.2.0</pre>
 
-A few caveats: If data structures (such as the <code>state_textgroup_client</code> record)
-were modified, converting them during the upgrade requires additional handling,
-see the documentation on <a href="https://github.com/lrascao/rebar3_appup_plugin" target="_top"><tt>https://github.com/lrascao/rebar3_appup_plugin</tt></a>.
-Complex applications/dependencies may well need explicit support for hot release
+A few caveats: If data structures (such as the <code>client_state</code> record) were
+modified, converting them during the upgrade requires additional handling, see
+the documentation on <a href="https://github.com/lrascao/rebar3_appup_plugin" target="_top"><tt>https://github.com/lrascao/rebar3_appup_plugin</tt></a>. Complex
+applications/dependencies may well need explicit support for hot release
 upgrades, such as custom <code>appup</code> files. Also, if a different Erlang/OTP version
 is used to build a new release, the upgrade process involves a restart of the
 emulator. For this to work, the <code>heart</code> functionality must be enabled:

@@ -17,7 +17,7 @@
 <h2><a name="types">Data Types</a></h2>
 
 <h3 class="typedecl"><a name="type-state">state()</a></h3>
-<p><tt>state() = #textgroup_client_state{socket = <a href="/home/runner/work/textgroup/kernel/doc/gen_tcp.html#type-socket">gen_tcp:socket()</a> | undefined, client = binary() | undefined, n_sent = non_neg_integer(), n_rcvd = non_neg_integer()}</tt></p>
+<p><tt>state() = #client_state{socket = <a href="/home/runner/work/textgroup/kernel/doc/gen_tcp.html#type-socket">gen_tcp:socket()</a> | undefined, client = binary() | undefined, n_sent = non_neg_integer(), n_rcvd = non_neg_integer()}</tt></p>
 
 
 <h2><a name="index">Function Index</a></h2>
@@ -40,19 +40,19 @@
 
 <h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
 <div class="spec">
-<p><tt>handle_call(Request::term(), From::{pid(), term()}, Textgroup_client_state::<a href="#type-state">state()</a>) -&gt; {reply, {error, term()}, <a href="#type-state">state()</a>}</tt><br></p>
+<p><tt>handle_call(Request::term(), From::{pid(), term()}, Client_state::<a href="#type-state">state()</a>) -&gt; {reply, {error, term()}, <a href="#type-state">state()</a>}</tt><br></p>
 <p> </p>
 </div>
 
 <h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
 <div class="spec">
-<p><tt>handle_cast(Msg::term(), Textgroup_client_state::<a href="#type-state">state()</a>) -&gt; {noreply, <a href="#type-state">state()</a>}</tt><br></p>
+<p><tt>handle_cast(Msg::term(), Client_state::<a href="#type-state">state()</a>) -&gt; {noreply, <a href="#type-state">state()</a>}</tt><br></p>
 <p> </p>
 </div>
 
 <h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
 <div class="spec">
-<p><tt>handle_info(Info::term(), Textgroup_client_state::<a href="#type-state">state()</a>) -&gt; {noreply, <a href="#type-state">state()</a>}</tt><br></p>
+<p><tt>handle_info(Info::term(), Client_state::<a href="#type-state">state()</a>) -&gt; {noreply, <a href="#type-state">state()</a>}</tt><br></p>
 <p> </p>
 </div>
 
@@ -70,7 +70,7 @@
 
 <h3 class="function"><a name="terminate-2">terminate/2</a></h3>
 <div class="spec">
-<p><tt>terminate(Reason::normal | shutdown | {shutdown, term()} | term(), Textgroup_client_state::<a href="#type-state">state()</a>) -&gt; ok</tt><br></p>
+<p><tt>terminate(Reason::normal | shutdown | {shutdown, term()} | term(), Client_state::<a href="#type-state">state()</a>) -&gt; ok</tt><br></p>
 <p> </p>
 </div>
 <hr>

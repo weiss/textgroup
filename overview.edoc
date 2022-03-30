@@ -135,7 +135,7 @@ The new release archive must then be copied into place (run this command and the
 following ones as the `_textgroup' user):
 
 ```
-$ cp _build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
+$ cp /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
 '''
 
 Finally, the actual upgrade of the running service is performed like this:

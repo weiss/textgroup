@@ -13,7 +13,7 @@ Netcat. Test suite logs can be viewed on
 
 The Textgroup source code can be retrieved and built using the following
 commands. This requires [https://erlang.org] and [https://rebar3.org] to be in
-the `PATH'.
+the `$PATH'.
 
 ```
 $ curl -L https://github.com/weiss/textgroup/archive/main.tar.gz | tar -C /tmp -xzf -
@@ -63,8 +63,8 @@ WantedBy=multi-user.target
 The service would then be enabled like this:
 
 ```
-systemctl daemon-reload
-systemctl --now enable textgroup
+sudo systemctl daemon-reload
+sudo systemctl --now enable textgroup
 '''
 
 == Configuring Textgroup ==
@@ -131,7 +131,8 @@ $ rebar3 as prod relup -n textgroup -v 0.2.0
 $ rebar3 as prod tar
 '''
 
-The new release archive must then be copied into place:
+The new release archive must then be copied into place (run this command and the
+following ones as the `_textgroup' user):
 
 ```
 $ cp _build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases

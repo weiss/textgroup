@@ -78,7 +78,9 @@ all() ->
 start_server(Config) ->
     ct:pal("Starting Textgroup server"),
     Port = ?config(port, Config),
-    ok = application:set_env(textgroup, port, Port, [{persistent, true}]),
+    Opts = [{persistent, true}],
+    ok = application:set_env(textgroup, port, Port, Opts),
+    ok = application:set_env(textgroup, tcp_queue_size, 2, Opts),
     {ok, _Apps} = application:ensure_all_started(textgroup).
 
 -spec peers(config()) -> any().

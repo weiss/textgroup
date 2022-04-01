@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/ct/textgroup_client.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-03-30 at 10:34:38</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-04-01 at 18:24:53</p></footer>
 <table>
 <tbody>
 <tr>
@@ -806,24 +806,24 @@ td.source {
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp_passive, Socket}, #client_state{client = Client} = State) -&gt;</code></td>
 </tr>
-<tr class="miss">
+<tr class="hit">
 <td class="line" id="L141"><a href="#L141">141</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="hits">3</td>
 <td class="source"><code>    ?LOG_DEBUG("Resetting active queue size for ~s", [Client]),</code></td>
 </tr>
-<tr class="miss">
+<tr class="hit">
 <td class="line" id="L142"><a href="#L142">142</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="hits">3</td>
 <td class="source"><code>    {ok, N} = application:get_env(tcp_queue_size),</code></td>
 </tr>
-<tr class="miss">
+<tr class="hit">
 <td class="line" id="L143"><a href="#L143">143</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="hits">3</td>
 <td class="source"><code>    ok = inet:setopts(Socket, [{active, N}]),</code></td>
 </tr>
-<tr class="miss">
+<tr class="hit">
 <td class="line" id="L144"><a href="#L144">144</a></td>
-<td class="hits"><pre style="display: inline;">:-(</pre></td>
+<td class="hits">3</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>

@@ -22,10 +22,13 @@
 
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_address-1">get_address/1</a></td><td></td></tr>
 <tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send-2">send/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start-1">start/1</a></td><td></td></tr>
 <tr><td valign="top"><a href="#start_link-1">start_link/1</a></td><td></td></tr>
 <tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
 </table>
@@ -35,6 +38,12 @@
 <h3 class="function"><a name="code_change-3">code_change/3</a></h3>
 <div class="spec">
 <p><tt>code_change(OldVsn::{down, term()} | term(), State::<a href="#type-state">state()</a>, Extra::term()) -&gt; {ok, <a href="#type-state">state()</a>}</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="get_address-1">get_address/1</a></h3>
+<div class="spec">
+<p><tt>get_address(PID::pid()) -&gt; binary()</tt><br></p>
 <p> </p>
 </div>
 
@@ -59,6 +68,18 @@
 <h3 class="function"><a name="init-1">init/1</a></h3>
 <div class="spec">
 <p><tt>init(X1::[<a href="/home/runner/work/textgroup/kernel/doc/gen_tcp.html#type-socket">gen_tcp:socket()</a>]) -&gt; {ok, <a href="#type-state">state()</a>}</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="send-2">send/2</a></h3>
+<div class="spec">
+<p><tt>send(PID::pid(), Data::iodata()) -&gt; ok</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="start-1">start/1</a></h3>
+<div class="spec">
+<p><tt>start(Socket::<a href="/home/runner/work/textgroup/kernel/doc/gen_tcp.html#type-socket">gen_tcp:socket()</a>) -&gt; ok</tt><br></p>
 <p> </p>
 </div>
 

@@ -88,5 +88,4 @@ handle_connection(Socket) ->
     ?LOG_INFO("Accepting connection: ~s:~B -> ~s:~B",
               [inet:ntoa(RAddr), RPort,
                inet:ntoa(LAddr), LPort]),
-    {ok, Child} = supervisor:start_child(textgroup_client_sup, [Socket]),
-    ok = gen_tcp:controlling_process(Socket, Child).
+    ok = textgroup_client:start(Socket).

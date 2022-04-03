@@ -18,6 +18,9 @@
 -module(textgroup_client).
 -author('holger@zedat.fu-berlin.de').
 -behaviour(gen_server).
+-export([start/1,
+         send/2,
+         get_address/1]).
 -export([start_link/1]).
 -export([init/1,
          handle_call/3,
@@ -44,6 +47,22 @@
 
 -type state() :: #client_state{}.
 
+%% API.
+
+-spec start(gen_tcp:socket()) -> ok.
+start(Socket) ->
+    {ok, Proc} = supervisor:start_child(textgroup_client_sup, [Socket]),
+    ok = gen_tcp:controlling_process(Socket, Proc),
+    ok = set_queue_size(Socket).
+
+-spec send(pid(), iodata()) -> ok.
+send(PID, Data) ->
+    gen_server:cast(PID, {send, Data}).
+
+-spec get_address(pid()) -> binary().
+get_address(PID) ->
+    gen_server:call(PID, get_address).
+
 %% API: supervisor callback.
 
 -spec start_link(gen_tcp:socket()) -> {ok, pid()} | ignore | {error, term()}.
@@ -56,20 +75,18 @@ start_link(Socket) ->
 -spec init([gen_tcp:socket()]) -> {ok, state()}.
 init([Socket]) ->
     process_flag(trap_exit, true),
-    {ok, N} = application:get_env(tcp_queue_size),
     {ok, {Addr, _Port}} = inet:peername(Socket),
     Client = list_to_binary(inet:ntoa(Addr)),
     Greeting = <<?WELCOME_MSG ?EOL
                  "Your IP address: ", Client/binary, ?EOL
                  "Peers may query your IP address." ?EOL>>,
     ok = gen_tcp:send(Socket, Greeting),
-    ok = inet:setopts(Socket, [{active, N}]),
     ?LOG_NOTICE("Opening session of ~s", [Client]),
     {ok, #client_state{socket = Socket, client = Client}}.
 
 -spec handle_call(term(), {pid(), term()}, state())
       -> {reply, {error, term()}, state()}.
-handle_call(get_addr, From, #client_state{client = Client} = State) ->
+handle_call(get_address, From, #client_state{client = Client} = State) ->
     ?LOG_DEBUG("Returning client address to ~p: ~s", [From, Client]),
     {reply, Client, State};
 handle_call(Request, From, State) ->
@@ -77,11 +94,11 @@ handle_call(Request, From, State) ->
     {reply, {error, badarg}, State}.
 
 -spec handle_cast(term(), state()) -> {noreply, state()}.
-handle_cast({msg, Msg}, #client_state{socket = Socket,
-                                      client = Client,
-                                      n_rcvd = Rcvd} = State) ->
-    ?LOG_DEBUG("Received message for ~s: ~s", [Client, Msg]),
-    ok = gen_tcp:send(Socket, Msg),
+handle_cast({send, Data}, #client_state{socket = Socket,
+                                        client = Client,
+                                        n_rcvd = Rcvd} = State) ->
+    ?LOG_DEBUG("Received message for ~s: ~s", [Client, Data]),
+    ok = gen_tcp:send(Socket, Data),
     {noreply, State#client_state{n_rcvd = Rcvd + 1}};
 handle_cast(Msg, State) ->
     ?LOG_ERROR("Got unexpected message: ~p", [Msg]),
@@ -122,7 +139,7 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
        EOL =:= <<$\r, $\n>> ->
     ?LOG_DEBUG("Got peers query from ~s", [Client]),
     foreach_peer(fun(PID) ->
-                         try gen_server:call(PID, get_addr) of
+                         try get_address(PID) of
                              Addr ->
                                  Response = [Addr, EOL],
                                  ok = gen_tcp:send(Socket, Response)
@@ -135,12 +152,11 @@ handle_info({tcp, Socket, <<"peers", EOL/binary>>},
 handle_info({tcp, _Socket, Data}, #client_state{client = Client,
                                                 n_sent = Sent} = State) ->
     ?LOG_DEBUG("Sending text message from ~s to peers", [Client]),
-    foreach_peer(fun(PID) -> ok = gen_server:cast(PID, {msg, Data}) end),
+    foreach_peer(fun(PID) -> send(PID, Data) end),
     {noreply, State#client_state{n_sent = Sent + 1}};
 handle_info({tcp_passive, Socket}, #client_state{client = Client} = State) ->
     ?LOG_DEBUG("Resetting active queue size for ~s", [Client]),
-    {ok, N} = application:get_env(tcp_queue_size),
-    ok = inet:setopts(Socket, [{active, N}]),
+    ok = set_queue_size(Socket),
     {noreply, State};
 handle_info({tcp_closed, _Socket}, #client_state{client = Client} = State) ->
     ?LOG_DEBUG("~s closed the TCP connection", [Client]),
@@ -172,3 +188,8 @@ foreach_peer(Fun) ->
                      ({_, PID, _, [textgroup_client]}) ->
                           ok = Fun(PID)
                   end, supervisor:which_children(textgroup_client_sup)).
+
+-spec set_queue_size(gen_tcp:socket()) -> ok | {error, inet:posix()}.
+set_queue_size(Socket) ->
+    {ok, N} = application:get_env(tcp_queue_size),
+    inet:setopts(Socket, [{active, N}]).

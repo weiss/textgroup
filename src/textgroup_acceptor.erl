@@ -19,6 +19,7 @@
 -author('holger@zedat.fu-berlin.de').
 -export([start_link/1]).
 -export([init/1]).
+-export([loop/1]).
 -export([system_continue/3,
          system_terminate/4,
          system_code_change/4]).
@@ -76,9 +77,9 @@ loop(#acceptor_state{parent = Parent, listener = Listener} = State) ->
             sys:handle_system_msg(Request, From, Parent, ?MODULE, [], State);
         Msg ->
             ?LOG_ERROR("Got unexpected message: ~p", [Msg]),
-            loop(State)
+            ?MODULE:loop(State)
     after 0 ->
-            loop(State)
+            ?MODULE:loop(State)
     end.
 
 -spec handle_connection(gen_tcp:socket()) -> ok.

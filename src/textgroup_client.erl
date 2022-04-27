@@ -105,13 +105,11 @@ handle_cast(Msg, State) ->
     {noreply, State}.
 
 -spec handle_info(term(), state()) -> {noreply, state()}.
-handle_info({tcp, Socket, <<"quit", EOL/binary>>},
+handle_info({tcp, _Socket, <<"quit", EOL/binary>>},
             #client_state{client = Client} = State)
   when EOL =:= <<$\n>>;
        EOL =:= <<$\r, $\n>> ->
     ?LOG_DEBUG("Got quit query from ~s", [Client]),
-    Response = <<?GOODBYE_MSG, EOL/binary>>,
-    ok = gen_tcp:send(Socket, Response),
     {stop, normal, State};
 handle_info({tcp, Socket, <<"help", EOL/binary>>},
             #client_state{client = Client} = State)
@@ -172,6 +170,8 @@ handle_info(Info, State) ->
 -spec terminate(normal | shutdown | {shutdown, term()} | term(), state()) -> ok.
 terminate(Reason, #client_state{socket = Socket, client = Client}) ->
     ?LOG_NOTICE("Closing session of ~s (~p)", [Client, Reason]),
+    Goodbye = <<?GOODBYE_MSG ?EOL>>,
+    ok = gen_tcp:send(Socket, Goodbye),
     ok = gen_tcp:close(Socket).
 
 -spec code_change({down, term()} | term(), state(), term()) -> {ok, state()}.

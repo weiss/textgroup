@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/ct/textgroup_client.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-04-19 at 20:31:34</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-04-28 at 13:41:08</p></footer>
 <table>
 <tbody>
 <tr>
@@ -644,7 +644,7 @@ td.source {
 <tr>
 <td class="line" id="L108"><a href="#L108">108</a></td>
 <td class="hits"></td>
-<td class="source"><code>handle_info({tcp, Socket, &lt;&lt;"quit", EOL/binary&gt;&gt;},</code></td>
+<td class="source"><code>handle_info({tcp, _Socket, &lt;&lt;"quit", EOL/binary&gt;&gt;},</code></td>
 </tr>
 <tr>
 <td class="line" id="L109"><a href="#L109">109</a></td>
@@ -669,312 +669,312 @@ td.source {
 <tr class="hit">
 <td class="line" id="L113"><a href="#L113">113</a></td>
 <td class="hits">6</td>
-<td class="source"><code>    Response = &lt;&lt;?GOODBYE_MSG, EOL/binary&gt;&gt;,</code></td>
-</tr>
-<tr class="hit">
-<td class="line" id="L114"><a href="#L114">114</a></td>
-<td class="hits">6</td>
-<td class="source"><code>    ok = gen_tcp:send(Socket, Response),</code></td>
-</tr>
-<tr class="hit">
-<td class="line" id="L115"><a href="#L115">115</a></td>
-<td class="hits">6</td>
 <td class="source"><code>    {stop, normal, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L116"><a href="#L116">116</a></td>
+<td class="line" id="L114"><a href="#L114">114</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp, Socket, &lt;&lt;"help", EOL/binary&gt;&gt;},</code></td>
 </tr>
 <tr>
-<td class="line" id="L117"><a href="#L117">117</a></td>
+<td class="line" id="L115"><a href="#L115">115</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #client_state{client = Client} = State)</code></td>
 </tr>
 <tr>
-<td class="line" id="L118"><a href="#L118">118</a></td>
+<td class="line" id="L116"><a href="#L116">116</a></td>
 <td class="hits"></td>
 <td class="source"><code>  when EOL =:= &lt;&lt;$\n&gt;&gt;;</code></td>
 </tr>
 <tr>
-<td class="line" id="L119"><a href="#L119">119</a></td>
+<td class="line" id="L117"><a href="#L117">117</a></td>
 <td class="hits"></td>
 <td class="source"><code>       EOL =:= &lt;&lt;$\r, $\n&gt;&gt; -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L120"><a href="#L120">120</a></td>
+<td class="line" id="L118"><a href="#L118">118</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_DEBUG("Got help query from ~s", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L121"><a href="#L121">121</a></td>
+<td class="line" id="L119"><a href="#L119">119</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    Response = &lt;&lt;?HELP_MSG&gt;&gt;,</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L122"><a href="#L122">122</a></td>
+<td class="line" id="L120"><a href="#L120">120</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ok = gen_tcp:send(Socket, Response),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L123"><a href="#L123">123</a></td>
+<td class="line" id="L121"><a href="#L121">121</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L124"><a href="#L124">124</a></td>
+<td class="line" id="L122"><a href="#L122">122</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp, Socket, &lt;&lt;"stats", EOL/binary&gt;&gt;},</code></td>
 </tr>
 <tr>
-<td class="line" id="L125"><a href="#L125">125</a></td>
+<td class="line" id="L123"><a href="#L123">123</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #client_state{client = Client,</code></td>
 </tr>
 <tr>
-<td class="line" id="L126"><a href="#L126">126</a></td>
+<td class="line" id="L124"><a href="#L124">124</a></td>
 <td class="hits"></td>
 <td class="source"><code>                          n_sent = Sent,</code></td>
 </tr>
 <tr>
-<td class="line" id="L127"><a href="#L127">127</a></td>
+<td class="line" id="L125"><a href="#L125">125</a></td>
 <td class="hits"></td>
 <td class="source"><code>                          n_rcvd = Rcvd} = State)</code></td>
 </tr>
 <tr>
-<td class="line" id="L128"><a href="#L128">128</a></td>
+<td class="line" id="L126"><a href="#L126">126</a></td>
 <td class="hits"></td>
 <td class="source"><code>  when EOL =:= &lt;&lt;$\n&gt;&gt;;</code></td>
 </tr>
 <tr>
-<td class="line" id="L129"><a href="#L129">129</a></td>
+<td class="line" id="L127"><a href="#L127">127</a></td>
 <td class="hits"></td>
 <td class="source"><code>       EOL =:= &lt;&lt;$\r, $\n&gt;&gt; -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L130"><a href="#L130">130</a></td>
+<td class="line" id="L128"><a href="#L128">128</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_DEBUG("Got stats query from ~s", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L131"><a href="#L131">131</a></td>
+<td class="line" id="L129"><a href="#L129">129</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    Response = io_lib:format("Messages sent: ~B~s"</code></td>
 </tr>
 <tr>
-<td class="line" id="L132"><a href="#L132">132</a></td>
+<td class="line" id="L130"><a href="#L130">130</a></td>
 <td class="hits"></td>
 <td class="source"><code>                             "Messages rcvd: ~B~s",</code></td>
 </tr>
 <tr>
-<td class="line" id="L133"><a href="#L133">133</a></td>
+<td class="line" id="L131"><a href="#L131">131</a></td>
 <td class="hits"></td>
 <td class="source"><code>                             [Sent, EOL, Rcvd, EOL]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L134"><a href="#L134">134</a></td>
+<td class="line" id="L132"><a href="#L132">132</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ok = gen_tcp:send(Socket, Response),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L135"><a href="#L135">135</a></td>
+<td class="line" id="L133"><a href="#L133">133</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L136"><a href="#L136">136</a></td>
+<td class="line" id="L134"><a href="#L134">134</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp, Socket, &lt;&lt;"peers", EOL/binary&gt;&gt;},</code></td>
 </tr>
 <tr>
-<td class="line" id="L137"><a href="#L137">137</a></td>
+<td class="line" id="L135"><a href="#L135">135</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #client_state{client = Client} = State)</code></td>
 </tr>
 <tr>
-<td class="line" id="L138"><a href="#L138">138</a></td>
+<td class="line" id="L136"><a href="#L136">136</a></td>
 <td class="hits"></td>
 <td class="source"><code>  when EOL =:= &lt;&lt;$\n&gt;&gt;;</code></td>
 </tr>
 <tr>
-<td class="line" id="L139"><a href="#L139">139</a></td>
+<td class="line" id="L137"><a href="#L137">137</a></td>
 <td class="hits"></td>
 <td class="source"><code>       EOL =:= &lt;&lt;$\r, $\n&gt;&gt; -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L140"><a href="#L140">140</a></td>
+<td class="line" id="L138"><a href="#L138">138</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_DEBUG("Got peers query from ~s", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L141"><a href="#L141">141</a></td>
+<td class="line" id="L139"><a href="#L139">139</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    foreach_peer(fun(PID) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L142"><a href="#L142">142</a></td>
+<td class="line" id="L140"><a href="#L140">140</a></td>
 <td class="hits">1</td>
 <td class="source"><code>                         try get_address(PID) of</code></td>
 </tr>
 <tr>
-<td class="line" id="L143"><a href="#L143">143</a></td>
+<td class="line" id="L141"><a href="#L141">141</a></td>
 <td class="hits"></td>
 <td class="source"><code>                             Addr -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L144"><a href="#L144">144</a></td>
+<td class="line" id="L142"><a href="#L142">142</a></td>
 <td class="hits">1</td>
 <td class="source"><code>                                 Response = [Addr, EOL],</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L145"><a href="#L145">145</a></td>
+<td class="line" id="L143"><a href="#L143">143</a></td>
 <td class="hits">1</td>
 <td class="source"><code>                                 ok = gen_tcp:send(Socket, Response)</code></td>
 </tr>
 <tr>
-<td class="line" id="L146"><a href="#L146">146</a></td>
+<td class="line" id="L144"><a href="#L144">144</a></td>
 <td class="hits"></td>
 <td class="source"><code>                         catch exit:Err -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L147"><a href="#L147">147</a></td>
+<td class="line" id="L145"><a href="#L145">145</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>                                 ?LOG_DEBUG("Cannot query ~p: ~p", [PID, Err]),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L148"><a href="#L148">148</a></td>
+<td class="line" id="L146"><a href="#L146">146</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>                                 ok</code></td>
 </tr>
 <tr>
-<td class="line" id="L149"><a href="#L149">149</a></td>
+<td class="line" id="L147"><a href="#L147">147</a></td>
 <td class="hits"></td>
 <td class="source"><code>                         end</code></td>
 </tr>
 <tr>
-<td class="line" id="L150"><a href="#L150">150</a></td>
+<td class="line" id="L148"><a href="#L148">148</a></td>
 <td class="hits"></td>
 <td class="source"><code>                 end),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L151"><a href="#L151">151</a></td>
+<td class="line" id="L149"><a href="#L149">149</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L152"><a href="#L152">152</a></td>
+<td class="line" id="L150"><a href="#L150">150</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp, _Socket, Data}, #client_state{client = Client,</code></td>
 </tr>
 <tr>
-<td class="line" id="L153"><a href="#L153">153</a></td>
+<td class="line" id="L151"><a href="#L151">151</a></td>
 <td class="hits"></td>
 <td class="source"><code>                                                n_sent = Sent} = State) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L154"><a href="#L154">154</a></td>
+<td class="line" id="L152"><a href="#L152">152</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    ?LOG_DEBUG("Sending text message from ~s to peers", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L155"><a href="#L155">155</a></td>
+<td class="line" id="L153"><a href="#L153">153</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    foreach_peer(fun(PID) -&gt; send(PID, Data) end),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L156"><a href="#L156">156</a></td>
+<td class="line" id="L154"><a href="#L154">154</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    {noreply, State#client_state{n_sent = Sent + 1}};</code></td>
 </tr>
 <tr>
-<td class="line" id="L157"><a href="#L157">157</a></td>
+<td class="line" id="L155"><a href="#L155">155</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp_passive, Socket}, #client_state{client = Client} = State) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L158"><a href="#L158">158</a></td>
+<td class="line" id="L156"><a href="#L156">156</a></td>
 <td class="hits">3</td>
 <td class="source"><code>    ?LOG_DEBUG("Resetting active queue size for ~s", [Client]),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L159"><a href="#L159">159</a></td>
+<td class="line" id="L157"><a href="#L157">157</a></td>
 <td class="hits">3</td>
 <td class="source"><code>    ok = set_queue_size(Socket),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L160"><a href="#L160">160</a></td>
+<td class="line" id="L158"><a href="#L158">158</a></td>
 <td class="hits">3</td>
 <td class="source"><code>    {noreply, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L161"><a href="#L161">161</a></td>
+<td class="line" id="L159"><a href="#L159">159</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp_closed, _Socket}, #client_state{client = Client} = State) -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L162"><a href="#L162">162</a></td>
+<td class="line" id="L160"><a href="#L160">160</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    ?LOG_DEBUG("~s closed the TCP connection", [Client]),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L163"><a href="#L163">163</a></td>
+<td class="line" id="L161"><a href="#L161">161</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    {stop, normal, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L164"><a href="#L164">164</a></td>
+<td class="line" id="L162"><a href="#L162">162</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info({tcp_error, _Socket, Reason},</code></td>
 </tr>
 <tr>
-<td class="line" id="L165"><a href="#L165">165</a></td>
+<td class="line" id="L163"><a href="#L163">163</a></td>
 <td class="hits"></td>
 <td class="source"><code>            #client_state{client = Client} = State) -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L166"><a href="#L166">166</a></td>
+<td class="line" id="L164"><a href="#L164">164</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    ?LOG_NOTICE("Got TCP error for ~s: ~p", [Client, Reason]),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L167"><a href="#L167">167</a></td>
+<td class="line" id="L165"><a href="#L165">165</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    {stop, Reason, State};</code></td>
 </tr>
 <tr>
-<td class="line" id="L168"><a href="#L168">168</a></td>
+<td class="line" id="L166"><a href="#L166">166</a></td>
 <td class="hits"></td>
 <td class="source"><code>handle_info(Info, State) -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L169"><a href="#L169">169</a></td>
+<td class="line" id="L167"><a href="#L167">167</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    ?LOG_ERROR("Got unexpected info: ~p", [Info]),</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L170"><a href="#L170">170</a></td>
+<td class="line" id="L168"><a href="#L168">168</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    {noreply, State}.</code></td>
 </tr>
 <tr>
-<td class="line" id="L171"><a href="#L171">171</a></td>
+<td class="line" id="L169"><a href="#L169">169</a></td>
 <td class="hits"></td>
 <td class="source"><code></code></td>
 </tr>
 <tr>
-<td class="line" id="L172"><a href="#L172">172</a></td>
+<td class="line" id="L170"><a href="#L170">170</a></td>
 <td class="hits"></td>
 <td class="source"><code>-spec terminate(normal | shutdown | {shutdown, term()} | term(), state()) -&gt; ok.</code></td>
 </tr>
 <tr>
-<td class="line" id="L173"><a href="#L173">173</a></td>
+<td class="line" id="L171"><a href="#L171">171</a></td>
 <td class="hits"></td>
 <td class="source"><code>terminate(Reason, #client_state{socket = Socket, client = Client}) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L174"><a href="#L174">174</a></td>
+<td class="line" id="L172"><a href="#L172">172</a></td>
 <td class="hits">6</td>
 <td class="source"><code>    ?LOG_NOTICE("Closing session of ~s (~p)", [Client, Reason]),</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L173"><a href="#L173">173</a></td>
+<td class="hits">6</td>
+<td class="source"><code>    Goodbye = &lt;&lt;?GOODBYE_MSG ?EOL&gt;&gt;,</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L174"><a href="#L174">174</a></td>
+<td class="hits">6</td>
+<td class="source"><code>    ok = gen_tcp:send(Socket, Goodbye),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L175"><a href="#L175">175</a></td>

@@ -65,6 +65,8 @@ jobs:
         run: rebar3 ct
       - name: Check test coverage
         run: rebar3 cover
+      - name: Check code style
+        run: rebar3 lint
       - name: Generate documentation
         run: rebar3 edoc
       - name: Collect web pages

@@ -34,35 +34,10 @@ $ sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/
 $ sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 '''
 
-A systemd unit such as the following could be used:
+A systemd service unit could be installed and enabled like this:
 
 ```
-# /etc/systemd/system/textgroup.service
-
-[Unit]
-Description=Textgroup server
-Wants=epmd.service
-After=epmd.service network.target
-Documentation=https://weiss.github.io/textgroup/
-
-[Service]
-Type=notify
-User=_textgroup
-ExecStart=/opt/textgroup/bin/textgroup foreground
-ExecStop=/opt/textgroup/bin/textgroup stop
-Restart=on-failure
-WatchdogSec=30
-ProtectSystem=full
-NoNewPrivileges=true
-Environment="ERL_EPMD_ADDRESS=127.0.0.1"
-
-[Install]
-WantedBy=multi-user.target
-'''
-
-The service would then be enabled like this:
-
-```
+sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl --now enable textgroup
 '''

@@ -1,0 +1,19 @@
+[Unit]
+Description={{release_name}} server
+Wants=epmd.service
+After=epmd.service network.target
+Documentation=https://weiss.github.io/{{release_name}}/
+
+[Service]
+Type=notify
+User=_{{release_name}}
+ExecStart={{install_prefix}}/bin/{{release_name}} foreground
+ExecStop={{install_prefix}}/bin/{{release_name}} stop
+Restart=on-failure
+WatchdogSec=30
+ProtectSystem=full
+NoNewPrivileges=true
+Environment="ERL_EPMD_ADDRESS={{epmd_address}}"
+
+[Install]
+WantedBy=multi-user.target

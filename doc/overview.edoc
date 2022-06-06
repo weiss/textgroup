@@ -37,9 +37,9 @@ $ sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 A systemd service unit could be installed and enabled like this:
 
 ```
-sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
-sudo systemctl daemon-reload
-sudo systemctl --now enable textgroup
+$ sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
+$ sudo systemctl daemon-reload
+$ sudo systemctl --now enable textgroup
 '''
 
 == Configuring Textgroup ==

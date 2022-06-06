@@ -46,9 +46,11 @@ $ sudo systemctl --now enable textgroup
 
 The `/opt/textgroup/releases/0.1.0/sys.config' file may be edited in order to
 adjust configuration settings such as the TCP port number. As an alternative,
-those settings can be overridden on the command line in the systemd unit, e.g.:
+those settings can be overridden on the command line in the systemd unit. For
+example, run `sudo systemctl edit textgroup' and enter:
 
 ```
+[Service]
 ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111
 '''
 
@@ -61,6 +63,12 @@ commands, see:
 
 ```
 $ /opt/textgroup/bin/textgroup help
+'''
+
+The log output can be viewed with:
+
+```
+$ sudo journalctl -u textgroup
 '''
 
 == Using Textgroup ==

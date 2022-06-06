@@ -9,7 +9,7 @@
 <div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
 <h1>Textgroup Documentation</h1>
 <p>Copyright © 2022 Holger Weiss</p>
-<p><b>Version:</b> 0.1.0 (May 15 2022)</p>
+<p><b>Version:</b> 0.1.0 (Jun 6 2022)</p>
 <p><b>Authors:</b> Holger Weiss.</p>
 <p>Textgroup is a groupchat service usable with TCP clients such as Telnet or
 Netcat. Test suite logs can be viewed on
@@ -37,33 +37,10 @@ user and extract the release archive into that user's <code>$HOME</code> directo
 $ sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 $ sudo chown -R -h _textgroup:_textgroup /opt/textgroup</pre>
 
-<p>A systemd unit such as the following could be used:</p>
+<p>A systemd service unit could be installed and enabled like this:</p>
 
-<pre># /etc/systemd/system/textgroup.service
-
-[Unit]
-Description=Textgroup server
-Wants=epmd.service
-After=epmd.service network.target
-Documentation=https://weiss.github.io/textgroup/
-
-[Service]
-Type=notify
-User=_textgroup
-ExecStart=/opt/textgroup/bin/textgroup foreground
-ExecStop=/opt/textgroup/bin/textgroup stop
-Restart=on-failure
-WatchdogSec=30
-ProtectSystem=full
-NoNewPrivileges=true
-Environment="ERL_EPMD_ADDRESS=127.0.0.1"
-
-[Install]
-WantedBy=multi-user.target</pre>
-
-<p>The service would then be enabled like this:</p>
-
-<pre>sudo systemctl daemon-reload
+<pre>sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
+sudo systemctl daemon-reload
 sudo systemctl --now enable textgroup</pre>
 
 <h3><a name="Configuring_Textgroup">Configuring Textgroup</a></h3>

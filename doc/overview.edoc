@@ -65,6 +65,12 @@ commands, see:
 $ /opt/textgroup/bin/textgroup help
 '''
 
+The log output can be viewed with:
+
+```
+$ sudo journalctl -u textgroup
+'''
+
 == Using Textgroup ==
 
 Textgroup can be used with TCP clients such as Telnet or Netcat. For example:

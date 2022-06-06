@@ -15,10 +15,10 @@ jobs:
     strategy:
       matrix:
         otp:
-          - '22.0'
+          - '23.0'
           - '25.0'
         include:
-          - otp: '22.0'
+          - otp: '23.0'
             rebar: '3.18.0'
           - otp: '25.0'
             rebar: '3.18.0'

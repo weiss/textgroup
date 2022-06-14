@@ -8,7 +8,7 @@ application for Erlang/OTP newcomers.
 
 ## Requirements
 
-- [Erlang/OTP][erlang] (23 or newer).
+- [Erlang/OTP][erlang] (22 or newer).
 - [Rebar3][rebar3] (3.16.0 or newer).
 
 ## Building Textgroup

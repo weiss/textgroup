@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/ct/textgroup_acceptor_sup.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor_sup.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-07-07 at 09:47:33</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor_sup.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-07-08 at 09:43:53</p></footer>
 <table>
 <tbody>
 <tr>
@@ -263,12 +263,12 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L32"><a href="#L32">32</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    ?LOG_DEBUG("Starting acceptor supervisor"),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L33"><a href="#L33">33</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    supervisor:start_link({local, ?SERVER}, ?MODULE, []).</code></td>
 </tr>
 <tr>
@@ -288,32 +288,32 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L37"><a href="#L37">37</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    ?LOG_DEBUG("Initializing acceptor supervisor"),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L38"><a href="#L38">38</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    {ok, Port} = application:get_env(port),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L39"><a href="#L39">39</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    {ok, PoolSize} = application:get_env(pool_size),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L40"><a href="#L40">40</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    Listener = start_listener(Port),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L41"><a href="#L41">41</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    SupFlags = #{},</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L42"><a href="#L42">42</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    ChildSpecs =</code></td>
 </tr>
 <tr>
@@ -328,7 +328,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L45"><a href="#L45">45</a></td>
-<td class="hits">5</td>
+<td class="hits">15</td>
 <td class="source"><code>                  #{id =&gt; {textgroup_acceptor_sup, N},</code></td>
 </tr>
 <tr>
@@ -343,7 +343,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L48"><a href="#L48">48</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    {ok, {SupFlags, ChildSpecs}}.</code></td>
 </tr>
 <tr>
@@ -373,12 +373,12 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L54"><a href="#L54">54</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    ?LOG_DEBUG("Starting listener on port ~B", [Port]),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L55"><a href="#L55">55</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    {ok, Listener} = gen_tcp:listen(Port, [binary,</code></td>
 </tr>
 <tr>
@@ -413,7 +413,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L62"><a href="#L62">62</a></td>
-<td class="hits">1</td>
+<td class="hits">2</td>
 <td class="source"><code>    Listener.</code></td>
 </tr>
 </tbody>

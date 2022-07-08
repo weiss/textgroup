@@ -70,6 +70,7 @@ all() ->
      peers,
      stats,
      help,
+     config_change,
      stop_server].
 
 %% Test cases.
@@ -94,6 +95,13 @@ stats(Config) ->
 -spec help(config()) -> any().
 help(Config) ->
     ok = query(Config, <<"help">>, <<"quit">>).
+
+-spec config_change(config()) -> any().
+config_change(_Config) ->
+    Opts = [{persistent, true}],
+    Size = 10,
+    ok = application:set_env(textgroup, pool_size, Size, Opts),
+    ok = textgroup_app:config_change([{pool_size, Size}], [], []).
 
 -spec stop_server(config()) -> any().
 stop_server(_Config) ->

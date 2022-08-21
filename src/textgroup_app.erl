@@ -16,7 +16,6 @@
 %%% limitations under the License.
 
 -module(textgroup_app).
--author('holger@zedat.fu-berlin.de').
 -behaviour(application).
 -export([start/2,
          prep_stop/1,

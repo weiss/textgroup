@@ -16,7 +16,6 @@
 %%% limitations under the License.
 
 -module(textgroup_acceptor).
--author('holger@zedat.fu-berlin.de').
 -export([start_link/1]).
 -export([init/1]).
 -export([loop/1]).

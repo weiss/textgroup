@@ -16,7 +16,6 @@
 %%% limitations under the License.
 
 -module(textgroup_client).
--author('holger@zedat.fu-berlin.de').
 -behaviour(gen_server).
 -export([start/1,
          send/2,

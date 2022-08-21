@@ -16,7 +16,6 @@
 %%% limitations under the License.
 
 -module(textgroup_client_sup).
--author('holger@zedat.fu-berlin.de').
 -behaviour(supervisor).
 -export([start_link/0,
          init/1]).

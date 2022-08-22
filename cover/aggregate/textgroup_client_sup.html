@@ -103,7 +103,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/aggregate/textgroup_client_sup.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client_sup.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-07-08 at 14:26:20</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_client_sup.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2022-08-22 at 09:45:26</p></footer>
 <table>
 <tbody>
 <tr>
@@ -199,105 +199,100 @@ td.source {
 <tr>
 <td class="line" id="L19"><a href="#L19">19</a></td>
 <td class="hits"></td>
-<td class="source"><code>-author('holger@zedat.fu-berlin.de').</code></td>
+<td class="source"><code>-behaviour(supervisor).</code></td>
 </tr>
 <tr>
 <td class="line" id="L20"><a href="#L20">20</a></td>
 <td class="hits"></td>
-<td class="source"><code>-behaviour(supervisor).</code></td>
+<td class="source"><code>-export([start_link/0,</code></td>
 </tr>
 <tr>
 <td class="line" id="L21"><a href="#L21">21</a></td>
 <td class="hits"></td>
-<td class="source"><code>-export([start_link/0,</code></td>
+<td class="source"><code>         init/1]).</code></td>
 </tr>
 <tr>
 <td class="line" id="L22"><a href="#L22">22</a></td>
 <td class="hits"></td>
-<td class="source"><code>         init/1]).</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L23"><a href="#L23">23</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>-include_lib("kernel/include/logger.hrl").</code></td>
 </tr>
 <tr>
 <td class="line" id="L24"><a href="#L24">24</a></td>
 <td class="hits"></td>
-<td class="source"><code>-include_lib("kernel/include/logger.hrl").</code></td>
+<td class="source"><code>-define(SERVER, ?MODULE).</code></td>
 </tr>
 <tr>
 <td class="line" id="L25"><a href="#L25">25</a></td>
 <td class="hits"></td>
-<td class="source"><code>-define(SERVER, ?MODULE).</code></td>
+<td class="source"><code></code></td>
 </tr>
 <tr>
 <td class="line" id="L26"><a href="#L26">26</a></td>
 <td class="hits"></td>
-<td class="source"><code></code></td>
+<td class="source"><code>-spec start_link() -&gt; {ok, pid()} | {error, term()}.</code></td>
 </tr>
 <tr>
 <td class="line" id="L27"><a href="#L27">27</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec start_link() -&gt; {ok, pid()} | {error, term()}.</code></td>
-</tr>
-<tr>
-<td class="line" id="L28"><a href="#L28">28</a></td>
-<td class="hits"></td>
 <td class="source"><code>start_link() -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L29"><a href="#L29">29</a></td>
+<td class="line" id="L28"><a href="#L28">28</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_DEBUG("Starting client supervisor"),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L30"><a href="#L30">30</a></td>
+<td class="line" id="L29"><a href="#L29">29</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    supervisor:start_link({local, ?SERVER}, ?MODULE, []).</code></td>
 </tr>
 <tr>
-<td class="line" id="L31"><a href="#L31">31</a></td>
+<td class="line" id="L30"><a href="#L30">30</a></td>
 <td class="hits"></td>
 <td class="source"><code></code></td>
 </tr>
 <tr>
-<td class="line" id="L32"><a href="#L32">32</a></td>
+<td class="line" id="L31"><a href="#L31">31</a></td>
 <td class="hits"></td>
 <td class="source"><code>-spec init([]) -&gt; {ok, {supervisor:sup_flags(), [supervisor:child_spec()]}}.</code></td>
 </tr>
 <tr>
-<td class="line" id="L33"><a href="#L33">33</a></td>
+<td class="line" id="L32"><a href="#L32">32</a></td>
 <td class="hits"></td>
 <td class="source"><code>init([]) -&gt;</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L34"><a href="#L34">34</a></td>
+<td class="line" id="L33"><a href="#L33">33</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ?LOG_DEBUG("Initializing client supervisor"),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L35"><a href="#L35">35</a></td>
+<td class="line" id="L34"><a href="#L34">34</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    SupFlags = #{strategy =&gt; simple_one_for_one},</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L36"><a href="#L36">36</a></td>
+<td class="line" id="L35"><a href="#L35">35</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ChildSpecs = [#{id =&gt; textgroup_client,</code></td>
 </tr>
 <tr>
-<td class="line" id="L37"><a href="#L37">37</a></td>
+<td class="line" id="L36"><a href="#L36">36</a></td>
 <td class="hits"></td>
 <td class="source"><code>                    start =&gt; {textgroup_client, start_link, []},</code></td>
 </tr>
 <tr>
-<td class="line" id="L38"><a href="#L38">38</a></td>
+<td class="line" id="L37"><a href="#L37">37</a></td>
 <td class="hits"></td>
 <td class="source"><code>                    restart =&gt; temporary}],</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L39"><a href="#L39">39</a></td>
+<td class="line" id="L38"><a href="#L38">38</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    {ok, {SupFlags, ChildSpecs}}.</code></td>
 </tr>

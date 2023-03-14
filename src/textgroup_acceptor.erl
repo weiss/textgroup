@@ -22,6 +22,7 @@
 -export([system_continue/3,
          system_terminate/4,
          system_code_change/4]).
+-export_type([state/0]).
 
 -include_lib("kernel/include/logger.hrl").
 
@@ -29,7 +30,7 @@
         {parent :: pid() | undefined,
          listener :: gen_tcp:socket() | undefined}).
 
--type state() :: #acceptor_state{}.
+-opaque state() :: #acceptor_state{}.
 
 %% API.
 

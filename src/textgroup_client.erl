@@ -27,6 +27,7 @@
          handle_info/2,
          terminate/2,
          code_change/3]).
+-export_type([state/0]).
 
 -include_lib("kernel/include/logger.hrl").
 -define(EOL, "\r\n").
@@ -44,7 +45,7 @@
          n_sent = 0 :: non_neg_integer(),
          n_rcvd = 0 :: non_neg_integer()}).
 
--type state() :: #client_state{}.
+-opaque state() :: #client_state{}.
 
 %% API.
 

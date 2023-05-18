@@ -70,6 +70,7 @@ all() ->
      peers,
      stats,
      help,
+     get_state,
      config_change,
      stop_server].
 
@@ -95,6 +96,14 @@ stats(Config) ->
 -spec help(config()) -> any().
 help(Config) ->
     ok = query(Config, <<"help">>, <<"quit">>).
+
+-spec get_state(config()) -> any().
+get_state(_Config) ->
+    {ok, Size} = application:get_env(textgroup, pool_size),
+    ct:pal("Requesting state of the ~B acceptor processes", [Size]),
+    ok = lists:foreach(fun({_, PID, _, [textgroup_acceptor]}) ->
+                               {acceptor_state, _, _} = sys:get_state(PID)
+                       end, supervisor:which_children(textgroup_acceptor_sup)).
 
 -spec config_change(config()) -> any().
 config_change(_Config) ->

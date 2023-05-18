@@ -17,13 +17,13 @@ jobs:
         otp:
           - '22.0'
           - '24.3'
-          - '25.3'
+          - '26.0'
         include:
           - otp: '22.0'
             rebar: '3.18.0'
           - otp: '24.3'
             rebar: '3.19.0'
-          - otp: '25.3'
+          - otp: '26.0'
             rebar: '3.19.0'
       fail-fast: false
     steps:
@@ -96,7 +96,7 @@ jobs:
       - name: Retrieve web pages
         uses: actions/download-artifact@v3
         with:
-          name: textgroup-html-otp-25.3
+          name: textgroup-html-otp-26.0
           path: public
       - name: Deploy web site to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

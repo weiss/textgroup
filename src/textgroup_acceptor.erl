@@ -43,6 +43,7 @@ start_link(Listener) ->
 -spec init(state()) -> no_return().
 init(State) ->
     ?LOG_DEBUG("Initializing acceptor process"),
+    process_flag(trap_exit, true),
     proc_lib:init_ack({ok, self()}),
     loop(State).
 
@@ -75,6 +76,8 @@ loop(#acceptor_state{parent = Parent, listener = Listener} = State) ->
     receive
         {system, From, Request} ->
             sys:handle_system_msg(Request, From, Parent, ?MODULE, [], State);
+        {'EXIT', Parent, Reason} ->
+            system_terminate(Reason, Parent, [], State);
         Msg ->
             ?LOG_ERROR("Got unexpected message: ~p", [Msg]),
             ?MODULE:loop(State)

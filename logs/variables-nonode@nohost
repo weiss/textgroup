@@ -1,4 +1,5 @@
 {config,[{ct_config_plain,["/home/runner/work/textgroup/textgroup/test/textgroup_SUITE.config"]}]}.
 {event_handler,[]}.
-{ct_hooks,[cth_readable_failonly,cth_readable_compact_shell,cth_retry]}.
+{ct_hooks,[cth_readable_failonly,cth_readable_compact_shell,cth_retry,
+           cth_log_redirect]}.
 {enable_builtin_hooks,undefined}.

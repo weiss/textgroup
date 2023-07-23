@@ -103,6 +103,7 @@ All that said, real-world projects will often just use an existing application
 [acceptor]: https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl
 [problem]: https://erlang.org/pipermail/erlang-questions/2016-April/088847.html
 [sys]: https://erlang.org/doc/man/sys.html
+[gen_tcp]: https://erlang.org/doc/man/gen_tcp.html
 [gen_server]: https://erlang.org/doc/design_principles/gen_server_concepts.html
 [semantics]: https://erlang.org/pipermail/erlang-questions/2008-February/032912.html
 [simple]: https://erlang.org/pipermail/erlang-questions/2017-August/093142.html

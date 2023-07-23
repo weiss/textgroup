@@ -21,7 +21,7 @@ a dedicated `_textgroup` user and extract the release archive into that user's
 `$HOME` directory:
 
 ```sh
-$ sudo useradd -r -m -d /opt/textgroup _textgroup
+$ sudo useradd -m -d /opt/textgroup _textgroup
 $ sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 $ sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 ```

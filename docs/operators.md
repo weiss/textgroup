@@ -95,7 +95,7 @@ If the new release doesn't work as expected, a downgrade to the old one can be
 performed:
 
 ```sh
-$ /opt/textgroup/bin/textgroup downgrade 0.2.0
+$ /opt/textgroup/bin/textgroup downgrade 0.1.0
 ```
 
 The unused release can then be removed. E.g., to uninstall the new one after

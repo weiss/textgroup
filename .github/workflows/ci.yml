@@ -74,14 +74,16 @@ jobs:
         env:
           ERL_FLAGS: -enable-feature all
       - name: Generate documentation
-        run: rebar3 edoc
+        run: rebar3 ex_doc # Requires Erlang/OTP 24 or newer:
+        if: matrix.otp != 22.0
       - name: Collect web pages
         run: |
           mkdir public
           cp -a doc/* _build/test/logs _build/test/cover public
+        if: matrix.otp != 22.0
       - name: Upload web pages
         uses: actions/upload-artifact@v3
-        if: always()
+        if: matrix.otp != 22.0 && always()
         with:
           name: textgroup-html-otp-${{matrix.otp}}
           path: public

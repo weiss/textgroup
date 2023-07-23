@@ -1,10 +1,7 @@
 #
-# Edoc:
+# ExDoc:
 #
-/doc/edoc-info
-/doc/erlang.png
-/doc/stylesheet.css
-/doc/*.html
+/doc/
 #
 # Auto-added by Rebar3:
 #

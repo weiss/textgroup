@@ -126,7 +126,7 @@ in the <code class="inline">$PATH</code>.</p><pre><code class="makeup sh" transl
 includes the required parts of Erlang/OTP and can be extracted to an arbitrary
 location. For a persistent installation, the administrator might want to create
 a dedicated <code class="inline">_textgroup</code> user and extract the release archive into that user's
-<code class="inline">$HOME</code> directory:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo useradd -r -m -d /opt/textgroup _textgroup
+<code class="inline">$HOME</code> directory:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo useradd -m -d /opt/textgroup _textgroup
 </span><span class="gp unselectable">$ </span><span class="">sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 </span><span class="gp unselectable">$ </span><span class="">sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 </span></code></pre><p>A systemd service unit could be installed and enabled like this:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
@@ -141,7 +141,7 @@ a dedicated <code class="inline">_textgroup</code> user and extract the release 
 <p>The <code class="inline">/opt/textgroup/releases/0.1.0/sys.config</code> file may be edited in order to
 adjust configuration settings such as the TCP port number. As an alternative,
 those settings can be overridden on the command line in the systemd unit. For
-example, run <code class="inline">sudo systemctl edit textgroup</code> and enter:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="7304656763-1">[</span><span class="n">Service</span><span class="p" data-group-id="7304656763-1">]</span><span class="w">
+example, run <code class="inline">sudo systemctl edit textgroup</code> and enter:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="6753478692-1">[</span><span class="n">Service</span><span class="p" data-group-id="6753478692-1">]</span><span class="w">
 </span><span class="n">ExecStart</span><span class="o">=</span><span class="o">/</span><span class="ss">opt</span><span class="o">/</span><span class="ss">textgroup</span><span class="o">/</span><span class="ss">bin</span><span class="o">/</span><span class="ss">textgroup</span><span class="w"> </span><span class="ss">foreground</span><span class="w"> </span><span class="o">-</span><span class="ss">textgroup</span><span class="w"> </span><span class="ss">port</span><span class="w"> </span><span class="mi">1111</span></code></pre><h2 id="controlling-textgroup" class="section-heading">
   <a href="#controlling-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">controlling-textgroup</p>
@@ -171,7 +171,7 @@ commands, see:</p><pre><code class="makeup sh" translate="no"><span class="gp un
 following ones as the <code class="inline">_textgroup</code> user):</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">cp /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
 </span></code></pre><p>Finally, the actual upgrade of the running service is performed like this:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup upgrade 0.2.0
 </span></code></pre><p>If the new release doesn't work as expected, a downgrade to the old one can be
-performed:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup downgrade 0.2.0
+performed:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup downgrade 0.1.0
 </span></code></pre><p>The unused release can then be removed. E.g., to uninstall the new one after
 downgrading:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup uninstall 0.2.0
 </span></code></pre><p>A few caveats: If data structures (such as the <code class="inline">client_state</code> record) were

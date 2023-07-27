@@ -168,8 +168,8 @@ connection. The <a href="https://erlang.org/pipermail/erlang-questions/2016-Apri
 unresponsive to <a href="https://erlang.org/doc/man/sys.html" title="">system messages</a>. Basically, OTP processes are supposed
 to only ever wait for <em>Erlang</em> messages, to handle those in callback
 functions, and to return to waiting for the next Erlang message. As
-[<a href="https://www.erlang.org/doc/man/gen_tcp.html"><code class="inline">gen_tcp</code></a>][gen<em>tcp] (quite <a href="https://erlang.org/pipermail/erlang-questions/2008-February/032912.html" title="">against</a> the usual OTP semantics)
-doesn't offer a non-blocking way to accept connections (whereas there _is</em> a
+<a href="https://erlang.org/doc/man/gen_tcp.html" title=""><code class="inline">gen_tcp</code></a> (quite <a href="https://erlang.org/pipermail/erlang-questions/2008-February/032912.html" title="">against</a> the usual OTP semantics)
+doesn't offer a non-blocking way to accept connections (whereas there <em>is</em> a
 non-blocking way to receive data from the socket), the acceptor processes call
 <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-2"><code class="inline">gen_tcp:accept/2</code></a> with a timeout, so they can check for system messages every
 few seconds. One alternative is to spawn <a href="https://erlang.org/pipermail/erlang-questions/2017-August/093142.html" title="">simple</a> (non-OTP) processes

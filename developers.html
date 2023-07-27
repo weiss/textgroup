@@ -106,7 +106,8 @@ textgroup
   </a>
   Development
 </h2>
-<p>The official build tool for <a href="https://erlang.org" title="">Erlang/OTP</a> is <a href="https://rebar3.org" title="">Rebar3</a>.</p><h3 id="building-textgroup" class="section-heading">
+<p>Textgroup requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be in the
+<code class="inline">$PATH</code>.</p><h3 id="building-textgroup" class="section-heading">
   <a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">building-textgroup</p>
   </a>
@@ -141,8 +142,8 @@ textgroup
   Creating a Textgroup Release
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 release
-</span></code></pre><p>See the [operator documentation][operators] for hints on how to deploy and run
-such a release.</p><h2 id="design-hints" class="section-heading">
+</span></code></pre><p>See the <a href="https://weiss.github.io/textgroup/operators.html" title="">operator documentation</a> for hints on how to deploy and run such a
+release.</p><h2 id="design-hints" class="section-heading">
   <a href="#design-hints" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">design-hints</p>
   </a>
@@ -195,7 +196,7 @@ handler processes. This allows for asking <a href="textgroup_client_sup.html"><c
 clients and communication with them without delays. This design would also
 allow more complex applications to easily close/change the listener socket
 without disconnecting existing clients.</p></li></ul><p>All that said, real-world projects will often just use an existing application
-(such as <a href="https://ninenines.eu/docs/#ranch" title="">Ranch</a>) for accepting connections.</p><p>[operators]:</p>
+(such as <a href="https://ninenines.eu/docs/#ranch" title="">Ranch</a>) for accepting connections.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 

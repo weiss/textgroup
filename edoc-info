@@ -1,5 +1,0 @@
-%% encoding: UTF-8
-{application,textgroup}.
-{modules,[textgroup_acceptor,textgroup_acceptor_sup,textgroup_app,
-          textgroup_client,textgroup_client_sup,textgroup_sup,
-          textgroup_systemd]}.

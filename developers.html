@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="textgroup v0.1.0">
+
+    <title>For Developers — textgroup v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-AUG7C7KY.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-3596EE71.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="readme.html" class="sidebar-projectName" translate="no">
+textgroup
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Documentation for Developers</span>
+</h1>
+
+<h2 id="development" class="section-heading">
+  <a href="#development" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">development</p>
+  </a>
+  Development
+</h2>
+<p>The official build tool for <a href="https://erlang.org" title="">Erlang/OTP</a> is <a href="https://rebar3.org" title="">Rebar3</a>.</p><h3 id="building-textgroup" class="section-heading">
+  <a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">building-textgroup</p>
+  </a>
+  Building Textgroup
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 compile
+</span></code></pre><h3 id="testing-textgroup" class="section-heading">
+  <a href="#testing-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">testing-textgroup</p>
+  </a>
+  Testing Textgroup
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 check
+</span></code></pre><h3 id="running-textgroup" class="section-heading">
+  <a href="#running-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">running-textgroup</p>
+  </a>
+  Running Textgroup
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 shell
+</span></code></pre><h3 id="creating-textgroup-documentation" class="section-heading">
+  <a href="#creating-textgroup-documentation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">creating-textgroup-documentation</p>
+  </a>
+  Creating Textgroup Documentation
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 ex_doc
+</span></code></pre><h3 id="creating-a-textgroup-release" class="section-heading">
+  <a href="#creating-a-textgroup-release" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">creating-a-textgroup-release</p>
+  </a>
+  Creating a Textgroup Release
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">rebar3 release
+</span></code></pre><p>See the [operator documentation][operators] for hints on how to deploy and run
+such a release.</p><h2 id="design-hints" class="section-heading">
+  <a href="#design-hints" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">design-hints</p>
+  </a>
+  Design Hints
+</h2>
+<p>The Textgroup service uses the <a href="https://erlang.org/doc/design_principles/des_princ.html#supervision-trees" title="">supervision tree</a> shown below: The
+<a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_sup.erl" title="">main</a> supervisor starts a worker child (for integrating with
+systemd) and two supervisor childs, <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor_sup.erl" title="">one</a> for supervising a
+fixed-size pool of <a href="https://github.com/weiss/textgroup/blob/main/config/sys.config" title="">five</a> TCP connection acceptors, and
+<a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_client_sup.erl" title="">another</a> one for supervising dynamically created connection
+handlers, one per client (there's six of them, in this example).</p><p><img src="https://raw.githubusercontent.com/weiss/textgroup/main/docs/assets/supervision.png" alt="Supervision tree" title=""/></p><p>This is a straightforward structure, <em>except</em> that the acceptor processes work
+in a somewhat non-ideomatic way. However, don't let the
+<a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl" title="">implementation</a> confuse you: Maybe just view it as a blackbox for the
+moment. Once everything else seems clear, here's an explanation of what's going
+on in the <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> module:</p><ul><li><p>Each acceptor process blocks in <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-2"><code class="inline">gen_tcp:accept/2</code></a> while waiting for a new
+connection. The <a href="https://erlang.org/pipermail/erlang-questions/2016-April/088847.html" title="">problem</a> is: While waiting, the process is
+unresponsive to <a href="https://erlang.org/doc/man/sys.html" title="">system messages</a>. Basically, OTP processes are supposed
+to only ever wait for <em>Erlang</em> messages, to handle those in callback
+functions, and to return to waiting for the next Erlang message. As
+[<a href="https://www.erlang.org/doc/man/gen_tcp.html"><code class="inline">gen_tcp</code></a>][gen<em>tcp] (quite <a href="https://erlang.org/pipermail/erlang-questions/2008-February/032912.html" title="">against</a> the usual OTP semantics)
+doesn't offer a non-blocking way to accept connections (whereas there _is</em> a
+non-blocking way to receive data from the socket), the acceptor processes call
+<a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-2"><code class="inline">gen_tcp:accept/2</code></a> with a timeout, so they can check for system messages every
+few seconds. One alternative is to spawn <a href="https://erlang.org/pipermail/erlang-questions/2017-August/093142.html" title="">simple</a> (non-OTP) processes
+just for blocking in <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-1"><code class="inline">gen_tcp:accept/1</code></a>, and then wake a proper OTP process
+for handling the new connection, basically implementing the non-blocking
+mechanism to accept connections that <a href="https://www.erlang.org/doc/man/gen_tcp.html"><code class="inline">gen_tcp</code></a> doesn't provide. Another option
+would be using <a href="https://www.erlang.org/doc/man/prim_inet.html#async_accept-2"><code class="inline">prim_inet:async_accept/2</code></a>, which <em>does</em> offer this
+functionality. However, that's not a documented interface. In the future, a
+nicer solution might become available based on the new <a href="https://www.erlang.org/doc/man/socket.html"><code class="inline">socket</code></a> backend, which
+provides a non-blocking <a href="https://erlang.org/doc/man/socket.html#accept-2" title=""><code class="inline">accept/2</code></a> variant.</p></li><li><p>The <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> is built as a <a href="https://erlang.org/doc/design_principles/spec_proc.html#special-processes" title="">special process</a>. It could
+just as well be implemented as a <a href="https://erlang.org/doc/design_principles/gen_server_concepts.html" title="">generic server</a> with the same
+behavior. The only reason it wasn't done this way is that most <a href="https://www.erlang.org/doc/man/gen_server.html"><code class="inline">gen_server</code></a>
+features would remain unused. Matter of taste.</p></li><li><p>When a new connection is accepted, the acceptor asks <a href="textgroup_client_sup.html"><code class="inline">textgroup_client_sup</code></a> to
+spawn a new process for handling the client. An alternative would be to <em>not</em>
+split the tasks of accepting and handling connections into separate processes:
+You could spawn a pool of client handler processes that wait for new
+connections, maybe using the same workaround as the <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> to
+remain responsive. Those handlers would spawn a fresh worker immediately after
+accepting a connection, handle the connection, and then terminate. This is
+<a href="https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited" title="">suggested</a> in <a href="https://learnyousomeerlang.com" title="">Learn You Some Erlang</a> and <a href="https://www.manning.com/books/erlang-and-otp-in-action" title="">Erlang and OTP in
+Action</a>, for example. It would also be consistent with the usual
+Erlang pattern to create a process for each concurrent <em>activity</em> (processing
+a client connection from begin to end) rather than each <em>task</em> (accepting
+connections in one process and then handling them in another). However, for
+Textgroup, it seemed preferable to have a clear separation of the fixed-size
+acceptor pool on the one hand and the client handler processes on the other:
+The advantage is a one-to-one mapping of clients and (fully responsive)
+handler processes. This allows for asking <a href="textgroup_client_sup.html"><code class="inline">textgroup_client_sup</code></a> for a list of
+clients and communication with them without delays. This design would also
+allow more complex applications to easily close/change the listener socket
+without disconnecting existing clients.</p></li></ul><p>All that said, real-world projects will often just use an existing application
+(such as <a href="https://ninenines.eu/docs/#ranch" title="">Ranch</a>) for accepting connections.</p><p>[operators]:</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="operators.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+For Operators
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+            <span class="line">
+              <a href="https://hex.pm/packages/textgroup/0.1.0" class="footer-hex-package">Hex Package</a>
+
+              <a href="https://preview.hex.pm/preview/textgroup/0.1.0">Hex Preview</a>
+
+                (<a href="https://preview.hex.pm/preview/textgroup/0.1.0/show/docs/developers.md">current file</a>)
+
+            </span>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="textgroup.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

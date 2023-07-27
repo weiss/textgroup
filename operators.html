@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="textgroup v0.1.0">
+
+    <title>For Operators — textgroup v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-AUG7C7KY.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-3596EE71.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="readme.html" class="sidebar-projectName" translate="no">
+textgroup
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Documentation for Operators</span>
+</h1>
+
+<h2 id="building-textgroup" class="section-heading">
+  <a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">building-textgroup</p>
+  </a>
+  Building Textgroup
+</h2>
+<p>The Textgroup source code can be retrieved and built using the following
+commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
+in the <code class="inline">$PATH</code>.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">curl -L https://github.com/weiss/textgroup/archive/main.tar.gz | tar -C /tmp -xzf -
+</span><span class="gp unselectable">$ </span><span class="">cd /tmp/textgroup-main
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod tar
+</span></code></pre><h2 id="deploying-textgroup" class="section-heading">
+  <a href="#deploying-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">deploying-textgroup</p>
+  </a>
+  Deploying Textgroup
+</h2>
+<p>The self-contained <a href="https://erlang.org/doc/design_principles/release_structure.html" title="">release</a> archive built in the previous step
+includes the required parts of Erlang/OTP and can be extracted to an arbitrary
+location. For a persistent installation, the administrator might want to create
+a dedicated <code class="inline">_textgroup</code> user and extract the release archive into that user's
+<code class="inline">$HOME</code> directory:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo useradd -r -m -d /opt/textgroup _textgroup
+</span><span class="gp unselectable">$ </span><span class="">sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
+</span><span class="gp unselectable">$ </span><span class="">sudo chown -R -h _textgroup:_textgroup /opt/textgroup
+</span></code></pre><p>A systemd service unit could be installed and enabled like this:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
+</span><span class="gp unselectable">$ </span><span class="">sudo systemctl daemon-reload
+</span><span class="gp unselectable">$ </span><span class="">sudo systemctl --now enable textgroup
+</span></code></pre><h2 id="configuring-textgroup" class="section-heading">
+  <a href="#configuring-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">configuring-textgroup</p>
+  </a>
+  Configuring Textgroup
+</h2>
+<p>The <code class="inline">/opt/textgroup/releases/0.1.0/sys.config</code> file may be edited in order to
+adjust configuration settings such as the TCP port number. As an alternative,
+those settings can be overridden on the command line in the systemd unit. For
+example, run <code class="inline">sudo systemctl edit textgroup</code> and enter:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="0448409823-1">[</span><span class="n">Service</span><span class="p" data-group-id="0448409823-1">]</span><span class="w">
+</span><span class="n">ExecStart</span><span class="o">=</span><span class="o">/</span><span class="ss">opt</span><span class="o">/</span><span class="ss">textgroup</span><span class="o">/</span><span class="ss">bin</span><span class="o">/</span><span class="ss">textgroup</span><span class="w"> </span><span class="ss">foreground</span><span class="w"> </span><span class="o">-</span><span class="ss">textgroup</span><span class="w"> </span><span class="ss">port</span><span class="w"> </span><span class="mi">1111</span></code></pre><h2 id="controlling-textgroup" class="section-heading">
+  <a href="#controlling-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">controlling-textgroup</p>
+  </a>
+  Controlling Textgroup
+</h2>
+<p>The Textgroup service can be controlled using the <code class="inline">textgroup</code> command. The
+caller must have the same <code class="inline">.erlang.cookie</code> file (with correct permissions) in
+their <code class="inline">$HOME</code> directory as the user running Textgroup. For a list of available
+commands, see:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup help
+</span></code></pre><p>The log output can be viewed with:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">sudo journalctl -u textgroup
+</span></code></pre><h2 id="advanced-upgrading-textgroup" class="section-heading">
+  <a href="#advanced-upgrading-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">advanced-upgrading-textgroup</p>
+  </a>
+  Advanced: Upgrading Textgroup
+</h2>
+<p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">cd /tmp/textgroup-main
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod release
+</span><span class="gp unselectable">$ </span><span class="">editor src/*.erl
+</span><span class="gp unselectable">$ </span><span class="">sed -i s/0.1.0/0.2.0/ rebar.config src/textgroup.app.src
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod release
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod appup generate
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod relup -n textgroup -v 0.2.0
+</span><span class="gp unselectable">$ </span><span class="">rebar3 as prod tar
+</span></code></pre><p>The new release archive must then be copied into place (run this command and the
+following ones as the <code class="inline">_textgroup</code> user):</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">cp /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
+</span></code></pre><p>Finally, the actual upgrade of the running service is performed like this:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup upgrade 0.2.0
+</span></code></pre><p>If the new release doesn't work as expected, a downgrade to the old one can be
+performed:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup downgrade 0.2.0
+</span></code></pre><p>The unused release can then be removed. E.g., to uninstall the new one after
+downgrading:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">/opt/textgroup/bin/textgroup uninstall 0.2.0
+</span></code></pre><p>A few caveats: If data structures (such as the <code class="inline">client_state</code> record) were
+modified, converting them during the upgrade might require <a href="https://github.com/lrascao/rebar3_appup_plugin" title="">additional
+handling</a>. Complex applications/dependencies may well need
+explicit support for hot release upgrades, such as custom <a href="https://erlang.org/doc/design_principles/appup_cookbook.html" title="">appup</a> files.
+Also, if a different Erlang/OTP version is used to build a new release, the
+upgrade process involves a <a href="https://erlang.org/doc/system_principles/upgrade.html" title="">restart of the emulator</a>. For this to
+work, the <a href="https://erlang.org/doc/man/heart.html" title="">heart</a> functionality must be enabled.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="users.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+For Users
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="developers.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+For Developers
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+            <span class="line">
+              <a href="https://hex.pm/packages/textgroup/0.1.0" class="footer-hex-package">Hex Package</a>
+
+              <a href="https://preview.hex.pm/preview/textgroup/0.1.0">Hex Preview</a>
+
+                (<a href="https://preview.hex.pm/preview/textgroup/0.1.0/show/docs/operators.md">current file</a>)
+
+            </span>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="textgroup.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

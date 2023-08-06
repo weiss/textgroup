@@ -7,23 +7,33 @@ in the `$PATH`.
 
 ### Building Textgroup
 
-    $ rebar3 compile
+```shell
+$ rebar3 compile
+```
 
 ### Testing Textgroup
 
-    $ rebar3 check
+```shell
+$ rebar3 check
+```
 
 ### Running Textgroup
 
-    $ rebar3 shell
+```shell
+$ rebar3 shell
+```
 
 ### Creating Textgroup Documentation
 
-    $ rebar3 ex_doc
+```shell
+$ rebar3 ex_doc
+```
 
 ### Creating a Textgroup Release
 
-    $ rebar3 release
+```shell
+$ rebar3 release
+```
 
 See the [operator documentation][ops] for hints on how to deploy and run such a
 release.

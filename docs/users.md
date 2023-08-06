@@ -2,7 +2,7 @@
 
 Textgroup can be used with TCP clients such as Telnet or Netcat. For example:
 
-```sh
+```shell
 $ telnet localhost 1111
 ```
 

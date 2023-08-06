@@ -3,7 +3,7 @@
 Textgroup can be used with TCP clients such as Telnet or Netcat. For example:
 
 ```shell
-$ telnet localhost 1111
+telnet localhost 1111
 ```
 
 Once connected, the server understands the following commands:

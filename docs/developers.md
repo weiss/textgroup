@@ -8,31 +8,31 @@ in the `$PATH`.
 ### Building Textgroup
 
 ```shell
-$ rebar3 compile
+rebar3 compile
 ```
 
 ### Testing Textgroup
 
 ```shell
-$ rebar3 check
+rebar3 check
 ```
 
 ### Running Textgroup
 
 ```shell
-$ rebar3 shell
+rebar3 shell
 ```
 
 ### Creating Textgroup Documentation
 
 ```shell
-$ rebar3 ex_doc
+rebar3 ex_doc
 ```
 
 ### Creating a Textgroup Release
 
 ```shell
-$ rebar3 release
+rebar3 release
 ```
 
 See the [operator documentation][ops] for hints on how to deploy and run such a

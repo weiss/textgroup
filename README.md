@@ -17,7 +17,7 @@ The Textgroup service can be compiled and started [with an Erlang shell][shell]
 by running the following command:
 
 ```shell
-$ rebar3 shell
+rebar3 shell
 ```
 
 The service is stopped by calling `q().` within that shell.

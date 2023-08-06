@@ -78,8 +78,7 @@ jobs:
         if: matrix.otp != 22.0
       - name: Collect web pages
         run: |
-          mkdir public
-          cp -a doc/* _build/test/logs _build/test/cover public
+          cp -a _build/test/logs _build/test/cover public
         if: matrix.otp != 22.0
       - name: Upload web pages
         uses: actions/upload-artifact@v3

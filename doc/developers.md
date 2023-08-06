@@ -109,7 +109,7 @@ All that said, real-world projects will often just use an existing application
 [acceptor_sup]: https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor_sup.erl
 [pool_size]: https://github.com/weiss/textgroup/blob/main/config/sys.config
 [client_sup]: https://github.com/weiss/textgroup/blob/main/src/textgroup_client_sup.erl
-[tree]: https://raw.githubusercontent.com/weiss/textgroup/main/docs/assets/supervision.png
+[tree]: https://raw.githubusercontent.com/weiss/textgroup/main/doc/assets/supervision.png
 [acceptor]: https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl
 [problem]: https://erlang.org/pipermail/erlang-questions/2016-April/088847.html
 [sys]: https://erlang.org/doc/man/sys.html

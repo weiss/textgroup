@@ -159,7 +159,7 @@ release.</p><h2 id="design-hints" class="section-heading">
 systemd) and two supervisor childs, <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor_sup.erl" title="">one</a> for supervising a
 fixed-size pool of <a href="https://github.com/weiss/textgroup/blob/main/config/sys.config" title="">five</a> TCP connection acceptors, and
 <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_client_sup.erl" title="">another</a> one for supervising dynamically created connection
-handlers, one per client (there's six of them, in this example).</p><p><img src="https://raw.githubusercontent.com/weiss/textgroup/main/docs/assets/supervision.png" alt="Supervision tree" title=""/></p><p>This is a straightforward structure, <em>except</em> that the acceptor processes work
+handlers, one per client (there's six of them, in this example).</p><p><img src="https://raw.githubusercontent.com/weiss/textgroup/main/doc/assets/supervision.png" alt="Supervision tree" title=""/></p><p>This is a straightforward structure, <em>except</em> that the acceptor processes work
 in a somewhat non-ideomatic way. However, don't let the
 <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl" title="">implementation</a> confuse you: Maybe just view it as a blackbox for the
 moment. Once everything else seems clear, here's an explanation of what's going

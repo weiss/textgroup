@@ -30,14 +30,14 @@
 
 -spec suite() -> [info()].
 suite() ->
-    [{require, {host, [addr, port]}},
+    [{require, {server, [addr, port]}},
      {timetrap, {seconds, 30}}].
 
 -spec init_per_suite(config()) -> config().
 init_per_suite(Config) ->
-    Host = ct:get_config(host),
-    Addr = proplists:get_value(addr, Host),
-    Port = proplists:get_value(port, Host),
+    Server = ct:get_config(server),
+    Addr = proplists:get_value(addr, Server),
+    Port = proplists:get_value(port, Server),
     [{addr, Addr}, {port, Port} | Config].
 
 -spec end_per_suite(config()) -> ok.

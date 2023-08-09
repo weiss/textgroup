@@ -7,8 +7,8 @@ commands. This requires [Erlang/OTP][erlang] and [Rebar3][rebar3] to be
 in the `$PATH`.
 
 ```shell
-curl -L https://github.com/weiss/textgroup/archive/main.tar.gz | tar -C /tmp -xzf -
-cd /tmp/textgroup-main
+curl -L https://github.com/weiss/textgroup/archive/v0.1.0.tar.gz | tar -C /tmp -xzf -
+cd /tmp/textgroup-0.1.0
 rebar3 as prod tar
 ```
 
@@ -22,7 +22,7 @@ a dedicated `_textgroup` user and extract the release archive into that user's
 
 ```shell
 sudo useradd -m -d /opt/textgroup _textgroup
-sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
+sudo tar -C /opt/textgroup -xzf /tmp/textgroup-0.1.0/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 ```
 
@@ -68,7 +68,7 @@ sudo journalctl -u textgroup
 To create a new release that can be used to hot-upgrade the old one:
 
 ```shell
-cd /tmp/textgroup-main
+cd /tmp/textgroup-0.1.0
 rebar3 as prod release
 editor src/*.erl
 sed -i s/0.1.0/0.2.0/ rebar.config src/textgroup.app.src
@@ -82,7 +82,7 @@ The new release archive must then be copied into place (run this command and the
 following ones as the `_textgroup` user):
 
 ```shell
-cp /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
+cp /tmp/textgroup-0.1.0/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
 ```
 
 Finally, the actual upgrade of the running service is performed like this:

@@ -171,8 +171,8 @@ handle_info(Info, State) ->
 terminate(Reason, #client_state{socket = Socket, client = Client}) ->
     ?LOG_NOTICE("Closing session of ~s (~p)", [Client, Reason]),
     Goodbye = <<?GOODBYE_MSG ?EOL>>,
-    ok = gen_tcp:send(Socket, Goodbye),
-    ok = gen_tcp:close(Socket).
+    _ = gen_tcp:send(Socket, Goodbye),
+    _ = gen_tcp:close(Socket).
 
 -spec code_change({down, term()} | term(), state(), term()) -> {ok, state()}.
 code_change(_OldVsn, State, _Extra) ->

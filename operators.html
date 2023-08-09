@@ -113,8 +113,8 @@ textgroup
 </h2>
 <p>The Textgroup source code can be retrieved and built using the following
 commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
-in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" translate="no"><span class="">curl -L https://github.com/weiss/textgroup/archive/main.tar.gz | tar -C /tmp -xzf -
-</span><span class="">cd /tmp/textgroup-main
+in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" translate="no"><span class="">curl -L https://github.com/weiss/textgroup/archive/v0.1.0.tar.gz | tar -C /tmp -xzf -
+</span><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod tar
 </span></code></pre><h2 id="deploying-textgroup" class="section-heading">
   <a href="#deploying-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
@@ -127,7 +127,7 @@ includes the required parts of Erlang/OTP and can be extracted to an arbitrary
 location. For a persistent installation, the administrator might want to create
 a dedicated <code class="inline">_textgroup</code> user and extract the release archive into that user's
 <code class="inline">$HOME</code> directory:</p><pre><code class="makeup shell" translate="no"><span class="">sudo useradd -m -d /opt/textgroup _textgroup
-</span><span class="">sudo tar -C /opt/textgroup -xzf /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
+</span><span class="">sudo tar -C /opt/textgroup -xzf /tmp/textgroup-0.1.0/_build/prod/rel/textgroup/textgroup-0.1.0.tar.gz
 </span><span class="">sudo chown -R -h _textgroup:_textgroup /opt/textgroup
 </span></code></pre><p>A systemd service unit could be installed and enabled like this:</p><pre><code class="makeup shell" translate="no"><span class="">sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
 </span><span class="">sudo systemctl daemon-reload
@@ -159,7 +159,7 @@ commands, see:</p><pre><code class="makeup shell" translate="no"><span class="">
   </a>
   Advanced: Upgrading Textgroup
 </h2>
-<p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup shell" translate="no"><span class="">cd /tmp/textgroup-main
+<p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup shell" translate="no"><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod release
 </span><span class="">editor src/*.erl
 </span><span class="">sed -i s/0.1.0/0.2.0/ rebar.config src/textgroup.app.src
@@ -168,7 +168,7 @@ commands, see:</p><pre><code class="makeup shell" translate="no"><span class="">
 </span><span class="">rebar3 as prod relup -n textgroup -v 0.2.0
 </span><span class="">rebar3 as prod tar
 </span></code></pre><p>The new release archive must then be copied into place (run this command and the
-following ones as the <code class="inline">_textgroup</code> user):</p><pre><code class="makeup shell" translate="no"><span class="">cp /tmp/textgroup-main/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
+following ones as the <code class="inline">_textgroup</code> user):</p><pre><code class="makeup shell" translate="no"><span class="">cp /tmp/textgroup-0.1.0/_build/prod/rel/textgroup/textgroup-0.2.0.tar.gz /opt/textgroup/releases
 </span></code></pre><p>Finally, the actual upgrade of the running service is performed like this:</p><pre><code class="makeup shell" translate="no"><span class="">/opt/textgroup/bin/textgroup upgrade 0.2.0
 </span></code></pre><p>If the new release doesn't work as expected, a downgrade to the old one can be
 performed:</p><pre><code class="makeup shell" translate="no"><span class="">/opt/textgroup/bin/textgroup downgrade 0.1.0

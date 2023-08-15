@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.1">
+    <meta name="generator" content="ExDoc v0.30.5">
     <meta name="project" content="textgroup v0.1.0">
 
     <title>For Developers — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-6FXMBT73.css" />
+    <link rel="stylesheet" href="dist/html-erlang-6R3HDDY5.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-IV5W3OL2.js"></script>
-    <script src="dist/sidebar_items-88663E93.js"></script>
+    <script src="dist/handlebars.templates-NBND3S2D.js"></script>
+    <script src="dist/sidebar_items-5512ABE3.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-XN2TSG4M.js"></script>
+    <script async src="dist/html-B3DGGEY7.js"></script>
 
 
   </head>
@@ -67,9 +67,9 @@
       <a href="readme.html" class="sidebar-projectName" translate="no">
 textgroup
       </a>
-      <strong class="sidebar-projectVersion" translate="no">
+      <div class="sidebar-projectVersion" translate="no">
         v0.1.0
-      </strong>
+      </div>
     </div>
     <ul class="sidebar-listNav">
       <li><a id="extras-list-link" href="#full-list">Pages</a></li>
@@ -81,7 +81,7 @@ textgroup
   </div>
 
   <div class="gradient"></div>
-  <ul id="full-list" class="sidebar-fullList"></ul>
+  <ul id="full-list"></ul>
 </section>
 
 <section class="content">
@@ -106,53 +106,53 @@ textgroup
 </h1>
 
 <h2 id="development" class="section-heading">
-  <a href="#development" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">development</p>
+  <a href="#development">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Development
   </a>
-  Development
 </h2>
 <p>Textgroup development requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
 in the <code class="inline">$PATH</code>.</p><h3 id="building-textgroup" class="section-heading">
-  <a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">building-textgroup</p>
+  <a href="#building-textgroup">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Building Textgroup
   </a>
-  Building Textgroup
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 compile
 </span></code></pre><h3 id="testing-textgroup" class="section-heading">
-  <a href="#testing-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">testing-textgroup</p>
+  <a href="#testing-textgroup">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Testing Textgroup
   </a>
-  Testing Textgroup
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 check
 </span></code></pre><h3 id="running-textgroup" class="section-heading">
-  <a href="#running-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">running-textgroup</p>
+  <a href="#running-textgroup">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Running Textgroup
   </a>
-  Running Textgroup
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 shell
 </span></code></pre><h3 id="creating-textgroup-documentation" class="section-heading">
-  <a href="#creating-textgroup-documentation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-textgroup-documentation</p>
+  <a href="#creating-textgroup-documentation">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Creating Textgroup Documentation
   </a>
-  Creating Textgroup Documentation
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 ex_doc
 </span></code></pre><h3 id="creating-a-textgroup-release" class="section-heading">
-  <a href="#creating-a-textgroup-release" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-a-textgroup-release</p>
+  <a href="#creating-a-textgroup-release">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Creating a Textgroup Release
   </a>
-  Creating a Textgroup Release
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 release
 </span></code></pre><p>See the <a href="https://weiss.github.io/textgroup/operators.html" title="">operator documentation</a> for hints on how to deploy and run such a
 release.</p><h2 id="design-hints" class="section-heading">
-  <a href="#design-hints" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">design-hints</p>
+  <a href="#design-hints">
+    <i class="ri-link-m" aria-hidden="true"></i>
+    Design Hints
   </a>
-  Design Hints
 </h2>
 <p>The Textgroup service uses the <a href="https://erlang.org/doc/design_principles/des_princ.html#supervision-trees" title="">supervision tree</a> shown below: The
 <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_sup.erl" title="">main</a> supervisor starts a worker child (for integrating with
@@ -236,7 +236,7 @@ For Operators
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.1) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.5) for the
 
             <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 

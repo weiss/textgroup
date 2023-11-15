@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.5">
+    <meta name="generator" content="ExDoc v0.30.7">
     <meta name="project" content="textgroup v0.1.0">
 
     <title>For Developers — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-6R3HDDY5.css" />
+    <link rel="stylesheet" href="dist/html-erlang-BDSMJ657.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-NBND3S2D.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-5512ABE3.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-B3DGGEY7.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of textgroup</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -71,20 +71,35 @@ textgroup
         v0.1.0
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
-        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -106,53 +121,53 @@ textgroup
 </h1>
 
 <h2 id="development" class="section-heading">
-  <a href="#development">
+  <a href="#development" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Development
   </a>
+  <span class="text">Development</span>
 </h2>
 <p>Textgroup development requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
 in the <code class="inline">$PATH</code>.</p><h3 id="building-textgroup" class="section-heading">
-  <a href="#building-textgroup">
+  <a href="#building-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Building Textgroup
   </a>
+  <span class="text">Building Textgroup</span>
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 compile
 </span></code></pre><h3 id="testing-textgroup" class="section-heading">
-  <a href="#testing-textgroup">
+  <a href="#testing-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Testing Textgroup
   </a>
+  <span class="text">Testing Textgroup</span>
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 check
 </span></code></pre><h3 id="running-textgroup" class="section-heading">
-  <a href="#running-textgroup">
+  <a href="#running-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Running Textgroup
   </a>
+  <span class="text">Running Textgroup</span>
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 shell
 </span></code></pre><h3 id="creating-textgroup-documentation" class="section-heading">
-  <a href="#creating-textgroup-documentation">
+  <a href="#creating-textgroup-documentation" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Creating Textgroup Documentation
   </a>
+  <span class="text">Creating Textgroup Documentation</span>
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 ex_doc
 </span></code></pre><h3 id="creating-a-textgroup-release" class="section-heading">
-  <a href="#creating-a-textgroup-release">
+  <a href="#creating-a-textgroup-release" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Creating a Textgroup Release
   </a>
+  <span class="text">Creating a Textgroup Release</span>
 </h3>
 <pre><code class="makeup shell" translate="no"><span class="">rebar3 release
 </span></code></pre><p>See the <a href="https://weiss.github.io/textgroup/operators.html" title="">operator documentation</a> for hints on how to deploy and run such a
 release.</p><h2 id="design-hints" class="section-heading">
-  <a href="#design-hints">
+  <a href="#design-hints" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Design Hints
   </a>
+  <span class="text">Design Hints</span>
 </h2>
 <p>The Textgroup service uses the <a href="https://erlang.org/doc/design_principles/des_princ.html#supervision-trees" title="">supervision tree</a> shown below: The
 <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_sup.erl" title="">main</a> supervisor starts a worker child (for integrating with
@@ -236,7 +251,7 @@ For Operators
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.5) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.7) for the
 
             <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 
@@ -244,7 +259,7 @@ For Operators
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

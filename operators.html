@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.5">
+    <meta name="generator" content="ExDoc v0.30.7">
     <meta name="project" content="textgroup v0.1.0">
 
     <title>For Operators — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-6R3HDDY5.css" />
+    <link rel="stylesheet" href="dist/html-erlang-BDSMJ657.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-NBND3S2D.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-5512ABE3.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-B3DGGEY7.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of textgroup</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -71,20 +71,35 @@ textgroup
         v0.1.0
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
-        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -106,10 +121,10 @@ textgroup
 </h1>
 
 <h2 id="building-textgroup" class="section-heading">
-  <a href="#building-textgroup">
+  <a href="#building-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Building Textgroup
   </a>
+  <span class="text">Building Textgroup</span>
 </h2>
 <p>The Textgroup source code can be retrieved and built using the following
 commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
@@ -117,10 +132,10 @@ in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" tra
 </span><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod tar
 </span></code></pre><h2 id="deploying-textgroup" class="section-heading">
-  <a href="#deploying-textgroup">
+  <a href="#deploying-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Deploying Textgroup
   </a>
+  <span class="text">Deploying Textgroup</span>
 </h2>
 <p>The self-contained <a href="https://erlang.org/doc/design_principles/release_structure.html" title="">release</a> archive built in the previous step
 includes the required parts of Erlang/OTP and can be extracted to an arbitrary
@@ -133,20 +148,21 @@ a dedicated <code class="inline">_textgroup</code> user and extract the release 
 </span><span class="">sudo systemctl daemon-reload
 </span><span class="">sudo systemctl --now enable textgroup
 </span></code></pre><h2 id="configuring-textgroup" class="section-heading">
-  <a href="#configuring-textgroup">
+  <a href="#configuring-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Configuring Textgroup
   </a>
+  <span class="text">Configuring Textgroup</span>
 </h2>
 <p>The <code class="inline">/opt/textgroup/releases/0.1.0/sys.config</code> file may be edited in order to
 adjust configuration settings such as the TCP port number. As an alternative,
 those settings can be overridden on the command line in the systemd unit. For
 example, run <code class="inline">sudo systemctl edit textgroup</code> and enter:</p><pre><code class="ini">[Service]
+ExecStart=
 ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111</code></pre><h2 id="controlling-textgroup" class="section-heading">
-  <a href="#controlling-textgroup">
+  <a href="#controlling-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Controlling Textgroup
   </a>
+  <span class="text">Controlling Textgroup</span>
 </h2>
 <p>The Textgroup service can be controlled using the <code class="inline">textgroup</code> command. The
 caller must have the same <code class="inline">.erlang.cookie</code> file (with correct permissions) in
@@ -154,10 +170,10 @@ their <code class="inline">$HOME</code> directory as the user running Textgroup.
 commands, see:</p><pre><code class="makeup shell" translate="no"><span class="">/opt/textgroup/bin/textgroup help
 </span></code></pre><p>The log output can be viewed with:</p><pre><code class="makeup shell" translate="no"><span class="">sudo journalctl -u textgroup
 </span></code></pre><h2 id="advanced-upgrading-textgroup" class="section-heading">
-  <a href="#advanced-upgrading-textgroup">
+  <a href="#advanced-upgrading-textgroup" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
-    Advanced: Upgrading Textgroup
   </a>
+  <span class="text">Advanced: Upgrading Textgroup</span>
 </h2>
 <p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup shell" translate="no"><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod release
@@ -224,7 +240,7 @@ For Developers
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.5) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.7) for the
 
             <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 
@@ -232,7 +248,7 @@ For Developers
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

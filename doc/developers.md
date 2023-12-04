@@ -3,7 +3,7 @@
 ## Development
 
 Textgroup development requires [Erlang/OTP][erlang] and [Rebar3][rebar3] to be
-in the `$PATH`.
+in the `$PATH`. The source code repository is found [on GitHub][repo].
 
 ### Building Textgroup
 
@@ -103,6 +103,7 @@ All that said, real-world projects will often just use an existing application
 
 [erlang]: https://erlang.org
 [rebar3]: https://rebar3.org
+[repo]: https://github.com/weiss/textgroup
 [ops]: https://weiss.github.io/textgroup/operators.html
 [supervision]: https://erlang.org/doc/design_principles/des_princ.html#supervision-trees
 [textgroup_sup]: https://github.com/weiss/textgroup/blob/main/src/textgroup_sup.erl

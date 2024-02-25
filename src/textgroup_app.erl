@@ -62,7 +62,7 @@ config_change(Changed, _New, _Removed) ->
         true -> % Deliberately hit max. restart intensity to start new listener:
             lists:foreach(
               fun({_, PID, _, [textgroup_acceptor]}) ->
-                      exit(PID, shutdown)
+                      exit(PID, kill)
               end, supervisor:which_children(textgroup_acceptor_sup));
         false ->
             ok

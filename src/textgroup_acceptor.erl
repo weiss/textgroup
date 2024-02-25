@@ -54,7 +54,7 @@ system_continue(_Parent, _Debug, State) ->
 
 -spec system_terminate(term(), pid(), [sys:dbg_opt()], state()) -> no_return().
 system_terminate(Reason, _Parent, _Debug, _State) ->
-    ?LOG_DEBUG("Terminating acceptor process"),
+    ?LOG_DEBUG("Terminating acceptor process (~p)", [Reason]),
     exit(Reason).
 
 -spec system_code_change(state(), module(), term() | undefined, term())

@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.7">
+    <meta name="generator" content="ExDoc v0.32.2">
     <meta name="project" content="textgroup v0.1.0">
 
+
     <title>textgroup_systemd — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-BDSMJ657.css" />
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
     <script src="dist/sidebar_items-5512ABE3.js"></script>
-
-      <script src="docs_config.js"></script>
-
-    <script async src="dist/html-J2ASZTQE.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
 
 
   </head>
@@ -36,39 +35,24 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <nav id="sidebar" class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <label class="search-label">
-      <span class="sr-only">Search documentation of textgroup</span>
-      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-      <i class="ri-close-line ri-lg" title="Cancel search"></i>
-    </button>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-    <div class="sidebar-projectDetails">
-      <a href="readme.html" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
 textgroup
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v0.1.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
       </div>
     </div>
     <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
@@ -101,27 +85,46 @@ Pages
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of textgroup</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/weiss/textgroup/blob/v0.1.0/src/textgroup_systemd.erl#L18" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">textgroup_systemd</span> 
+    <small class="app-vsn" translate="no">(textgroup v0.1.0)</small>
+
+  </h1>
 
 
-    <a href="https://github.com/weiss/textgroup/blob/v0.1.0/src/textgroup_systemd.erl#L18" title="View Source" class="icon-action" rel="help">
-      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-      <span class="sr-only">View Source</span>
-    </a>
-
-  <span translate="no">textgroup_systemd</span> 
-  <small class="app-vsn" translate="no">(textgroup v0.1.0)</small>
-
-</h1>
-
-
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
@@ -137,7 +140,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:state/0" translate="no">state/0</a>
+        <a href="#t:state/0" data-no-tooltip translate="no">state/0</a>
 
       </div>
 
@@ -151,7 +154,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#code_change/3" translate="no">code_change(OldVsn, State, Extra)</a>
+        <a href="#code_change/3" data-no-tooltip translate="no">code_change(OldVsn, State, Extra)</a>
 
       </div>
 
@@ -159,7 +162,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#handle_call/3" translate="no">handle_call(Request, From, State)</a>
+        <a href="#handle_call/3" data-no-tooltip translate="no">handle_call(Request, From, State)</a>
 
       </div>
 
@@ -167,7 +170,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#handle_cast/2" translate="no">handle_cast(Msg, Systemd_state)</a>
+        <a href="#handle_cast/2" data-no-tooltip translate="no">handle_cast(Msg, Systemd_state)</a>
 
       </div>
 
@@ -175,7 +178,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#handle_info/2" translate="no">handle_info(Info, Systemd_state)</a>
+        <a href="#handle_info/2" data-no-tooltip translate="no">handle_info(Info, Systemd_state)</a>
 
       </div>
 
@@ -183,7 +186,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#init/1" translate="no">init(Opts)</a>
+        <a href="#init/1" data-no-tooltip translate="no">init(Opts)</a>
 
       </div>
 
@@ -191,7 +194,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#ready/0" translate="no">ready()</a>
+        <a href="#ready/0" data-no-tooltip translate="no">ready()</a>
 
       </div>
 
@@ -199,7 +202,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#reloading/0" translate="no">reloading()</a>
+        <a href="#reloading/0" data-no-tooltip translate="no">reloading()</a>
 
       </div>
 
@@ -207,7 +210,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#start_link/0" translate="no">start_link()</a>
+        <a href="#start_link/0" data-no-tooltip translate="no">start_link()</a>
 
       </div>
 
@@ -215,7 +218,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#stopping/0" translate="no">stopping()</a>
+        <a href="#stopping/0" data-no-tooltip translate="no">stopping()</a>
 
       </div>
 
@@ -223,7 +226,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#terminate/2" translate="no">terminate(Reason, State)</a>
+        <a href="#terminate/2" data-no-tooltip translate="no">terminate(Reason, State)</a>
 
       </div>
 
@@ -245,7 +248,7 @@ Pages
 <section class="detail" id="t:state/0">
 
   <div class="detail-header">
-    <a href="#t:state/0" class="detail-link" title="Link to this opaque">
+    <a href="#t:state/0" class="detail-link" data-no-tooltip title="Link to this opaque">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this opaque</span>
     </a>
@@ -256,8 +259,6 @@ Pages
        <span class="sr-only">View Source</span>
      </a>
 
-
-      <span class="note">(opaque)</span>
 
   </div>
 
@@ -287,7 +288,7 @@ Pages
 <section class="detail" id="code_change/3">
 
   <div class="detail-header">
-    <a href="#code_change/3" class="detail-link" title="Link to this function">
+    <a href="#code_change/3" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -305,7 +306,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> code_change({down, term()} | term(), <a href="#t:state/0">state</a>(), term()) -> {ok, <a href="#t:state/0">state</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> code_change({down, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()} | <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), <a href="#t:state/0">state</a>(), <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()) -> {ok, <a href="#t:state/0">state</a>()}.</pre>
 
       </div>
 
@@ -315,7 +316,7 @@ Pages
 <section class="detail" id="handle_call/3">
 
   <div class="detail-header">
-    <a href="#handle_call/3" class="detail-link" title="Link to this function">
+    <a href="#handle_call/3" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -333,7 +334,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> handle_call(term(), {pid(), term()}, <a href="#t:state/0">state</a>()) -> {reply, {error, badarg}, <a href="#t:state/0">state</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> handle_call(<a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), {<a href="https://www.erlang.org/doc/man/erlang.html#type-pid">pid</a>(), <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()}, <a href="#t:state/0">state</a>()) -> {reply, {error, badarg}, <a href="#t:state/0">state</a>()}.</pre>
 
       </div>
 
@@ -343,7 +344,7 @@ Pages
 <section class="detail" id="handle_cast/2">
 
   <div class="detail-header">
-    <a href="#handle_cast/2" class="detail-link" title="Link to this function">
+    <a href="#handle_cast/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -361,7 +362,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> handle_cast({notify, binary()} | term(), <a href="#t:state/0">state</a>()) -> {noreply, <a href="#t:state/0">state</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> handle_cast({notify, <a href="https://www.erlang.org/doc/man/erlang.html#type-binary">binary</a>()} | <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), <a href="#t:state/0">state</a>()) -> {noreply, <a href="#t:state/0">state</a>()}.</pre>
 
       </div>
 
@@ -371,7 +372,7 @@ Pages
 <section class="detail" id="handle_info/2">
 
   <div class="detail-header">
-    <a href="#handle_info/2" class="detail-link" title="Link to this function">
+    <a href="#handle_info/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -389,7 +390,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> handle_info(ping_watchdog | term(), <a href="#t:state/0">state</a>()) -> {noreply, <a href="#t:state/0">state</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> handle_info(ping_watchdog | <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), <a href="#t:state/0">state</a>()) -> {noreply, <a href="#t:state/0">state</a>()}.</pre>
 
       </div>
 
@@ -399,7 +400,7 @@ Pages
 <section class="detail" id="init/1">
 
   <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#init/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -417,7 +418,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> init(any()) -> {ok, <a href="#t:state/0">state</a>()} | {stop, term()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> init(<a href="https://www.erlang.org/doc/man/erlang.html#type-any">any</a>()) -> {ok, <a href="#t:state/0">state</a>()} | {stop, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()}.</pre>
 
       </div>
 
@@ -427,7 +428,7 @@ Pages
 <section class="detail" id="ready/0">
 
   <div class="detail-header">
-    <a href="#ready/0" class="detail-link" title="Link to this function">
+    <a href="#ready/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -455,7 +456,7 @@ Pages
 <section class="detail" id="reloading/0">
 
   <div class="detail-header">
-    <a href="#reloading/0" class="detail-link" title="Link to this function">
+    <a href="#reloading/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -483,7 +484,7 @@ Pages
 <section class="detail" id="start_link/0">
 
   <div class="detail-header">
-    <a href="#start_link/0" class="detail-link" title="Link to this function">
+    <a href="#start_link/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -501,7 +502,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> start_link() -> {ok, pid()} | ignore | {error, term()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> start_link() -> {ok, <a href="https://www.erlang.org/doc/man/erlang.html#type-pid">pid</a>()} | ignore | {error, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()}.</pre>
 
       </div>
 
@@ -511,7 +512,7 @@ Pages
 <section class="detail" id="stopping/0">
 
   <div class="detail-header">
-    <a href="#stopping/0" class="detail-link" title="Link to this function">
+    <a href="#stopping/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -539,7 +540,7 @@ Pages
 <section class="detail" id="terminate/2">
 
   <div class="detail-header">
-    <a href="#terminate/2" class="detail-link" title="Link to this function">
+    <a href="#terminate/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -557,7 +558,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> terminate(normal | shutdown | {shutdown, term()} | term(), <a href="#t:state/0">state</a>()) -> ok.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> terminate(normal | shutdown | {shutdown, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()} | <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), <a href="#t:state/0">state</a>()) -> ok.</pre>
 
       </div>
 
@@ -568,30 +569,30 @@ Pages
     </div>
   </section>
 
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-              <a href="textgroup.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="textgroup.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.7) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
 
-            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>

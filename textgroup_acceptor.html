@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.7">
+    <meta name="generator" content="ExDoc v0.32.2">
     <meta name="project" content="textgroup v0.1.0">
 
+
     <title>textgroup_acceptor — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-BDSMJ657.css" />
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
     <script src="dist/sidebar_items-5512ABE3.js"></script>
-
-      <script src="docs_config.js"></script>
-
-    <script async src="dist/html-J2ASZTQE.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
 
 
   </head>
@@ -36,39 +35,24 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <nav id="sidebar" class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <label class="search-label">
-      <span class="sr-only">Search documentation of textgroup</span>
-      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-      <i class="ri-close-line ri-lg" title="Cancel search"></i>
-    </button>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-    <div class="sidebar-projectDetails">
-      <a href="readme.html" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
 textgroup
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v0.1.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
       </div>
     </div>
     <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
@@ -101,27 +85,46 @@ Pages
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of textgroup</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/weiss/textgroup/blob/v0.1.0/src/textgroup_acceptor.erl#L18" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">textgroup_acceptor</span> 
+    <small class="app-vsn" translate="no">(textgroup v0.1.0)</small>
+
+  </h1>
 
 
-    <a href="https://github.com/weiss/textgroup/blob/v0.1.0/src/textgroup_acceptor.erl#L18" title="View Source" class="icon-action" rel="help">
-      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-      <span class="sr-only">View Source</span>
-    </a>
-
-  <span translate="no">textgroup_acceptor</span> 
-  <small class="app-vsn" translate="no">(textgroup v0.1.0)</small>
-
-</h1>
-
-
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
@@ -137,7 +140,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:state/0" translate="no">state/0</a>
+        <a href="#t:state/0" data-no-tooltip translate="no">state/0</a>
 
       </div>
 
@@ -151,7 +154,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#init/1" translate="no">init(State)</a>
+        <a href="#init/1" data-no-tooltip translate="no">init(State)</a>
 
       </div>
 
@@ -159,7 +162,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#loop/1" translate="no">loop(Acceptor_state)</a>
+        <a href="#loop/1" data-no-tooltip translate="no">loop(Acceptor_state)</a>
 
       </div>
 
@@ -167,7 +170,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#start_link/1" translate="no">start_link(Listener)</a>
+        <a href="#start_link/1" data-no-tooltip translate="no">start_link(Listener)</a>
 
       </div>
 
@@ -175,7 +178,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#system_code_change/4" translate="no">system_code_change(State, Mod, OldVsn, Extra)</a>
+        <a href="#system_code_change/4" data-no-tooltip translate="no">system_code_change(State, Mod, OldVsn, Extra)</a>
 
       </div>
 
@@ -183,7 +186,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#system_continue/3" translate="no">system_continue(Parent, Debug, State)</a>
+        <a href="#system_continue/3" data-no-tooltip translate="no">system_continue(Parent, Debug, State)</a>
 
       </div>
 
@@ -191,7 +194,7 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#system_terminate/4" translate="no">system_terminate(Reason, Parent, Debug, State)</a>
+        <a href="#system_terminate/4" data-no-tooltip translate="no">system_terminate(Reason, Parent, Debug, State)</a>
 
       </div>
 
@@ -213,7 +216,7 @@ Pages
 <section class="detail" id="t:state/0">
 
   <div class="detail-header">
-    <a href="#t:state/0" class="detail-link" title="Link to this opaque">
+    <a href="#t:state/0" class="detail-link" data-no-tooltip title="Link to this opaque">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this opaque</span>
     </a>
@@ -224,8 +227,6 @@ Pages
        <span class="sr-only">View Source</span>
      </a>
 
-
-      <span class="note">(opaque)</span>
 
   </div>
 
@@ -255,7 +256,7 @@ Pages
 <section class="detail" id="init/1">
 
   <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#init/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -273,7 +274,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> init(<a href="#t:state/0">state</a>()) -> no_return().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> init(<a href="#t:state/0">state</a>()) -> <a href="https://www.erlang.org/doc/man/erlang.html#type-no_return">no_return</a>().</pre>
 
       </div>
 
@@ -283,7 +284,7 @@ Pages
 <section class="detail" id="loop/1">
 
   <div class="detail-header">
-    <a href="#loop/1" class="detail-link" title="Link to this function">
+    <a href="#loop/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -301,7 +302,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> loop(<a href="#t:state/0">state</a>()) -> no_return().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> loop(<a href="#t:state/0">state</a>()) -> <a href="https://www.erlang.org/doc/man/erlang.html#type-no_return">no_return</a>().</pre>
 
       </div>
 
@@ -311,7 +312,7 @@ Pages
 <section class="detail" id="start_link/1">
 
   <div class="detail-header">
-    <a href="#start_link/1" class="detail-link" title="Link to this function">
+    <a href="#start_link/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -329,7 +330,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> start_link(<a href="https://www.erlang.org/doc/man/gen_tcp.html#type-socket">gen_tcp:socket</a>()) -> term() | {error, term()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> start_link(<a href="https://www.erlang.org/doc/man/gen_tcp.html#type-socket">gen_tcp:socket</a>()) -> <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>() | {error, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()}.</pre>
 
       </div>
 
@@ -339,7 +340,7 @@ Pages
 <section class="detail" id="system_code_change/4">
 
   <div class="detail-header">
-    <a href="#system_code_change/4" class="detail-link" title="Link to this function">
+    <a href="#system_code_change/4" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -357,7 +358,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> system_code_change(<a href="#t:state/0">state</a>(), module(), term() | undefined, term()) -> {ok, <a href="#t:state/0">state</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> system_code_change(<a href="#t:state/0">state</a>(), <a href="https://www.erlang.org/doc/man/erlang.html#type-module">module</a>(), <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>() | undefined, <a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>()) -> {ok, <a href="#t:state/0">state</a>()}.</pre>
 
       </div>
 
@@ -367,7 +368,7 @@ Pages
 <section class="detail" id="system_continue/3">
 
   <div class="detail-header">
-    <a href="#system_continue/3" class="detail-link" title="Link to this function">
+    <a href="#system_continue/3" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -385,7 +386,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> system_continue(pid(), [<a href="https://www.erlang.org/doc/man/sys.html#type-dbg_opt">sys:dbg_opt</a>()], <a href="#t:state/0">state</a>()) -> no_return().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> system_continue(<a href="https://www.erlang.org/doc/man/erlang.html#type-pid">pid</a>(), [<a href="https://www.erlang.org/doc/man/sys.html#type-dbg_opt">sys:dbg_opt</a>()], <a href="#t:state/0">state</a>()) -> <a href="https://www.erlang.org/doc/man/erlang.html#type-no_return">no_return</a>().</pre>
 
       </div>
 
@@ -395,7 +396,7 @@ Pages
 <section class="detail" id="system_terminate/4">
 
   <div class="detail-header">
-    <a href="#system_terminate/4" class="detail-link" title="Link to this function">
+    <a href="#system_terminate/4" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -413,7 +414,7 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> system_terminate(term(), pid(), [<a href="https://www.erlang.org/doc/man/sys.html#type-dbg_opt">sys:dbg_opt</a>()], <a href="#t:state/0">state</a>()) -> no_return().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> system_terminate(<a href="https://www.erlang.org/doc/man/erlang.html#type-term">term</a>(), <a href="https://www.erlang.org/doc/man/erlang.html#type-pid">pid</a>(), [<a href="https://www.erlang.org/doc/man/sys.html#type-dbg_opt">sys:dbg_opt</a>()], <a href="#t:state/0">state</a>()) -> <a href="https://www.erlang.org/doc/man/erlang.html#type-no_return">no_return</a>().</pre>
 
       </div>
 
@@ -424,30 +425,30 @@ Pages
     </div>
   </section>
 
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-              <a href="textgroup.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="textgroup.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.7) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
 
-            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>

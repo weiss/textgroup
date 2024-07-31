@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.7">
+    <meta name="generator" content="ExDoc v0.32.2">
     <meta name="project" content="textgroup v0.1.0">
 
+
     <title>For Developers — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-BDSMJ657.css" />
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
     <script src="dist/sidebar_items-5512ABE3.js"></script>
-
-      <script src="docs_config.js"></script>
-
-    <script async src="dist/html-J2ASZTQE.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
 
 
   </head>
@@ -36,39 +35,24 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <nav id="sidebar" class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <label class="search-label">
-      <span class="sr-only">Search documentation of textgroup</span>
-      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-      <i class="ri-close-line ri-lg" title="Cancel search"></i>
-    </button>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-    <div class="sidebar-projectDetails">
-      <a href="readme.html" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
 textgroup
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v0.1.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
       </div>
     </div>
     <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
@@ -101,24 +85,42 @@ Pages
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of textgroup</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/weiss/textgroup/blob/v0.1.0/doc/developers.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
 
 
-    <a href="https://github.com/weiss/textgroup/blob/v0.1.0/doc/developers.md#L1" title="View Source" class="icon-action" rel="help">
-      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-      <span class="sr-only">View Source</span>
-    </a>
-
-
-  <span>For Developers</span>
-</h1>
+    <span>For Developers</span>
+  </h1>
 
 <h2 id="development" class="section-heading">
   <a href="#development" class="hover-link">
@@ -178,7 +180,7 @@ handlers, one per client (there's six of them, in this example).</p><p><img src=
 in a somewhat non-ideomatic way. However, don't let the
 <a href="https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl" title="">implementation</a> confuse you: Maybe just view it as a blackbox for the
 moment. Once everything else seems clear, here's an explanation of what's going
-on in the <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> module:</p><ul><li><p>Each acceptor process blocks in <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-2"><code class="inline">gen_tcp:accept/2</code></a> while waiting for a new
+on in the <code class="inline">textgroup_acceptor</code> module:</p><ul><li><p>Each acceptor process blocks in <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-2"><code class="inline">gen_tcp:accept/2</code></a> while waiting for a new
 connection. The <a href="https://erlang.org/pipermail/erlang-questions/2016-April/088847.html" title="">problem</a> is: While waiting, the process is
 unresponsive to <a href="https://erlang.org/doc/man/sys.html" title="">system messages</a>. Basically, OTP processes are supposed
 to only ever wait for <em>Erlang</em> messages, to handle those in callback
@@ -190,18 +192,18 @@ non-blocking way to receive data from the socket), the acceptor processes call
 few seconds. One alternative is to spawn <a href="https://erlang.org/pipermail/erlang-questions/2017-August/093142.html" title="">simple</a> (non-OTP) processes
 just for blocking in <a href="https://www.erlang.org/doc/man/gen_tcp.html#accept-1"><code class="inline">gen_tcp:accept/1</code></a>, and then wake a proper OTP process
 for handling the new connection, basically implementing the non-blocking
-mechanism to accept connections that <a href="https://www.erlang.org/doc/man/gen_tcp.html"><code class="inline">gen_tcp</code></a> doesn't provide. Another option
-would be using <a href="https://www.erlang.org/doc/man/prim_inet.html#async_accept-2"><code class="inline">prim_inet:async_accept/2</code></a>, which <em>does</em> offer this
+mechanism to accept connections that <code class="inline">gen_tcp</code> doesn't provide. Another option
+would be using <code class="inline">prim_inet:async_accept/2</code>, which <em>does</em> offer this
 functionality. However, that's not a documented interface. In the future, a
-nicer solution might become available based on the new <a href="https://www.erlang.org/doc/man/socket.html"><code class="inline">socket</code></a> backend, which
-provides a non-blocking <a href="https://erlang.org/doc/man/socket.html#accept-2" title=""><code class="inline">accept/2</code></a> variant.</p></li><li><p>The <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> is built as a <a href="https://erlang.org/doc/design_principles/spec_proc.html#special-processes" title="">special process</a>. It could
+nicer solution might become available based on the new <code class="inline">socket</code> backend, which
+provides a non-blocking <a href="https://erlang.org/doc/man/socket.html#accept-2" title=""><code class="inline">accept/2</code></a> variant.</p></li><li><p>The <code class="inline">textgroup_acceptor</code> is built as a <a href="https://erlang.org/doc/design_principles/spec_proc.html#special-processes" title="">special process</a>. It could
 just as well be implemented as a <a href="https://erlang.org/doc/design_principles/gen_server_concepts.html" title="">generic server</a> with the same
-behavior. The only reason it wasn't done this way is that most <a href="https://www.erlang.org/doc/man/gen_server.html"><code class="inline">gen_server</code></a>
-features would remain unused. Matter of taste.</p></li><li><p>When a new connection is accepted, the acceptor asks <a href="textgroup_client_sup.html"><code class="inline">textgroup_client_sup</code></a> to
+behavior. The only reason it wasn't done this way is that most <code class="inline">gen_server</code>
+features would remain unused. Matter of taste.</p></li><li><p>When a new connection is accepted, the acceptor asks <code class="inline">textgroup_client_sup</code> to
 spawn a new process for handling the client. An alternative would be to <em>not</em>
 split the tasks of accepting and handling connections into separate processes:
 You could spawn a pool of client handler processes that wait for new
-connections, maybe using the same workaround as the <a href="textgroup_acceptor.html"><code class="inline">textgroup_acceptor</code></a> to
+connections, maybe using the same workaround as the <code class="inline">textgroup_acceptor</code> to
 remain responsive. Those handlers would spawn a fresh worker immediately after
 accepting a connection, handle the connection, and then terminate. This is
 <a href="https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited" title="">suggested</a> in <a href="https://learnyousomeerlang.com" title="">Learn You Some Erlang</a> and <a href="https://www.manning.com/books/erlang-and-otp-in-action" title="">Erlang and OTP in
@@ -212,12 +214,14 @@ connections in one process and then handling them in another). However, for
 Textgroup, it seemed preferable to have a clear separation of the fixed-size
 acceptor pool on the one hand and the client handler processes on the other:
 The advantage is a one-to-one mapping of clients and (fully responsive)
-handler processes. This allows for asking <a href="textgroup_client_sup.html"><code class="inline">textgroup_client_sup</code></a> for a list of
+handler processes. This allows for asking <code class="inline">textgroup_client_sup</code> for a list of
 clients and communication with them without delays. This design would also
 allow more complex applications to easily close/change the listener socket
 without disconnecting existing clients.</p></li></ul><p>All that said, real-world projects will often just use an existing application
 (such as <a href="https://ninenines.eu/docs/#ranch" title="">Ranch</a>) for accepting connections.</p>
-<div class="bottom-actions">
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
       <a href="operators.html" class="bottom-actions-button" rel="prev">
@@ -234,30 +238,30 @@ For Operators
 
   </div>
 </div>
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-              <a href="textgroup.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="textgroup.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.7) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
 
-            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>

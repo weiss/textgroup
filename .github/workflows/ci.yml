@@ -22,7 +22,7 @@ jobs:
           - otp: '22.0'
             rebar: '3.18.0'
           - otp: '24.3'
-            rebar: '3.22.1'
+            rebar: '3.21.0'
           - otp: '26.2'
             rebar: '3.22.1'
       fail-fast: false

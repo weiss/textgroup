@@ -48,6 +48,7 @@ jobs:
           mkdir -p _build/test
           curl -sSL https://github.com/weiss/textgroup/tarball/gh-pages |
             tar -C _build/test --strip-components=1 --wildcards -xzf - '*/logs/'
+        if: matrix.otp == 27.0
       - name: Download dependencies
         run: rebar3 get-deps
       - name: Compile code

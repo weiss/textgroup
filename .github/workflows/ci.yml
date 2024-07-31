@@ -17,14 +17,14 @@ jobs:
         otp:
           - '22.0'
           - '24.3'
-          - '26.2'
+          - '27.0'
         include:
           - otp: '22.0'
             rebar: '3.18.0'
           - otp: '24.3'
             rebar: '3.21.0'
-          - otp: '26.2'
-            rebar: '3.22.1'
+          - otp: '27.0'
+            rebar: '3.23.0'
       fail-fast: false
     steps:
       - name: Check out repository code
@@ -97,7 +97,7 @@ jobs:
       - name: Retrieve web pages
         uses: actions/download-artifact@v4
         with:
-          name: textgroup-html-otp-26.2
+          name: textgroup-html-otp-27.0
           path: public
       - name: Deploy web site to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

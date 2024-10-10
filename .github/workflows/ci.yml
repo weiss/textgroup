@@ -71,19 +71,17 @@ jobs:
         run: rebar3 cover
       - name: Check code style
         run: rebar3 lint # Requires Erlang/OTP 23 or newer:
-        if: matrix.otp != 22.0
-        env:
-          ERL_FLAGS: -enable-feature all
+        if: matrix.otp == 27.1
       - name: Generate documentation
         run: rebar3 ex_doc # Requires Erlang/OTP 25 or newer:
         if: matrix.otp == 27.1
       - name: Collect web pages
         run: |
           cp -a _build/test/logs _build/test/cover public
-        if: matrix.otp != 22.0
+        if: matrix.otp == 27.1
       - name: Upload web pages
         uses: actions/upload-artifact@v4
-        if: matrix.otp != 22.0 && always()
+        if: matrix.otp == 27.1 && always()
         with:
           name: textgroup-html-otp-${{matrix.otp}}
           path: public

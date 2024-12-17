@@ -17,13 +17,13 @@ jobs:
         otp:
           - '22.0'
           - '24.3'
-          - '27.1'
+          - '27.2'
         include:
           - otp: '22.0'
             rebar: '3.18.0'
           - otp: '24.3'
             rebar: '3.21.0'
-          - otp: '27.1'
+          - otp: '27.2'
             rebar: '3.24.0'
       fail-fast: false
     steps:
@@ -48,7 +48,7 @@ jobs:
           mkdir -p _build/test
           curl -sSL https://github.com/weiss/textgroup/tarball/gh-pages |
             tar -C _build/test --strip-components=1 --wildcards -xzf - '*/logs/'
-        if: matrix.otp == 27.1
+        if: matrix.otp == 27.2
       - name: Download dependencies
         run: rebar3 get-deps
       - name: Compile code
@@ -71,17 +71,17 @@ jobs:
         run: rebar3 cover
       - name: Check code style
         run: rebar3 lint # Requires Erlang/OTP 23 or newer:
-        if: matrix.otp == 27.1
+        if: matrix.otp == 27.2
       - name: Generate documentation
         run: rebar3 ex_doc # Requires Erlang/OTP 25 or newer:
-        if: matrix.otp == 27.1
+        if: matrix.otp == 27.2
       - name: Collect web pages
         run: |
           cp -a _build/test/logs _build/test/cover public
-        if: matrix.otp == 27.1
+        if: matrix.otp == 27.2
       - name: Upload web pages
         uses: actions/upload-artifact@v4
-        if: matrix.otp == 27.1 && always()
+        if: matrix.otp == 27.2 && always()
         with:
           name: textgroup-html-otp-${{matrix.otp}}
           path: public
@@ -96,7 +96,7 @@ jobs:
       - name: Retrieve web pages
         uses: actions/download-artifact@v4
         with:
-          name: textgroup-html-otp-27.1
+          name: textgroup-html-otp-27.2
           path: public
       - name: Deploy web site to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

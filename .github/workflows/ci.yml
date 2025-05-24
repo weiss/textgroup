@@ -11,17 +11,14 @@ on:
 jobs:
   test:
     name: Test on Erlang/OTP ${{matrix.otp}}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         otp:
-          - '22.0'
-          - '24.3'
+          - '24.2'
           - '27.2'
         include:
-          - otp: '22.0'
-            rebar: '3.18.0'
-          - otp: '24.3'
+          - otp: '24.2'
             rebar: '3.21.0'
           - otp: '27.2'
             rebar: '3.24.0'

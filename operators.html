@@ -4,35 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.35.1">
+    <meta name="generator" content="ExDoc v0.38.1">
     <meta name="project" content="textgroup v0.1.0">
 
 
     <title>For Operators — textgroup v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-erlang-4IXSOGMD.css" />
 
+    <link rel="stylesheet" href="dist/html-erlang-ZK43ZOAC.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-5512ABE3.js"></script>
-    <script src="docs_config.js"></script>
-    <script async src="dist/html-PVRIOB7F.js"></script>
+    <script defer src="dist/sidebar_items-5512ABE3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
 
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
-
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
 <div class="body-wrapper">
 
@@ -54,37 +41,13 @@ textgroup
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-Pages
-        </button>
-      </li>
-
-        <li>
-          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
-            Modules
-          </button>
-        </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
-      <ul id="modules-full-list" class="full-list"></ul>
-    </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
+<output role="status" id="toast"></output>
 
+<main class="content page-extra" id="main" data-type="extras">
   <div id="content" class="content-inner">
     <div class="top-search">
       <div class="search-settings">
@@ -93,8 +56,8 @@ Pages
             <span class="sr-only">Search documentation of textgroup</span>
             <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
           </label>
-          <button type="submit" class="search-button" aria-label="Submit Search">
-            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
           </button>
           <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
             <i class="ri-close-line ri-lg" title="Cancel search"></i>
@@ -110,35 +73,24 @@ Pages
     </div>
 
 <div id="top-content">
-  <h1>
+  <div class="heading-with-actions top-heading">
+    <h1>For Operators</h1>
+
 
       <a href="https://github.com/weiss/textgroup/blob/v0.1.0/doc/operators.md#L1" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
 
+  </div>
 
-    <span>For Operators</span>
-  </h1>
 
-<h2 id="building-textgroup" class="section-heading">
-  <a href="#building-textgroup" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Building Textgroup</span>
-</h2>
-<p>The Textgroup source code can be retrieved and built using the following
+<h2 id="building-textgroup" class="section-heading"><a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Building Textgroup</span></h2><p>The Textgroup source code can be retrieved and built using the following
 commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
 in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" translate="no"><span class="">curl -L https://github.com/weiss/textgroup/archive/v0.1.0.tar.gz | tar -C /tmp -xzf -
 </span><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod tar
-</span></code></pre><h2 id="deploying-textgroup" class="section-heading">
-  <a href="#deploying-textgroup" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Deploying Textgroup</span>
-</h2>
-<p>The self-contained <a href="https://erlang.org/doc/design_principles/release_structure.html" title="">release</a> archive built in the previous step
+</span></code></pre><h2 id="deploying-textgroup" class="section-heading"><a href="#deploying-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deploying Textgroup</span></h2><p>The self-contained <a href="https://erlang.org/doc/design_principles/release_structure.html" title="">release</a> archive built in the previous step
 includes the required parts of Erlang/OTP and can be extracted to an arbitrary
 location. For a persistent installation, the administrator might want to create
 a dedicated <code class="inline">_textgroup</code> user and extract the release archive into that user's
@@ -148,35 +100,17 @@ a dedicated <code class="inline">_textgroup</code> user and extract the release 
 </span></code></pre><p>A systemd service unit could be installed and enabled like this:</p><pre><code class="makeup shell" translate="no"><span class="">sudo cp /opt/textgroup/etc/systemd/system/textgroup.service /etc/systemd/system
 </span><span class="">sudo systemctl daemon-reload
 </span><span class="">sudo systemctl --now enable textgroup
-</span></code></pre><h2 id="configuring-textgroup" class="section-heading">
-  <a href="#configuring-textgroup" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Configuring Textgroup</span>
-</h2>
-<p>The <code class="inline">/opt/textgroup/releases/0.1.0/sys.config</code> file may be edited in order to
+</span></code></pre><h2 id="configuring-textgroup" class="section-heading"><a href="#configuring-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Configuring Textgroup</span></h2><p>The <code class="inline">/opt/textgroup/releases/0.1.0/sys.config</code> file may be edited in order to
 adjust configuration settings such as the TCP port number. As an alternative,
 those settings can be overridden on the command line in the systemd unit. For
 example, run <code class="inline">sudo systemctl edit textgroup</code> and enter:</p><pre><code class="ini">[Service]
 ExecStart=
-ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111</code></pre><h2 id="controlling-textgroup" class="section-heading">
-  <a href="#controlling-textgroup" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Controlling Textgroup</span>
-</h2>
-<p>The Textgroup service can be controlled using the <code class="inline">textgroup</code> command. The
+ExecStart=/opt/textgroup/bin/textgroup foreground -textgroup port 1111</code></pre><h2 id="controlling-textgroup" class="section-heading"><a href="#controlling-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Controlling Textgroup</span></h2><p>The Textgroup service can be controlled using the <code class="inline">textgroup</code> command. The
 caller must have the same <code class="inline">.erlang.cookie</code> file (with correct permissions) in
 their <code class="inline">$HOME</code> directory as the user running Textgroup. For a list of available
 commands, see:</p><pre><code class="makeup shell" translate="no"><span class="">/opt/textgroup/bin/textgroup help
 </span></code></pre><p>The log output can be viewed with:</p><pre><code class="makeup shell" translate="no"><span class="">sudo journalctl -u textgroup
-</span></code></pre><h2 id="advanced-upgrading-textgroup" class="section-heading">
-  <a href="#advanced-upgrading-textgroup" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Advanced: Upgrading Textgroup</span>
-</h2>
-<p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup shell" translate="no"><span class="">cd /tmp/textgroup-0.1.0
+</span></code></pre><h2 id="advanced-upgrading-textgroup" class="section-heading"><a href="#advanced-upgrading-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Advanced: Upgrading Textgroup</span></h2><p>To create a new release that can be used to hot-upgrade the old one:</p><pre><code class="makeup shell" translate="no"><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod release
 </span><span class="">editor src/*.erl
 </span><span class="">sed -i s/0.1.0/0.2.0/ rebar.config src/textgroup.app.src
@@ -198,6 +132,7 @@ explicit support for hot release upgrades, such as custom <a href="https://erlan
 Also, if a different Erlang/OTP version is used to build a new release, the
 upgrade process involves a <a href="https://erlang.org/doc/system_principles/upgrade.html" title="">restart of the emulator</a>. For this to
 work, the <a href="https://erlang.org/doc/man/heart.html" title="">heart</a> functionality must be enabled.</p>
+
 </div>
 
 <div class="bottom-actions" id="bottom-actions">
@@ -243,7 +178,7 @@ For Developers
 
       <p class="built-using">
         Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.35.1) for the
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.1) for the
 
           <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
 

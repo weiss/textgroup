@@ -21,7 +21,7 @@ jobs:
           - otp: '24.2'
             rebar: '3.21.0'
           - otp: '28.0'
-            rebar: '3.25.0'
+            rebar: '3.27.0'
       fail-fast: false
     steps:
       - name: Check out repository code

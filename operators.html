@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.39.1">
+    <meta name="generator" content="ExDoc v0.40.3">
     <meta name="project" content="textgroup v0.1.0">
 
 
     <title>For Operators — textgroup v0.1.0</title>
 
-    <link rel="stylesheet" href="dist/html-erlang-7YNYEB7F.css" />
+    <link rel="stylesheet" href="dist/html-erlang-KCHZLXSC.css" />
 
     <script defer src="dist/sidebar_items-5512ABE3.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-HBZYRXZS.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
 
   </head>
   <body>
@@ -41,7 +41,7 @@ textgroup
         </div>
       </div>
     </div>
-    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
   </div>
 </nav>
 
@@ -95,7 +95,8 @@ textgroup
     <h1>For Operators</h1>
 
 
-      <a href="https://github.com/weiss/textgroup/blob/v0.1.0/doc/operators.md#L1" title="View Source" class="icon-action" rel="help">
+
+      <a href="https://github.com/weiss/textgroup/blob/v0.1.0/doc/operators.md#L1" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -104,7 +105,7 @@ textgroup
 
 
 <h2 id="building-textgroup" class="section-heading"><a href="#building-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Building Textgroup</span></h2><p>The Textgroup source code can be retrieved and built using the following
-commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a href="https://rebar3.org" title="">Rebar3</a> to be
+commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and <a rel="nofollow" href="https://rebar3.org" title="">Rebar3</a> to be
 in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" translate="no"><span class="">curl -L https://github.com/weiss/textgroup/archive/v0.1.0.tar.gz | tar -C /tmp -xzf -
 </span><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod tar
@@ -144,7 +145,7 @@ performed:</p><pre><code class="makeup shell" translate="no"><span class="">/opt
 </span></code></pre><p>The unused release can then be removed. E.g., to uninstall the new one after
 downgrading:</p><pre><code class="makeup shell" translate="no"><span class="">/opt/textgroup/bin/textgroup uninstall 0.2.0
 </span></code></pre><p>A few caveats: If data structures (such as the <code class="inline">client_state</code> record) were
-modified, converting them during the upgrade might require <a href="https://github.com/lrascao/rebar3_appup_plugin" title="">additional
+modified, converting them during the upgrade might require <a rel="nofollow" href="https://github.com/lrascao/rebar3_appup_plugin" title="">additional
 handling</a>. Complex applications/dependencies may well need
 explicit support for hot release upgrades, such as custom <a href="https://erlang.org/doc/design_principles/appup_cookbook.html" title="">appup</a> files.
 Also, if a different Erlang/OTP version is used to build a new release, the
@@ -180,27 +181,30 @@ For Developers
   </div>
 </div>
     <footer class="footer">
-      <p>
 
-        <span class="line">
-          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-            Search HexDocs
-          </button>
+        <p>
 
-            <a href="textgroup.epub" title="ePub version">
-              Download ePub version
-            </a>
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
 
-        </span>
-      </p>
 
-      <p class="built-using">
-        Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
+              <a href="textgroup.epub">
+                Download ePub version
+              </a>
 
-          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+          </span>
+        </p>
 
-      </p>
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+
+            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+        </p>
+
 
     </footer>
   </div>

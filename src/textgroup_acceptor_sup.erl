@@ -42,7 +42,8 @@ init([]) ->
         lists:map(
           fun(N) ->
                   #{id => {textgroup_acceptor, N},
-                    start => {textgroup_acceptor, start_link, [Listener]}}
+                    start => {textgroup_acceptor, start_link, [Listener]},
+                    shutdown => brutal_kill}
           end, lists:seq(1, PoolSize)),
     {ok, {SupFlags, ChildSpecs}}.
 

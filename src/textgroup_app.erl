@@ -55,6 +55,7 @@ stop(_State) ->
 
 -spec config_change([{atom(), term()}], [{atom(), term()}], [atom()]) -> ok.
 config_change(Changed, _New, _Removed) ->
+    ok = textgroup_systemd:reloading(),
     ReopenSocket = lists:any(fun({Key, _Val}) ->
                                      lists:member(Key, [port, pool_size])
                              end, Changed),
@@ -66,7 +67,8 @@ config_change(Changed, _New, _Removed) ->
               end, supervisor:which_children(textgroup_acceptor_sup));
         false ->
             ok
-    end.
+    end,
+    ok = textgroup_systemd:ready().
 
 %% Internal functions.
 

@@ -109,7 +109,7 @@ commands. This requires <a href="https://erlang.org" title="">Erlang/OTP</a> and
 in the <code class="inline">$PATH</code>.</p><pre><code class="makeup shell" translate="no"><span class="">curl -L https://github.com/weiss/textgroup/archive/v0.1.0.tar.gz | tar -C /tmp -xzf -
 </span><span class="">cd /tmp/textgroup-0.1.0
 </span><span class="">rebar3 as prod tar
-</span></code></pre><h2 id="deploying-textgroup" class="section-heading"><a href="#deploying-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deploying Textgroup</span></h2><p>The self-contained <a href="https://erlang.org/doc/design_principles/release_structure.html" title="">release</a> archive built in the previous step
+</span></code></pre><h2 id="deploying-textgroup" class="section-heading"><a href="#deploying-textgroup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deploying Textgroup</span></h2><p>The self-contained <a href="https://www.erlang.org/doc/system/release_structure.html" title="">release</a> archive built in the previous step
 includes the required parts of Erlang/OTP and can be extracted to an arbitrary
 location. For a persistent installation, the administrator might want to create
 a dedicated <code class="inline">_textgroup</code> user and extract the release archive into that user's
@@ -147,10 +147,10 @@ downgrading:</p><pre><code class="makeup shell" translate="no"><span class="">/o
 </span></code></pre><p>A few caveats: If data structures (such as the <code class="inline">client_state</code> record) were
 modified, converting them during the upgrade might require <a rel="nofollow" href="https://github.com/lrascao/rebar3_appup_plugin" title="">additional
 handling</a>. Complex applications/dependencies may well need
-explicit support for hot release upgrades, such as custom <a href="https://erlang.org/doc/design_principles/appup_cookbook.html" title="">appup</a> files.
+explicit support for hot release upgrades, such as custom <a href="https://www.erlang.org/doc/system/appup_cookbook.html" title="">appup</a> files.
 Also, if a different Erlang/OTP version is used to build a new release, the
-upgrade process involves a <a href="https://erlang.org/doc/system_principles/upgrade.html" title="">restart of the emulator</a>. For this to
-work, the <a href="https://erlang.org/doc/man/heart.html" title="">heart</a> functionality must be enabled.</p>
+upgrade process involves a <a href="https://www.erlang.org/doc/system/upgrade.html" title="">restart of the emulator</a>. For this to
+work, the <a href="https://www.erlang.org/doc/apps/kernel/heart.html" title="">heart</a> functionality must be enabled.</p>
 
 </div>
 

@@ -60,17 +60,21 @@ config_change(Changed, _New, _Removed) ->
                                      lists:member(Key, [port, pool_size])
                              end, Changed),
     case ReopenSocket of
-        true -> % Deliberately hit max. restart intensity to start new listener:
-            lists:foreach(
-              fun({_, PID, _, [textgroup_acceptor]}) ->
-                      exit(PID, kill)
-              end, supervisor:which_children(textgroup_acceptor_sup));
+        true ->
+            ok = restart_acceptors();
         false ->
             ok
     end,
     ok = textgroup_systemd:ready().
 
 %% Internal functions.
+
+-spec restart_acceptors() -> ok.
+restart_acceptors() ->
+    ok = supervisor:terminate_child(textgroup_sup, textgroup_acceptor_sup),
+    {ok, _PID} = supervisor:restart_child(textgroup_sup,
+                                          textgroup_acceptor_sup),
+    ok.
 
 -spec version() -> binary().
 version() ->

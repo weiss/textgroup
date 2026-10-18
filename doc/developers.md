@@ -42,15 +42,15 @@ release.
 
 The Textgroup service uses the [supervision tree][supervision] shown below: The
 [main][textgroup_sup] supervisor starts a worker child (for integrating with
-systemd) and two supervisor childs, [one][acceptor_sup] for supervising a
+systemd) and two supervisor children, [one][acceptor_sup] for supervising a
 fixed-size pool of [five][pool_size] TCP connection acceptors, and
 [another][client_sup] one for supervising dynamically created connection
-handlers, one per client (there's six of them, in this example).
+handlers, one per client (there are six, in this example).
 
 ![Supervision tree][tree]
 
 This is a straightforward structure, _except_ that the acceptor processes work
-in a somewhat non-ideomatic way. However, don't let the
+in a somewhat non-idiomatic way. However, don't let the
 [implementation][acceptor] confuse you: Maybe just view it as a blackbox for the
 moment. Once everything else seems clear, here's an explanation of what's going
 on in the `textgroup_acceptor` module:
@@ -120,7 +120,6 @@ All that said, real-world projects will often just use an existing application
 [simple]: https://erlang.org/pipermail/erlang-questions/2017-August/093142.html
 [socket_accept]: https://erlang.org/doc/man/socket.html#accept-2
 [special]: https://erlang.org/doc/design_principles/spec_proc.html#special-processes
-[gen_server]: https://erlang.org/doc/design_principles/gen_server_concepts.html
 [buckets]: https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited
 [lyse]: https://learnyousomeerlang.com
 [action]: https://www.manning.com/books/erlang-and-otp-in-action

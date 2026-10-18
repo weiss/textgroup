@@ -105,7 +105,7 @@ All that said, real-world projects will often just use an existing application
 [rebar3]: https://rebar3.org
 [repo]: https://github.com/weiss/textgroup
 [ops]: https://weiss.github.io/textgroup/operators.html
-[supervision]: https://erlang.org/doc/design_principles/des_princ.html#supervision-trees
+[supervision]: https://www.erlang.org/doc/system/design_principles.html#supervision-trees
 [textgroup_sup]: https://github.com/weiss/textgroup/blob/main/src/textgroup_sup.erl
 [acceptor_sup]: https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor_sup.erl
 [pool_size]: https://github.com/weiss/textgroup/blob/main/config/sys.config
@@ -113,13 +113,13 @@ All that said, real-world projects will often just use an existing application
 [tree]: https://raw.githubusercontent.com/weiss/textgroup/main/doc/assets/supervision.png
 [acceptor]: https://github.com/weiss/textgroup/blob/main/src/textgroup_acceptor.erl
 [problem]: https://erlang.org/pipermail/erlang-questions/2016-April/088847.html
-[sys]: https://erlang.org/doc/man/sys.html
-[gen_tcp]: https://erlang.org/doc/man/gen_tcp.html
-[gen_server]: https://erlang.org/doc/design_principles/gen_server_concepts.html
+[sys]: https://www.erlang.org/doc/apps/stdlib/sys.html
+[gen_tcp]: https://www.erlang.org/doc/apps/kernel/gen_tcp.html
+[gen_server]: https://www.erlang.org/doc/system/gen_server_concepts.html
 [semantics]: https://erlang.org/pipermail/erlang-questions/2008-February/032912.html
 [simple]: https://erlang.org/pipermail/erlang-questions/2017-August/093142.html
-[socket_accept]: https://erlang.org/doc/man/socket.html#accept-2
-[special]: https://erlang.org/doc/design_principles/spec_proc.html#special-processes
+[socket_accept]: https://www.erlang.org/doc/apps/kernel/socket.html#accept/2
+[special]: https://www.erlang.org/doc/system/spec_proc.html#special-processes
 [buckets]: https://learnyousomeerlang.com/buckets-of-sockets#sockserv-revisited
 [lyse]: https://learnyousomeerlang.com
 [action]: https://www.manning.com/books/erlang-and-otp-in-action

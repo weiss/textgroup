@@ -116,8 +116,8 @@ work, the [heart][heart] functionality must be enabled.
 
 [erlang]: https://erlang.org
 [rebar3]: https://rebar3.org
-[release]: https://erlang.org/doc/design_principles/release_structure.html
+[release]: https://www.erlang.org/doc/system/release_structure.html
 [appup_plugin]: https://github.com/lrascao/rebar3_appup_plugin
-[appup]: https://erlang.org/doc/design_principles/appup_cookbook.html
-[restart]: https://erlang.org/doc/system_principles/upgrade.html
-[heart]: https://erlang.org/doc/man/heart.html
+[appup]: https://www.erlang.org/doc/system/appup_cookbook.html
+[restart]: https://www.erlang.org/doc/system/upgrade.html
+[heart]: https://www.erlang.org/doc/apps/kernel/heart.html

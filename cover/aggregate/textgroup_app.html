@@ -140,7 +140,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/aggregate/textgroup_app.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_app.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2026-10-18 at 18:12:49</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_app.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2026-10-18 at 18:44:08</p></footer>
 <table>
 <tbody>
 <tr>
@@ -456,80 +456,100 @@ td.source {
 <tr>
 <td class="line" id="L63"><a href="#L63">63</a></td>
 <td class="hits"></td>
-<td class="source"><code>        true -&gt; % Deliberately hit max. restart intensity to start new listener:</code></td>
+<td class="source"><code>        true -&gt;</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L64"><a href="#L64">64</a></td>
 <td class="hits">1</td>
-<td class="source"><code>            lists:foreach(</code></td>
+<td class="source"><code>            ok = restart_acceptors();</code></td>
 </tr>
 <tr>
 <td class="line" id="L65"><a href="#L65">65</a></td>
 <td class="hits"></td>
-<td class="source"><code>              fun({_, PID, _, [textgroup_acceptor]}) -&gt;</code></td>
-</tr>
-<tr class="hit">
-<td class="line" id="L66"><a href="#L66">66</a></td>
-<td class="hits">5</td>
-<td class="source"><code>                      exit(PID, kill)</code></td>
-</tr>
-<tr>
-<td class="line" id="L67"><a href="#L67">67</a></td>
-<td class="hits"></td>
-<td class="source"><code>              end, supervisor:which_children(textgroup_acceptor_sup));</code></td>
-</tr>
-<tr>
-<td class="line" id="L68"><a href="#L68">68</a></td>
-<td class="hits"></td>
 <td class="source"><code>        false -&gt;</code></td>
 </tr>
 <tr class="miss">
-<td class="line" id="L69"><a href="#L69">69</a></td>
+<td class="line" id="L66"><a href="#L66">66</a></td>
 <td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>            ok</code></td>
 </tr>
 <tr>
-<td class="line" id="L70"><a href="#L70">70</a></td>
+<td class="line" id="L67"><a href="#L67">67</a></td>
 <td class="hits"></td>
 <td class="source"><code>    end,</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L71"><a href="#L71">71</a></td>
+<td class="line" id="L68"><a href="#L68">68</a></td>
 <td class="hits">1</td>
 <td class="source"><code>    ok = textgroup_systemd:ready().</code></td>
 </tr>
 <tr>
-<td class="line" id="L72"><a href="#L72">72</a></td>
+<td class="line" id="L69"><a href="#L69">69</a></td>
 <td class="hits"></td>
 <td class="source"><code></code></td>
 </tr>
 <tr>
-<td class="line" id="L73"><a href="#L73">73</a></td>
+<td class="line" id="L70"><a href="#L70">70</a></td>
 <td class="hits"></td>
 <td class="source"><code>%% Internal functions.</code></td>
 </tr>
 <tr>
-<td class="line" id="L74"><a href="#L74">74</a></td>
+<td class="line" id="L71"><a href="#L71">71</a></td>
 <td class="hits"></td>
 <td class="source"><code></code></td>
 </tr>
 <tr>
-<td class="line" id="L75"><a href="#L75">75</a></td>
+<td class="line" id="L72"><a href="#L72">72</a></td>
 <td class="hits"></td>
-<td class="source"><code>-spec version() -&gt; binary().</code></td>
+<td class="source"><code>-spec restart_acceptors() -&gt; ok.</code></td>
+</tr>
+<tr>
+<td class="line" id="L73"><a href="#L73">73</a></td>
+<td class="hits"></td>
+<td class="source"><code>restart_acceptors() -&gt;</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L74"><a href="#L74">74</a></td>
+<td class="hits">1</td>
+<td class="source"><code>    ok = supervisor:terminate_child(textgroup_sup, textgroup_acceptor_sup),</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L75"><a href="#L75">75</a></td>
+<td class="hits">1</td>
+<td class="source"><code>    {ok, _PID} = supervisor:restart_child(textgroup_sup,</code></td>
 </tr>
 <tr>
 <td class="line" id="L76"><a href="#L76">76</a></td>
 <td class="hits"></td>
-<td class="source"><code>version() -&gt;</code></td>
+<td class="source"><code>                                          textgroup_acceptor_sup),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L77"><a href="#L77">77</a></td>
+<td class="hits">1</td>
+<td class="source"><code>    ok.</code></td>
+</tr>
+<tr>
+<td class="line" id="L78"><a href="#L78">78</a></td>
+<td class="hits"></td>
+<td class="source"><code></code></td>
+</tr>
+<tr>
+<td class="line" id="L79"><a href="#L79">79</a></td>
+<td class="hits"></td>
+<td class="source"><code>-spec version() -&gt; binary().</code></td>
+</tr>
+<tr>
+<td class="line" id="L80"><a href="#L80">80</a></td>
+<td class="hits"></td>
+<td class="source"><code>version() -&gt;</code></td>
+</tr>
+<tr class="hit">
+<td class="line" id="L81"><a href="#L81">81</a></td>
 <td class="hits">2</td>
 <td class="source"><code>    {ok, Version} = application:get_key(vsn),</code></td>
 </tr>
 <tr class="hit">
-<td class="line" id="L78"><a href="#L78">78</a></td>
+<td class="line" id="L82"><a href="#L82">82</a></td>
 <td class="hits">2</td>
 <td class="source"><code>    unicode:characters_to_binary(Version).</code></td>
 </tr>

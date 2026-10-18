@@ -140,7 +140,7 @@ td.source {
 </head>
 <body>
 <h1><code>/home/runner/work/textgroup/textgroup/_build/test/cover/ct/textgroup_acceptor.html</code></h1>
-<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2026-10-18 at 18:12:49</p></footer>
+<footer><p>File generated from <code>/home/runner/work/textgroup/textgroup/_build/test/lib/textgroup/ebin/../src/textgroup_acceptor.erl</code> by <a href="http://erlang.org/doc/man/cover.html">cover</a> at 2026-10-18 at 18:44:08</p></footer>
 <table>
 <tbody>
 <tr>
@@ -335,17 +335,17 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L39"><a href="#L39">39</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    ?LOG_DEBUG("Creating acceptor process"),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L40"><a href="#L40">40</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    State = #acceptor_state{parent = self(), listener = Listener},</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L41"><a href="#L41">41</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    proc_lib:start_link(?MODULE, init, [State]).</code></td>
 </tr>
 <tr>
@@ -365,22 +365,22 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L45"><a href="#L45">45</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    ?LOG_DEBUG("Initializing acceptor process"),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L46"><a href="#L46">46</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    process_flag(trap_exit, true),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L47"><a href="#L47">47</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    proc_lib:init_ack({ok, self()}),</code></td>
 </tr>
 <tr class="hit">
 <td class="line" id="L48"><a href="#L48">48</a></td>
-<td class="hits">6</td>
+<td class="hits">15</td>
 <td class="source"><code>    loop(State).</code></td>
 </tr>
 <tr>
@@ -423,14 +423,14 @@ td.source {
 <td class="hits"></td>
 <td class="source"><code>system_terminate(Reason, _Parent, _Debug, _State) -&gt;</code></td>
 </tr>
-<tr class="hit">
+<tr class="miss">
 <td class="line" id="L57"><a href="#L57">57</a></td>
-<td class="hits">1</td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    ?LOG_DEBUG("Terminating acceptor process (~p)", [Reason]),</code></td>
 </tr>
-<tr class="hit">
+<tr class="miss">
 <td class="line" id="L58"><a href="#L58">58</a></td>
-<td class="hits">1</td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>    exit(Reason).</code></td>
 </tr>
 <tr>
@@ -490,7 +490,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L70"><a href="#L70">70</a></td>
-<td class="hits">32</td>
+<td class="hits">41</td>
 <td class="source"><code>    case gen_tcp:accept(Listener, timer:seconds(3)) of</code></td>
 </tr>
 <tr>
@@ -510,7 +510,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L74"><a href="#L74">74</a></td>
-<td class="hits">21</td>
+<td class="hits">20</td>
 <td class="source"><code>            ok</code></td>
 </tr>
 <tr>
@@ -520,7 +520,7 @@ td.source {
 </tr>
 <tr class="hit">
 <td class="line" id="L76"><a href="#L76">76</a></td>
-<td class="hits">27</td>
+<td class="hits">26</td>
 <td class="source"><code>    receive</code></td>
 </tr>
 <tr>
@@ -538,9 +538,9 @@ td.source {
 <td class="hits"></td>
 <td class="source"><code>        {'EXIT', Parent, Reason} -&gt;</code></td>
 </tr>
-<tr class="hit">
+<tr class="miss">
 <td class="line" id="L80"><a href="#L80">80</a></td>
-<td class="hits">1</td>
+<td class="hits"><pre style="display: inline;">:-(</pre></td>
 <td class="source"><code>            system_terminate(Reason, Parent, [], State);</code></td>
 </tr>
 <tr>
